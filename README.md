@@ -6,14 +6,11 @@
 
 ## General Info
 This browser based web application to ...
-<<<<<<< HEAD
 * Hi my name is Alexie. I'm exited about this project because i like my team	
-=======
 Hi my name is Alexander. I'm excited to do the git conflict. 
 	
 * Hi, my name is Toco. I'm excited about this project.
 
->>>>>>> 3414340ecba5fcfe8579df23cd8ab1d2611bfcd4
 ## Technologies
 Technologies used for this project:
 * HTML, CSS
