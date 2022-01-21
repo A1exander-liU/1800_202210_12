@@ -6,6 +6,7 @@
 
 ## General Info
 This browser based web application to ...
+Hi my name is Alexander. I'm excited to do the git conflict. 
 	
 ## Technologies
 Technologies used for this project:
