@@ -6,19 +6,26 @@
 
 ## General Info
 This browser based web application to ...
+<<<<<<< HEAD
 * Hi my name is Alexie. I'm exited about this project because i like my team	
+=======
+Hi my name is Alexander. I'm excited to do the git conflict. 
+	
+* Hi, my name is Toco. I'm excited about this project.
+
+>>>>>>> 3414340ecba5fcfe8579df23cd8ab1d2611bfcd4
 ## Technologies
 Technologies used for this project:
 * HTML, CSS
 * JavaScript
-* Bootstrap 
+* Bootstrap
 * ...
-	
+
 ## Content
 Content of the project folder:
 
 ```
- Top level of project folder: 
+ Top level of project folder:
 ├── .gitignore               # Git ignore file
 ├── index.html               # landing HTML file, this is what users see when you come to url
 └── README.md
@@ -26,13 +33,13 @@ Content of the project folder:
 It has the following subfolders and files:
 ├── .git                     # Folder for git repo
 ├── images                   # Folder for images
-    /blah.jpg                # 
+    /blah.jpg                #
 ├── scripts                  # Folder for scripts
-    /blah.js                 # 
+    /blah.js                 #
 ├── styles                   # Folder for styles
-    /blah.css                # 
+    /blah.css                #
 
-Firebase hosting files: 
+Firebase hosting files:
 ├── .firebaserc...
 
 
@@ -41,4 +48,3 @@ Firebase hosting files:
 Tips for file naming files and folders:
 * use lowercase with no spaces
 * use dashes (not underscore) for word separation
-
