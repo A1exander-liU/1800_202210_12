@@ -6,7 +6,7 @@
 
 ## General Info
 This browser based web application to ...
-	
+* Hi my name is Alexie. I'm exited about this project because i like my team	
 ## Technologies
 Technologies used for this project:
 * HTML, CSS
