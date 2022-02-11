@@ -5,14 +5,10 @@
 * [Contents](#content)
 
 ## General Info
-This browser based web application to ... 
-* stuff
-* Hi, my name is Toco. I'm excited about this project. Hi my name is Alexander. I'm excited to do the git conflict.
 This browser based web application to ...
-* Hi my name is Alexie. I'm exited about this project because i like my team	
-Hi my name is Alexander. I'm excited to do the git conflict. 
-	
 * Hi, my name is Toco. I'm excited about this project.
+* Hi my name is Alexander. I'm excited to do the git conflict.
+* Hi my name is Alexie. I'm exited about this project because I like my team
 
 ## Technologies
 Technologies used for this project:
