@@ -6,6 +6,29 @@
   border-radius: 10px;
 }
 
+.login-title {
+  text-align: center;
+  padding-top: 30px;
+}
+
+.login-direct {
+  text-align: center;
+  background-color: lightgray;
+  margin-top: 15%;
+  padding: 50px 15px 50px 15px;
+  border-radius: 10px;
+}
+
+#login-loader {
+  text-align: center;
+}
+
 .material-icons {
   margin: 0 5%;
+}
+
+@media screen and (max-width: 600px) {
+  .login-direct {
+    width: 90%;
+  }
 }
