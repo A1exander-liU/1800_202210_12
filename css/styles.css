@@ -6,9 +6,38 @@
   border-radius: 10px;
 }
 
+.login-title {
+  text-align: center;
+  padding-top: 30px;
+}
+
+.login-direct {
+  text-align: center;
+  background-color: lightgray;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  padding: 30px 15px 30px 15px;
+  border-radius: 10px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: grey;
+  width: 40%;
+}
+
+#login-loader {
+  text-align: center;
+}
+
+.log-sign-button {
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgb(44, 131, 218);
+  background-color: rgb(51, 153, 255);
+}
 .material-icons {
   margin: 0 5%;
 }
+
 
 a {
   color: inherit;
