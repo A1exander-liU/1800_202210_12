@@ -9,7 +9,7 @@ function sayHello() {
                 .then(function (doc) {
                     var n = doc.data().name;
                     console.log(n);
-                    //$("#username").text(n);
+                    //$("#user-name").text(n);
                     document.getElementById("username").innerText = n;
                 })
         } else {
