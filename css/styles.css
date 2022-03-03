@@ -52,11 +52,18 @@ a {
   color: inherit;
 }
 
+h6{
+  color: cadetblue;
+}
 .card{
   max-width: 540px;
   margin-left: 1%;
 }
 
+.delete{
+  float: right;
+
+}
 .ticket{
   align-content: center;
   float: inline-end;
