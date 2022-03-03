@@ -7,9 +7,7 @@ function createCardData() {
             code: "id" + i,
             name: "user" + i,
             email: "email" + i,
-            quantity: "quantity" + i,
-            qr-generated: "qr-image"+ i,
-            
+            quantity: "quantity" + i,          
         })
 
         writeHikeData();
