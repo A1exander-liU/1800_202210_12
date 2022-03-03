@@ -9,3 +9,32 @@
 .material-icons {
   margin: 0 5%;
 }
+
+a {
+  color: inherit;
+}
+
+.card{
+  max-width: 540px;
+  margin-left: 1%;
+}
+
+.ticket{
+  align-content: center;
+  float: inline-end;
+
+}
+
+.admit{
+  text-align: center;
+  color: aliceblue;
+  background-color: cadetblue;
+  padding: 5px;
+  margin: 10px;
+  
+}
+
+.QR{
+  padding: 5px;
+  margin: 10px;
+}
