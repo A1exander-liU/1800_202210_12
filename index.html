@@ -5,8 +5,8 @@
   <meta charset="utf-8">
   <title>COMP 1800 - DTC12</title>
 
-  <!-- ---------------------------------------------------- -->
-  <!-- Firebase 8 Library related CSS, JS, JQuery go here -->
+  <!-------------------------------------------------------->
+  <!-- Firebase 8 Library related CSS, JS, JQuery -->
   <!-------------------------------------------------------->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
@@ -39,7 +39,7 @@
 
 <body>
   <!-- top nav-bar -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+  <nav class="navbar navbar-expand-lg navbar-light bg-dark px-2">
     <div class="container-fluid py-3">
       <a class="navbar-brand text-white" href="#">
         COMP1800 - DTC12</a>
@@ -47,16 +47,11 @@
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link text-white" href="#">Link</a>
-          </li>
+      <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarSupportedContent">
+        <ul class="navbar-nav">
+          <li class="nav-item mx-3"><a class="nav-link text-white" href="#"><span>Account</span></a></li>
+          <li class="nav-item"><button class="btn btn-outline-light" type="submit">Download</button></li>
         </ul>
-        <form class="d-flex">
-          <input class="form-control me-3 w-1000" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-light" type="submit">Search</button>
-        </form>
       </div>
     </div>
 
@@ -65,7 +60,11 @@
   <!-- Hero -->
   <div class="welcome-banner p-5 mb-4 bg-light rounded-3">
     <div class="container-fluid py-5">
-      <h1 class="display-5 fw-bold">Welcome to Our Web Application, <span id="user-name"></span>!</h1>
+      <h1 class="display-5 fw-bold">Welcome to Our Web Application!</h1>
+      <form class="d-flex py-5">
+        <input class="form-control me-3 w-1000" type="search" placeholder="" aria-label="Search">
+        <button class="btn btn-outline-dark" type="submit">Search</button>
+      </form>
     </div>
   </div>
 
