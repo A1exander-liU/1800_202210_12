@@ -1,3 +1,22 @@
+function createCardData() {
+    max = 21;
+    //define a variable for the collection you want to create in Firestore to populate data
+    var hikesRef = db.collection("My-Tickets");
+    for (i = 1; i <= max; i++) {
+        hikesRef.add({ //add to database, autogen ID
+            code: "id" + i,
+            name: "user" + i,
+            email: "email" + i,
+            quantity: "quantity" + i,
+            qr-generated: "qr-image"+ i,
+            
+        })
+
+        writeHikeData();
+   }
+}
+
+
 function displayCards(collection) {
     let cardTemplate = document.getElementById("eventcardtemplate");
 
