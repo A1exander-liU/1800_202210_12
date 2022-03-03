@@ -1,4 +1,7 @@
-
+a {
+  text-decoration: none;
+  color: rgb(102, 102, 102);
+}
 .f-menu {
   width: 45%;
   background-color: lightgray;
@@ -39,7 +42,7 @@
   background-color: rgb(51, 153, 255);
 }
 
-.material-icons {
+.f-menu a {
   margin: 0 5%;
 }
 
@@ -71,7 +74,7 @@
   .f-menu {
     width: 95%;
   }
-  .material-icons {
+  .f-menu a {
     margin: 0 2%;
   }
 }
