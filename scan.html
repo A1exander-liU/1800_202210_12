@@ -64,26 +64,39 @@
     </div>
   </div>
 
-  
-  <div class="options">
-    <div class ="add">
-      <a href="add-scans.html"><button>Add</button></a> <!-- button to add scans-->
+  <!-- Add buttons-->
+  <div class="event-page-bar">
+    <div class="container">
+      <div class="row justify-content-md-center">
+        <div class="col" id="events-tab">
+          <a href="add-scans.html">Add </a> <!-- button to add scans-->
+        </div>
+        <div class="col" id="events-tab">
+          <a href="">Save</a>
+        </div>
+        <div class="col" id="favourites-tab">
+          <a href="">History</a>
+        </div>
+      </div>
     </div>
   </div>
-  <!-- Code Image -->
+  <br>
+
+   <!-- Code Image -->
 
   <div class="container">
     <h1>Your Tickets</h1>
-  
+    <hr>
+
     <!-- Here is container for cards  -->
     <div class="container">
       <div id="events-card" class="row row-cols-auto">
       </div>
     </div>
   </div>
-  
+
   <!-- Event card template-->
-  
+
   <!--- <template id="eventcardtemplate"> -->
   <div class="card mb-3">
     <div class="row g-0">
@@ -92,7 +105,8 @@
       </div>
       <div class="col-md-8">
         <div class="card-body">
-          <button class="delete"> X</button> <!-- delete button possibly for deleting tickets from page modify to js later-->
+          <button class="delete"> X</button>
+          <!-- delete button possibly for deleting tickets from page modify to js later-->
           <h5 class="event-title">Event title</h5>
           <p class="card-text">
           <h6>Ticket ID</h6>
@@ -102,7 +116,7 @@
           <h6> Purchaser Email</h6>
           johnDoe@email.com
           </p>
-          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+          <p class="card-text"><small class="text-muted">Mar-01-2003</small></p>
         </div>
         <div class="admit">
           <h5>Admit</h5>
