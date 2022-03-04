@@ -14,6 +14,50 @@ a {
   text-align: center;
 }
 
+.event-page-bar {
+  margin: auto;
+  border-width: 1px;
+  border-style: solid;
+  margin-top: 1%;
+  border-radius: 50px;
+  width: 35%;
+  text-align: center;
+  background-color: lightgray;
+}
+
+#events-tab {
+  display: inline-block;
+  width: 49%;
+  text-align: center;
+  border-right-width: 1px;
+  border-right-style: solid;
+  border-radius: 50px 0px 0px 50px;
+}
+
+#favourites-tab {
+  display: inline-block;
+  width: 49%;
+  text-align: center;
+  border-radius: 0px 50px 50px 0px;
+}
+
+#favourites-tab:hover {
+  background-color: gray;
+}
+
+#events-tab:hover{
+  background-color: gray;
+}
+
+.event-card {
+  margin: 4% auto;
+  display: inline-block;
+}
+
+.event-card:hover {
+  background-color: lightgray;
+}
+
 .login-title {
   text-align: center;
   padding-top: 30px;
@@ -105,6 +149,11 @@ h6{
 @media screen and (max-width: 600px) {
   .login-direct {
     width: 90%;
+  }
+  .event-page-bar {
+    width: 99%;
+    margin: auto;
+    margin-top: 5%;
   }
 }
 
