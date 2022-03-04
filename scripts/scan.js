@@ -4,13 +4,14 @@ function createCardData() {
     var hikesRef = db.collection("My-Tickets");
     for (i = 1; i <= max; i++) {
         hikesRef.add({ //add to database, autogen ID
-            code: "id" + i,
+            confirmation: "id" + i,
+            event: "event" + i,
             name: "user" + i,
             email: "email" + i,
             quantity: "quantity" + i,          
         })
 
-        writeHikeData();
+        createCardData();
    }
 }
 
@@ -32,10 +33,10 @@ function displayCards(collection) {
                 newcard.querySelector('.card-image').src = "./images/" + collection + ".jpg"; //hikes.jpg
 
                 
-                document.getElementById(collection + "-go-here").appendChild(newcard);
+                document.getElementById(collection + "events-go-here").appendChild(newcard);
                 i++;
             })
         })
 }
 
-displayCards("hikes");
+displayCards("scanables");
