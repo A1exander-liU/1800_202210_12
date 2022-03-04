@@ -1,9 +1,58 @@
+a {
+  text-decoration: none;
+  color: rgb(59, 59, 59);
+}
 
 .f-menu {
-  width: 60%;
+  width: 45%;
   background-color: lightgray;
-  margin: 16vh auto;
+  margin: 20vh auto 4vh auto;
   border-radius: 10px;
+}
+
+
+.event-page-bar {
+  margin: auto;
+  border-width: 1px;
+  border-style: solid;
+  margin-top: 1%;
+  border-radius: 50px;
+  width: 35%;
+  text-align: center;
+  background-color: lightgray;
+}
+
+#events-tab {
+  display: inline-block;
+  width: 49%;
+  text-align: center;
+  border-right-width: 1px;
+  border-right-style: solid;
+  border-radius: 50px 0px 0px 50px;
+}
+
+#favourites-tab {
+  display: inline-block;
+  width: 49%;
+  text-align: center;
+  border-radius: 0px 50px 50px 0px;
+}
+
+#favourites-tab:hover {
+  background-color: gray;
+}
+
+#events-tab:hover{
+  background-color: gray;
+}
+
+.event-card {
+  margin: 4% auto;
+  display: inline-block;
+}
+
+.event-card:hover {
+  background-color: lightgray;
 }
 
 .login-title {
@@ -34,16 +83,84 @@
   border-color: rgb(44, 131, 218);
   background-color: rgb(51, 153, 255);
 }
-.material-icons {
+
+.f-menu a {
   margin: 0 5%;
+}
+
+
+a {
+  color: inherit;
+}
+
+h6{
+  color: cadetblue;
+}
+
+.card{
+  max-width: 540px;
+  margin-left: 1%;
+}
+
+.delete{
+  float: right;
+
+}
+.ticket{
+  align-content: center;
+  float: inline-end;
+
+}
+
+.admit{
+  text-align: center;
+  color: aliceblue;
+  background-color: cadetblue;
+  padding: 5px;
+  margin: 10px;
+
+}
+
+.QR{
+  padding: 5px;
+  margin: 10px;
+}
+
+.material-icons.md-36 {
+   font-size: 36px;
+}
+
+.material-icons:hover {
+  background-color: rgb(131, 131, 131);
 }
 
 #firebaseui-auth-container {
   margin-top: 10%;
 }
+
+@media screen and (max-width: 830px) {
+  .f-menu {
+    width: 70%;
+  }
+}
+
 @media screen and (max-width: 600px) {
   .login-direct {
     width: 90%;
+  }
+  .event-page-bar {
+    width: 99%;
+    margin: auto;
+    margin-top: 5%;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .f-menu {
+    width: 95%;
+  }
+  .f-menu a {
+    margin: 0 2%;
   }
 }
 
@@ -53,5 +170,11 @@
     margin: auto;
     box-shadow: 0px 1px 1px 1px rgb(212, 212, 212);
     margin-top: 15%;
+  }
+}
+
+@media screen and (max-width: 300px) {
+  .material-icons.md-36 {
+    font-size: 24px;
   }
 }

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>COMP 1800 - DTC12</title>
+
+  <!-------------------------------------------------------->
+  <!-- Firebase 8 Library related CSS, JS, JQuery -->
+  <!-------------------------------------------------------->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+  <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
+
+  <!--Our Firebase Configs-->
+  <script src="./scripts/authentication.js"></script>
+
+  <!-- Bootstrap Library CSS CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+  <!-- Bootstrap Library JS CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    </script>
+
+  <!-- Google Icons (Material Design)-->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <!-- font awesome -->
+  <script src="https://use.fontawesome.com/9ac00b78e6.js"></script>
+
+  <!-- css -->
+  <link rel="stylesheet" href="./css/styles.css">
+</head>
+
+<body>
+  <!-- top nav-bar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-dark px-2">
+    <div class="container-fluid py-3">
+      <a class="navbar-brand text-white" href="#">
+        COMP1800 - DTC12</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarSupportedContent">
+        <ul class="navbar-nav">
+          <li class="nav-item mx-3"><a class="nav-link text-white" href="#"><span>Account</span></a></li>
+          <li class="nav-item"><button class="btn btn-outline-light" type="submit">Download</button></li>
+        </ul>
+      </div>
+    </div>
+
+  </nav>
+
+  <!-- Hero -->
+  <div class="welcome-banner p-5 mb-4 bg-light rounded-3">
+    <div class="container-fluid py-5">
+      <h1>My Cards</h1>
+    </div>
+  </div>
+
+  <!-- Add buttons-->
+  <div class="event-page-bar">
+    <div class="container">
+      <div class="row justify-content-md-center">
+        <div class="col" id="events-tab">
+          <a href="add-scans.html">Add </a> <!-- button to add scans-->
+        </div>
+        <div class="col" id="events-tab">
+          <a href="">Save</a>
+        </div>
+        <div class="col" id="favourites-tab">
+          <a href="">History</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+
+  <!-- Code Image -->
+
+  <div class="container">
+    <h1>Your Tickets</h1>
+  </div>
+  <hr>
+
+  <!-- Here is container for cards  -->
+  <div class="container">
+    <div id="events-card" class="row row-cols-auto">
+    </div>
+  </div>
+
+
+  <!-- Event card template-->
+
+  <!--- <template id="eventcardtemplate"> -->
+  <div class="card mb-3">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <img src="images/Fake_Qr_code.png" class="img-fluid rounded-start" alt="QR code generated goes here">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <button class="delete"> X</button>
+          <!-- delete button possibly for deleting tickets from page modify to js later-->
+          <h5 class="event-title">Event title</h5>
+          <p class="card-text">
+          <h6>Ticket ID</h6>
+          1234567890asdfghjkl
+          <h6> Purchaser</h6>
+          John Doe
+          <h6> Purchaser Email</h6>
+          johnDoe@email.com
+          </p>
+          <p class="card-text"><small class="text-muted">Mar-01-2003</small></p>
+        </div>
+        <div class="admit">
+          <h5>Admit</h5>
+          <h5>1</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--</template>-->
+
+
+  <!-- fLoating Menu -->
+  <!-- fLoating Menu -->
+  <div class="f-menu d-flex flex-wrap justify-content-center align-items-center py-4">
+    <a href="./index.html"><i class="material-icons md-36" id="home">home</i></a>
+    <a href="./events.html"><i class="material-icons md-36" id="events">today</i></a>
+    <a href="./map.html"><i class="material-icons md-36" id="map">location_on</i></a>
+    <a href="./pastscans.html"><i class="material-icons md-36" id="past-scans">history</i></a>
+    <a href="./scan.html"><i class="material-icons md-36" id="qr-code">qr_code_2</i></a>
+  </div>
+
+  <!-- footer -->
+  <footer class="bg-dark text-center text-white">
+    <div class="container p-4">
+
+      <!-- newsletter -->
+      <div class="newsletter py-4">
+        <form action="">
+          <div class="row d-flex justify-content-center">
+            <div class="col-auto">
+              <p class="pt-2">
+                <strong>Sign Up</strong>
+              </p>
+            </div>
+
+            <div class="col-md-5 col-12">
+              <div class="form-outline form-white mb-4">
+                <input type="email" id="form5Example21" class="form-control" placeholder="Your Email" />
+              </div>
+            </div>
+
+            <div class="col-auto">
+              <button type="submit" class="btn btn-outline-light mb-4">
+                Subscribe
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <!-- footer links -->
+      <div class="f-links">
+        <div class="row py-4">
+          <div class="col-lg-4 col-md-4 col-sm-4 mb-4">
+            <h5 class="text-uppercase">Company</h5>
+            <ul class="list-unstyled mb-0">
+              <li><a href="#!" class="text-white">Link 1</a></li>
+              <li><a href="#!" class="text-white">Link 1</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-4 col-md-4 col-sm-4 mb-4">
+            <h5 class="text-uppercase">Support</h5>
+            <ul class="list-unstyled mb-0">
+              <li><a href="#!" class="text-white">Link 2</a></li>
+              <li><a href="#!" class="text-white">Link 2</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-4 col-md-4 col-sm-4 mb-4">
+            <h5 class="text-uppercase">For Business</h5>
+            <ul class="list-unstyled mb-0">
+              <li><a href="#!" class="text-white">Link 3</a></li>
+              <li><a href="#!" class="text-white">Link 3</a></li>
+            </ul>
+          </div>
+
+          <!-- sns icons -->
+          <section class="sns-icons py-4">
+            <a class="btn btn-light m-2" href="#!" role="button"><i class="fa fa-lg fa-facebook-square"
+                aria-hidden="true"></i></a>
+            <a class="btn btn-light m-2" href="#!" role="button"><i class="fa fa-lg fa-twitter-square"
+                aria-hidden="true"></i></a>
+            <a class="btn btn-light m-2" href="#!" role="button"><i class="fa fa-lg fa-google-plus-square"
+                aria-hidden="true"></i></a>
+            <a class="btn btn-light m-2" href="#!" role="button"><i class="fa fa-lg fa-instagram"
+                aria-hidden="true"></i></a>
+            <a class="btn btn-light m-2" href="#!" role="button"><i class="fa fa-lg fa-linkedin-square"
+                aria-hidden="true"></i></a>
+            <a class="btn btn-light m-2" href="#!" role="button"><i class="fa fa-lg fa-github-square"
+                aria-hidden="true"></i></a>
+          </section>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+  </section>
+  </div>
+
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+    © 2020 Copyright:
+    <a class="text-white" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+  </div>
+  </footer>
+</body>
+
+</html>
