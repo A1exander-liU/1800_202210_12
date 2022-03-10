@@ -1,7 +1,7 @@
 function write_event_info(){
     var events = [{ // json array of events
         "event-title": "Masters of Illusions",
-        "type": "Family",
+        "type": "family",
         "genre": "magic/illusion",
         "info": "Watch closely as you experience things that just can't be done……or can they? ! Join the Masters of Illusions as they blow your mind's eye with sleight of hand, escape arts, illusions, comedy, and more.",
         "image": "",
@@ -21,7 +21,7 @@ function write_event_info(){
     },
     {
         "event-title": "Stars on Ice",
-        "type": "Family",
+        "type": "family",
         "genre": "ice shows",
         "info": "Watch world champion and olympic medalist skaters and be ready to be blown away by incredible tricks and performances.",
         "image": "",
@@ -41,7 +41,7 @@ function write_event_info(){
     },
     {
         "event-title": "Fred Penner",
-        "type": "Family",
+        "type": "family",
         "genre": "children's theater",
         "info": "Listen to famous composer Fred Penner as he brings back to his first records.",
         "image": "",
@@ -61,7 +61,7 @@ function write_event_info(){
     },
     {
         "event-title": "Squid, Deliluh",
-        "type": "Concert",
+        "type": "concert",
         "genre": "rock",
         "info": "Get ready to listen to some banging kraut rock and post-punk!",
         "image": "",
@@ -81,7 +81,7 @@ function write_event_info(){
     },
     {
         "event-title": "Matroda",
-        "type": "Concert",
+        "type": "concert",
         "genre": "dance/electronic",
         "info": "You ready to listen to some electronic music with explosive bass?",
         "image": "",
@@ -101,7 +101,7 @@ function write_event_info(){
     },
     {
         "event-title": "Sawyer Brown",
-        "type": "Concert",
+        "type": "concert",
         "genre": "country",
         "info": "Listen to some amazing country music from Sawyer Brown.",
         "image": "",
@@ -121,7 +121,7 @@ function write_event_info(){
     },
     {
         "event-title": "Geographer, Chong The Nomad",
-        "type": "Concert",
+        "type": "concert",
         "genre": "rock",
         "info": "Get ready to hear some mystifying electronic pop scores.",
         "image": "",
@@ -141,7 +141,7 @@ function write_event_info(){
     },
     {
         "event-title": "DROELOE",
-        "type": "Concert",
+        "type": "concert",
         "genre": "dance/electronic",
         "info": "Join DROELOE to hear bewildering electronica music.",
         "image": "",
@@ -161,7 +161,7 @@ function write_event_info(){
     },
     {
         "event-title": "Dragonforce",
-        "type": "Concert",
+        "type": "concert",
         "genre": "metal",
         "info": "Ready to be blown away by some shocking power metal music.",
         "image": "",
@@ -181,7 +181,7 @@ function write_event_info(){
     },
     {
         "event-title": "The Backseat Lovers",
-        "type": "Concerts",
+        "type": "concerts",
         "genre": "rock",
         "info": "Ready to listen to someo banging rock music?!",
         "image": "",
@@ -201,7 +201,7 @@ function write_event_info(){
     },
     {
         "event-title": "Fruits Bats",
-        "type": "Concert",
+        "type": "concert",
         "genre": "rock",
         "info": "The Pet Parade,” the title track to Fruit Bats’ newest album, might be a surprising opening track for longtime fans of Eric D. Johnson’s beloved indie folk-rock project.",
         "image": "",
@@ -221,7 +221,7 @@ function write_event_info(){
     },
     {
         "event-title": "Vancouver Canucks vs. Montreal Canadiens",
-        "type": "Sports",
+        "type": "sports",
         "genre": "hockey",
         "info": "Watch the Vancouver Canucks face off against the Montreal Canadiens.",
         "image": "",
@@ -241,7 +241,7 @@ function write_event_info(){
     },
     {
         "event-title": "Vancouver Canucks vs. Washington Capitals",
-        "type": "Sports",
+        "type": "sports",
         "genre": "hockey",
         "info": "Watch the Vancouver Canucks face off against the Washington Capitals.",
         "image": "",
@@ -261,7 +261,7 @@ function write_event_info(){
     },
     {
         "event-title": "Vancouver Warriors vs. Toronto Rock",
-        "type": "Sports",
+        "type": "sports",
         "genre": "hockey",
         "info": "Watch the Vancouver Warriors face off against the Toronto Rock.",
         "image": "",
@@ -281,7 +281,7 @@ function write_event_info(){
     },
     {
         "event-title": "Vancouver Canucks vs. Tampa Bay Lightning",
-        "type": "Sports",
+        "type": "sports",
         "genre": "hockey",
         "info": "Watch the Vancouver Canucks face off against the Tampa Bay Lightning.",
         "image": "",
@@ -301,7 +301,7 @@ function write_event_info(){
     },
     {
         "event-title": "Vancouver Canucks vs. New Jersey Devils",
-        "type": "Sports",
+        "type": "sports",
         "genre": "hockey",
         "info": "Watch the Vancouver Canucks face off against the New Jersey Devils.",
         "image": "",
@@ -321,7 +321,7 @@ function write_event_info(){
     },
     {
         "event-title": "Vancouver Canucks vs. Detriot Red Wings",
-        "type": "Sports",
+        "type": "sports",
         "genre": "hockey",
         "info": "Watch the Vancouver Canucks face off against the Detriot Red Wings.",
         "image": "",
@@ -341,7 +341,7 @@ function write_event_info(){
     },
     {
         "event-title": "Vancouver Canucks vs. Calgary Flames",
-        "type": "Sports",
+        "type": "sports",
         "genre": "hockey",
         "info": "Watch the Vancouver Canucks face off against the Calgary Flames.",
         "image": "",
@@ -361,7 +361,7 @@ function write_event_info(){
     },
     {
         "event-title": "Vancouver Warriors vs. Albany FireWolves",
-        "type": "Sports",
+        "type": "sports",
         "genre": "hockey",
         "info": "Watch the Vancouver Warriors face off against the Albany FireWolves.",
         "image": "",
@@ -381,7 +381,7 @@ function write_event_info(){
     },
     {
         "event-title": "Vancouver Canucks vs. Vegas Golden Knights",
-        "type": "Sports",
+        "type": "sports",
         "genre": "hockey",
         "info": "Watch the Vancouver Canucks face off against the Vegas Golden Knights.",
         "image": "",
@@ -401,7 +401,7 @@ function write_event_info(){
     },
     {
         "event-title": "Bianca Del Rio: Unsanitized",
-        "type": "Art&Theatre",
+        "type": "art&theatre",
         "genre": "comedy",
         "info": "Get your vaccinations and cocktails because everyone's favorite 'clown in a gown', Bianca Del Rio, is returning to the stage.",
         "image": "",
@@ -421,7 +421,7 @@ function write_event_info(){
     },
     {
         "event-title": "Everything Is Terrible",
-        "type": "Art&Theatre",
+        "type": "art&theatre",
         "genre": "theatre",
         "info": "an artist collective based in Los Angelesthat finds and manipulates unusual, dated, and Campy clips of VHS tapes from the late 20th century and early 21st centuryd.",
         "image": "",
@@ -441,7 +441,7 @@ function write_event_info(){
     },
     {
         "event-title": "Celtic Illusion",
-        "type": "Art&Theatre",
+        "type": "art&theatre",
         "genre": "dance",
         "info": "A breathtaking array of variety, fusing Irish Dance, Magic and influential flavours of Fosse, Michael Jackson, with a Broadway style, Celtic Illusion is a show like no other in the world.",
         "image": "",
@@ -461,7 +461,7 @@ function write_event_info(){
     },
     {
         "event-title": "Donnell Rawlings",
-        "type": "Art&Theatre",
+        "type": "art&theatre",
         "genre": "comedy",
         "info": "Ready to get in some good laughs from American comedian, actor, and radio host, Donnell Rawlings.",
         "image": "",
@@ -481,8 +481,8 @@ function write_event_info(){
     },
     {
         "event-title": "War On The Catwalk Tour - 2022",
-        "type": "performance art",
-        "genre": "comedy",
+        "type": "art&theatre",
+        "genre": "performance art",
         "info": "Get ready for your favorite queens from Canada and America as they perform live on stage for drag fans from Halifax to Vancouver.",
         "image": "",
         "venue": {
@@ -501,7 +501,7 @@ function write_event_info(){
     },
     {
         "event-title": "Debra DiGiovanni",
-        "type": "Art&Theatre",
+        "type": "art&theatre",
         "genre": "comedy",
         "info": "Get ready to laugh like never before listening to multiple award-winning comedian, Debra DiGiovanni.",
         "image": "",
@@ -521,7 +521,7 @@ function write_event_info(){
     },
     {
         "event-title": "Sebastian Maniscalco: Nobody Does This Tour",
-        "type": "Art&Theatre",
+        "type": "art&theatre",
         "genre": "comedy",
         "info": "Are you ready to have some good laughs from some standup comedy with animated delivery?.",
         "image": "",
@@ -541,7 +541,7 @@ function write_event_info(){
     },
     {
         "event-title": "Hamilton",
-        "type": "Arts&Theatre",
+        "type": "art&theatre",
         "genre": "theatre",
         "info": "Featuring a score that blends hip-hop, jazz, blues, rap, R&B, and Broadway, HAMILTON is the story of America then, as told by America now.",
         "image": "",
@@ -561,7 +561,7 @@ function write_event_info(){
     },
     {
         "event-title": "Across the Pond - Tour",
-        "type": "Arts&Theatre",
+        "type": "art&theatre",
         "genre": "theatre",
         "info": "Ft. Stars of RuPaul Drag Race UK Season 2…A’WHORA + LAWRENCE CHANEY + BIMINI BON BOULASH + TAYCE.",
         "image": "",
@@ -581,7 +581,7 @@ function write_event_info(){
     },
     {
         "event-title": "Gus Johnson - Here I Come",
-        "type": "Arts&Theatre",
+        "type": "art&theatre",
         "genre": "comedy",
         "info": "Gus is boy who make comedy.",
         "image": "",
@@ -601,7 +601,7 @@ function write_event_info(){
     },
     {
         "event-title": "Ludavico Einaudi: Underwater Tour",
-        "type": "Arts&Theatre",
+        "type": "art&theatre",
         "genre": "classical",
         "info": "Groundbreaking composer and pianist Ludovico Einaudi hosts new tour featuring new solo piano album, 'Underwater'.",
         "image": "",
@@ -621,7 +621,7 @@ function write_event_info(){
     },
     {
         "event-title": "Whose Live Anyway",
-        "type": "Arts&Theatre",
+        "type": "art&theatre",
         "genre": "comedy",
         "info": "Hilarious improvised comedy and song all based on audience suggestions. Cast members Ryan Stiles, Greg Proops, Jeff B. Davis, and Joel Murray will leave you gasping with the very witty scenes they invent before your eyes.",
         "image": "",
@@ -641,7 +641,7 @@ function write_event_info(){
     },
     {
         "event-title": "Pam Ann",
-        "type": "Arts&Theatre",
+        "type": "art&theatre",
         "genre": "comedy",
         "info": "Performances focus on the nuances of air travel, identifying the individual quirks of some of the biggest international airlines and their media stereotypes.",
         "image": "",
@@ -661,7 +661,7 @@ function write_event_info(){
     },
     {
         "event-title": "Josh Ramsay",
-        "type": "Concert",
+        "type": "concert",
         "genre": "rock",
         "info": "The album is a sweeping exploration of musical styles featuring collaborations with a wide range of Canadian singers from across the musical spectrum.",
         "image": "",
@@ -681,8 +681,8 @@ function write_event_info(){
     },
     {
         "event-title": "Lala Lala. Elton Aura",
-        "type": "other",
-        "genre": "rock",
+        "type": "concert",
+        "genre": "other",
         "info": "I want total freedom, total possibility, total acceptance. I want to fall in love with the rock.",
         "image": "",
         "venue": {
@@ -701,7 +701,7 @@ function write_event_info(){
     },
     {
         "event-title": "Andrew Bayer",
-        "type": "Concert",
+        "type": "concert",
         "genre": "dance/electronic",
         "info": "Be ready to be hypnotized by his melodic trances that flow through all his music.",
         "image": "",
@@ -721,7 +721,7 @@ function write_event_info(){
     },
     {
         "event-title": "Anna Meredith",
-        "type": "Concert",
+        "type": "concert",
         "genre": "dance/electronic",
         "info": "Composer, producer and performer of both acoustic and electronic music. Her sound is frequently described as 'uncategorisable' and 'genre-defying'.",
         "image": "",
@@ -741,7 +741,7 @@ function write_event_info(){
     },
     {
         "event-title": "Ducks Ltd., Tough Age",
-        "type": "Concert",
+        "type": "concert",
         "genre": "pop",
         "info": "the bright jangle-pop duo of Tom McGreevy (lead vocal, guitar, bass, keyboards) and Evan Lewis (guitar, bass, drum programming), accomplish the impossible.",
         "image": "",
@@ -761,7 +761,7 @@ function write_event_info(){
     },
     {
         "event-title": "Clutch",
-        "type": "Concert",
+        "type": "concert",
         "genre": "metal",
         "info": "Get ready for Clutch's new tour featuring a new album!",
         "image": "",
@@ -781,7 +781,7 @@ function write_event_info(){
     },
     {
         "event-title": "Pillow Queens",
-        "type": "Concert",
+        "type": "concert",
         "genre": "rock",
         "info": "Listen live to Pillow Queens' new album 'Leave the Light On'.",
         "image": "",
@@ -801,7 +801,7 @@ function write_event_info(){
     },
     {
         "event-title": "Killy",
-        "type": "Concert",
+        "type": "concert",
         "genre": "hiphop/rap",
         "info": "Killy happening at Fortune Sound Club.",
         "image": "",
@@ -821,7 +821,7 @@ function write_event_info(){
     },
     {
         "event-title": "Armnhmr",
-        "type": "Concert",
+        "type": "concert",
         "genre": "dance/electronic",
         "info": "Be amazed at the electrifying beats of Armnhmr's new tour!",
         "image": "",
@@ -841,7 +841,7 @@ function write_event_info(){
     },
     {
         "event-title": "Del Amitri",
-        "type": "Concert",
+        "type": "concert",
         "genre": "rock",
         "info": "Get hyped to listen to astonishing rock songs from Del Amitri",
         "image": "",
@@ -861,7 +861,7 @@ function write_event_info(){
     },
     {
         "event-title": "Antibalas",
-        "type": "Concert",
+        "type": "concert",
         "genre": "world",
         "info": "This rooklyn-based afrobeat band will astound you with at this tour!",
         "image": "",
@@ -881,7 +881,7 @@ function write_event_info(){
     },
     {
         "event-title": "Tom Grennan",
-        "type": "Concert",
+        "type": "concert",
         "genre": "rock",
         "info": "Get blown away by astounding rock songs!",
         "image": "",
@@ -901,7 +901,7 @@ function write_event_info(){
     },
     {
         "event-title": "MEUTE",
-        "type": "Concert",
+        "type": "concert",
         "genre": "dance/electronic",
         "info": "This techno marching band combines hypnotic driving techno and expressive brass band music.",
         "image": "",
@@ -921,7 +921,7 @@ function write_event_info(){
     },
     {
         "event-title": "Omar Apollo",
-        "type": "Concert",
+        "type": "concert",
         "genre": "r&b",
         "info": "Get ready to hear some breathtaking R&B music. ",
         "image": "",
@@ -941,7 +941,7 @@ function write_event_info(){
     },
     {
         "event-title": "Imagine Dragons: Mercury World Tour",
-        "type": "Concert",
+        "type": "concert",
         "genre": "rock",
         "info": "Join Imagine Dragons in Save On Foods Memorial Centre on their world tour!",
         "image": "",
@@ -959,11 +959,12 @@ function write_event_info(){
         "highest-price": 60.37,
         "currency": "CAD"
     }];
+    var event_db = db.collection("events");
     events.forEach(function (event) { //cycle thru json object in array
-        console.log(cam); // check if it writes correctly
-        db.collection("events").add(event) //add this new document
+        console.log(event); // check if it wrote the correct info
+        event_db.doc(event.event_title).set(event) //add this new doc, id is autogenerated // use set instead and use event title as the id
             .then(function (doc) { //success 
-                console.log("wrote to events collection " + doc.id);
+                console.log("wrote to events collection " + doc); // checking to see if it worked
             })
     })
 }
