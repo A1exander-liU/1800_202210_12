@@ -51,10 +51,6 @@ a {
   display: inline-block;
 }
 
-.event-card:hover {
-  background-color: lightgray;
-}
-
 .login-title {
   text-align: center;
   padding-top: 30px;
@@ -130,17 +126,29 @@ h6{
    font-size: 36px;
 }
 
-.material-icons:hover {
+/* .material-icons:hover {
   background-color: rgb(131, 131, 131);
-}
+} */
 
 #firebaseui-auth-container {
   margin-top: 10%;
 }
 
 /* events.html css */
+.container {
+  padding: 2%;
+}
+
+.card-content {
+  height: 95%;
+}
+
+.favourite-section{
+  height: 25%;
+}
+
 .favourite-button {
-  text-align: right;
+  float: right;
 }
 
 /* media query */
