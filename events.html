@@ -132,23 +132,24 @@
     <!-- Templates for general use, not displayed -->
     <template id="eventCardTemplate">
         <div class="event-card card py-2 mx-2" style="width: 18rem;">
-            <img class="card-image card-img-top" src=" ..." alt="...">
             <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-img">
-                    <img src="#">Placeholder for image source
-                </p>
-                <p class="card-type">Card type</p>
-                <p class="card-genre">Card genre</p>
-                <p class="card-date">Card date</p>
-                <p class="card-time">Card time</p>
-                <p class="card-location">Card location</p>
-                <p class="card-desc">Some info of event</p>
-                <p>
+                <div class="card-content container">
+                    <h5 class="card-title">Card title</h5>
+                    <div class="card-img container">
+                        <img src="#" alt="...">Placeholder for image source
+                    </div>
+                    <div class="card-type container">Card type</div>
+                    <div class="card-genre container">Card genre</div>
+                    <div class="card-date container">Card date</div>
+                    <div class="card-time container">Card time</div>
+                    <div class="card-location container">Card location</div>
+                    <div class="card-desc container">Some info of event</div>
+                </div>
+                <div class="favourite-section container">
                     <button class="favourite-button">
                         <i class="material-icons md-36" class="favourite">favorite_border</i>
                     </button>
-                </p>
+                </div>
             </div>
         </div>
     </template>
@@ -163,7 +164,7 @@
                 </div>
                 <div class="modal-body">
                     <div class="event-card card" style="width: 98%;">
-                        <img src="..." class="card-img-top" alt="...">
+                        <img src="#" class="card-img-top" alt="...">
                         <div class="card-body">
                             <h5 class="card-title">Card title</h5>
                             <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis reprehenderit veritatis officiis quam enim saepe accusamus, incidunt, facere maxime architecto neque expedita magni ad consectetur exercitationem quaerat molestias est nisi.</p>
