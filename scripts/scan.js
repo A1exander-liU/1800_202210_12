@@ -11,7 +11,7 @@ function createCardData() {
             quantity: "quantity" + i,
         })
 
-        createCardData();
+        // createCardData();
    }
 }
 
@@ -39,4 +39,21 @@ function displayCards(collection) {
         })
 }
 
-displayCards("scanables");
+// displayCards("scanables");
+
+
+function pastScans() {
+  var scanRef = db.collection("scans");
+
+  scanRef.add({
+    scanID: "000000000001",
+    location: "V5O 3S6, Vancouver"
+  });
+}
+
+
+function recordScan() {
+  db.collection("scans").add({
+    date: firebase.firestore.Timestamp.fromDate(new Date("December 10, 1815"))
+  });
+}
