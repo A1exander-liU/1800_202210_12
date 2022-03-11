@@ -8,7 +8,7 @@ function createCardData() {
             event: "event" + i,
             name: "user" + i,
             email: "email" + i,
-            quantity: "quantity" + i,          
+            quantity: "quantity" + i,
         })
 
         createCardData();
@@ -32,7 +32,7 @@ function displayCards(collection) {
                 newcard.querySelector('.card-text').innerHTML = details;
                 newcard.querySelector('.card-image').src = "./images/" + collection + ".jpg"; //hikes.jpg
 
-                
+
                 document.getElementById(collection + "events-go-here").appendChild(newcard);
                 i++;
             })
