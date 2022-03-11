@@ -54,6 +54,6 @@ function pastScans() {
 
 function recordScan() {
   db.collection("scans").add({
-    date: firebase.firestore.Timestamp.fromDate(new Date("December 10, 1815"))
+    date: firebase.firestore.Timestamp.fromDate(new Date("March 11, 2022"))
   });
 }
