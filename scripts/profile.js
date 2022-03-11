@@ -12,18 +12,18 @@ function populateInfo() {
                 .then(userDoc => {
                     //get the data fields of the user
                     var userName = userDoc.data().name;
-                    var userSchool = userDoc.data().school;
-                    var userCity = userDoc.data().city;
+                    var userAddress = userDoc.data().address;
+                    var userPhone = userDoc.data().phone;
 
                     //if the data fields are not empty, then write them in to the form.
                     if (userName != null) {
                         document.getElementById("nameInput").value = userName;
                     }
-                    if (userSchool != null) {
-                        document.getElementById("schoolInput").value = userSchool;
+                    if (userAddress != null) {
+                        document.getElementById("addressInput").value = userAddress;
                     }
-                    if (userCity != null) {
-                        document.getElementById("cityInput").value = userCity;
+                    if (userPhone != null) {
+                        document.getElementById("phoneInput").value = userPhone;
                     }
                 })
         } 
@@ -45,8 +45,8 @@ editUserInfo();
 
 function saveUserInfo() {
     userName = document.getElementById('nameInput').value;       //get the value of the field with id="nameInput"
-    userSchool = document.getElementById('schoolInput').value;     //get the value of the field with id="schoolInput"
-    userCity = document.getElementById('cityInput').value;       //get the value of the field with id="cityInput"
+    userAddress = document.getElementById('addressInput').value;     //get the value of the field with id="adressInput"
+    userPhone = document.getElementById('phoneInput').value;       //get the value of the field with id="phoneInput"
 
     firebase.auth().onAuthStateChanged(user => {
         // Check if user is signed in:
@@ -58,8 +58,8 @@ function saveUserInfo() {
             //write/update the database
             currentUser.update({
                 name: userName,
-                school: userSchool,
-                city: userCity
+                address: userAddress,
+                phone: userPhone
             })
                 .then(() => {
                     console.log("Document successfully updated!");
