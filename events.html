@@ -16,7 +16,7 @@
     <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
 
     <!--Our Firebase Configs-->
-    <script src="./scripts/authentication.js"></script>
+    <script src="./scripts/firebaseAPI_dtc12.js"></script>
 
     <!-- Bootstrap Library CSS CDN -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -35,7 +35,9 @@
 
     <!-- css -->
     <link rel="stylesheet" href="./css/styles.css">
-
+    
+    <!-- Our scripts -->
+    <script src="./scripts/events.js"></script>
 </head>
 
 <body>
@@ -73,7 +75,15 @@
         </div>
     </div>
 
-    <!-- Placeholder for event 'cards '-->
+    <!-- Container for event cards, rows and columns auto aligned-->
+    <div class="container">
+        <!-- Here is container for cards  -->
+        <div class="container">
+            <div id="events-go-here" class="row row-cols-auto">
+            </div>
+        </div>
+    </div>
+    <!-- Placeholder for event 'cards '
     <div class="event-card card" data-bs-toggle="modal" data-bs-target="#exampleModal" style="width: 25%; margin-left: 8%; margin-right: 3%;">
         <img src="..." class="card-img-top" alt="...">
         <div class="card-body">
@@ -117,17 +127,28 @@
                 <i class="material-icons md-36" class="favourite">favorite_border</i>
             </div>
         </div>
-    </div>
+    </div> -->
 
     <!-- Templates for general use, not displayed -->
     <template id="eventCardTemplate">
-        <div class="card py-2 mx-2" style="width: 18rem;">
+        <div class="event-card card py-2 mx-2" style="width: 18rem;">
             <img class="card-image card-img-top" src=" ..." alt="...">
             <div class="card-body">
                 <h5 class="card-title">Card title</h5>
-                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet ab adipisci repudiandae sunt, eaque corporis quibusdam harum itaque iure dolorum, placeat, tempora hic laborum quaerat saepe minus mollitia ipsa labore!
-                    card's content.</p>
-                <a class="btn btn-primary card-href">Get Details</a>
+                <p class="card-img">
+                    <img src="#">Placeholder for image source
+                </p>
+                <p class="card-type">Card type</p>
+                <p class="card-genre">Card genre</p>
+                <p class="card-date">Card date</p>
+                <p class="card-time">Card time</p>
+                <p class="card-location">Card location</p>
+                <p class="card-desc">Some info of event</p>
+                <p>
+                    <button class="favourite-button">
+                        <i class="material-icons md-36" class="favourite">favorite_border</i>
+                    </button>
+                </p>
             </div>
         </div>
     </template>
