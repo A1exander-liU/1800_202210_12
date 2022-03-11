@@ -968,3 +968,46 @@ function write_event_info(){
             })
     })
 }
+// read events collection and display onto events.html
+function displayCards(collection) {
+    let cardTemplate = document.getElementById("eventCardTemplate");
+
+    db.collection(collection).get()
+        .then(snap => {
+            var i = 1;
+            snap.forEach(doc => { //iterate thru each doc
+                var title = doc.data().event_title; // get event title
+                var type = doc.data().type; // get event type
+                var genre = doc.data().genre; // get event genre    
+                var details = doc.data().info; // get event info
+                var date = doc.data().date; // get event date
+                var time = doc.data().time; // get event time
+                var venue = doc.data().venue.location; // get event location    
+                let newcard = cardTemplate.content.cloneNode(true);
+
+                //update card info
+                newcard.querySelector('.card-title').innerHTML = title;
+                newcard.querySelector('.card-type').innerHTML = type;
+                newcard.querySelector('.card-genre').innerHTML = genre;
+                newcard.querySelector('.card-location').innerHTML = venue;
+                newcard.querySelector('.card-desc').innerHTML = details;
+                newcard.querySelector('.card-date').innerHTML = date;
+                newcard.querySelector('.card-time').innerHTML = time;
+                // newcard.querySelector('.card-image').src = "./images/" + collection + ".jpg"; //hikes.jpg
+
+                //give unique ids to all elements for future use
+                // newcard.querySelector('.card-title').setAttribute("id", "ctitle" + i);
+                // newcard.querySelector('.card-text').setAttribute("id", "ctext" + i);
+                // newcard.querySelector('.card-image').setAttribute("id", "cimage" + i);
+
+                //attach to gallery
+                document.getElementById(collection + "-go-here").appendChild(newcard);
+                i++;
+            })
+        })
+}
+function setup(){
+    displayCards("events");
+}
+
+$(document).ready(setup)

@@ -138,6 +138,11 @@ h6{
   margin-top: 10%;
 }
 
+/* events.html css */
+.favourite-button {
+  text-align: right;
+}
+
 /* media query */
 
 @media screen and (max-width: 830px) {
