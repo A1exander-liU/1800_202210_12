@@ -1,3 +1,8 @@
+function favourite_this_card(){
+    console.log("successful call")
+    
+}
+
 function write_event_info(){
     var events = [{ // json array of events
         "event_title": "Masters of Illusions",
@@ -986,6 +991,7 @@ function displayCards(collection) {
                 let newcard = cardTemplate.content.cloneNode(true);
 
                 //update card info
+                var eventID = doc.id
                 newcard.querySelector('.card-title').innerHTML = title;
                 newcard.querySelector('.card-type').innerHTML = type;
                 newcard.querySelector('.card-genre').innerHTML = genre;
@@ -1004,20 +1010,11 @@ function displayCards(collection) {
                 document.getElementById(collection + "-go-here").appendChild(newcard);
                 i++;
             })
-        })
-}
-
-function favourite(){
-    console.log("success")
-}
-
-function call_favourite(){
-    $('.favourite-button').click(favourite)
+        }) 
 }
 
 function setup(){
-    displayCards("events");
-    call_favourite()    
+    displayCards("events");    
 }
 
 $(document).ready(setup)
