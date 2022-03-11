@@ -6,7 +6,7 @@ a {
 .f-menu {
   width: 45%;
   background-color: lightgray;
-  margin: 20vh auto 4vh auto;
+  margin: 10vh auto 4vh auto;
   border-radius: 10px;
 }
 
@@ -136,6 +136,11 @@ h6{
 
 #firebaseui-auth-container {
   margin-top: 10%;
+}
+
+/* events.html css */
+.favourite-button {
+  text-align: right;
 }
 
 /* media query */
