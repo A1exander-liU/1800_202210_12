@@ -2,11 +2,15 @@
 <html lang="en" dir="ltr">
 
 <head>
+  <!-- title -->
+  <title>pocketBook</title>
+
+  <!-- meta -->
   <meta charset="utf-8">
-  <title>COMP 1800 - DTC12</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-------------------------------------------------------->
-  <!-- Firebase 8 Library related CSS, JS, JQuery -->
+  <!-- Firebase 8 Library related CSS, JS, JQuery ---------->
   <!-------------------------------------------------------->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
@@ -15,197 +19,51 @@
   <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
   <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
 
-  <!--Our Firebase Configs-->
-  <script src="./scripts/firebaseAPI_TEAM12.js"></script>
 
-  <!-- Bootstrap Library CSS CDN -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <!-- bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
-  <!-- Bootstrap Library JS CDN -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
-    </script>
-
-  <!-- Google Icons (Material Design)-->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
-  <!-- font awesome -->
-  <script src="https://use.fontawesome.com/9ac00b78e6.js"></script>
+  <!-- fontawesome -->
+  <script src="https://kit.fontawesome.com/1c466c7021.js" crossorigin="anonymous"></script>
 
   <!-- css -->
   <link rel="stylesheet" href="./css/styles.css">
 </head>
 
-<body>
-  <!-- top nav-bar -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-dark px-2">
-    <div class="container-fluid py-3">
-      <a class="navbar-brand text-white" href="#">
-        COMP1800 - DTC12</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarSupportedContent">
-        <ul class="navbar-nav">
-          <li class="nav-item mx-3"><a class="nav-link text-white" href="#"><span>Account</span></a></li>
-          <li class="nav-item"><button class="btn btn-outline-light" type="submit">Download</button></li>
-        </ul>
-      </div>
-    </div>
+<body id="historyPage" class="white">
+  <!-- header -->
+  <nav id="headerPlaceholder" class="black"></nav>
+  <nav id="menubarPlaceholder" class="navy sticky-top"></nav>
 
-  </nav>
-
-  <!-- Hero -->
-  <div class="welcome-banner p-5 mb-4 bg-light rounded-3">
-    <div class="container-fluid py-5">
-      <h1>Under Construction</h1>
-    </div>
-  </div>
-
-
-  <!-- Code Image -->
-
+  <!-- history -->
   <div class="container">
-    <h1>Your History</h1>
-  </div>
-  <hr>
-
-  <!-- Here is container for cards  -->
-  <div class="container">
-    <div id="events-card" class="row row-cols-auto">
+    <h1 class="my-5 pb-4 border-bottom border-dark">Recent Scans</h1>
+    <div id="historyList" class="d-flex flex-column align-items-stretch flex-shrink-0">
+      <template id="historyTemplate">
+        <a href="#" class="list-group-item list-group-item-action py-3 lh-tight">
+          <div class="d-flex w-100 align-items-center justify-content-between">
+            <strong class="mb-1">Past Scan</strong>
+            <small class="text-muted"><i class="fa-solid fa-location-dot"></i></small>
+          </div>
+          <div class="time-stamp col-10 mb-1 small">Some placeholder content in a paragraph below the heading and date.</div>
+        </a>
+      </template>
     </div>
   </div>
 
-
-  <!-- Event card template-->
-
-  <!--- <template id="history Template"> -->
-  <div class="col-md-12">
-    <div class="card-body">
-      <h5 class="event-title">Transaction title</h5>
-      <p class="card-text">
-      <h6>Transaction ID</h6>
-      <p>1234567890asdfghjkl </p>
-      <h6> Facility</h6>
-      <p>Event.inc</p>
-      <h6> Location </h6>
-      <p> 123 Location avenue, Vancouver,BC </p>
-      </p>
-      <p class="card-text"><small class="text-muted">3 minutes ago.</small></p>
-    </div>
-    <hr>
-    <div class="card-body">
-      <h5 class="event-title">Transaction title</h5>
-      <p class="card-text">
-      <h6>Transaction ID</h6>
-      <p>1234567890asdfghjkl </p>
-      <h6> Facility</h6>
-      <p>Event.inc</p>
-      <h6> Location </h6>
-      <p> 123 Location avenue, Vancouver,BC </p>
-      </p>
-      <p class="card-text"><small class="text-muted">3 minutes ago.</small></p>
-    </div>
-    <hr>
-
-  </div>
-
-
-  <!-- Floating Menu -->
-  <div class="f-menu d-flex flex-wrap justify-content-center align-items-center py-4">
-    <a href="./index.html"><i class="material-icons md-36" id="home">home</i></a>
-    <a href="./events.html"><i class="material-icons md-36" id="events">today</i></a>
-    <a href="./map.html"><i class="material-icons md-36" id="map">location_on</i></a>
-    <a href="./pastscans.html"><i class="material-icons md-36" id="past-scans">history</i></a>
-    <a href="./scan.html"><i class="material-icons md-36" id="qr-code">qr_code_2</i></a>
-  </div>
+  <!-- floating button -->
+  <div id="buttonPlaceholder"></div>
 
   <!-- footer -->
-  <footer class="bg-dark text-center text-white">
-    <div class="container p-4">
+  <nav id="footerPlaceholder" class="black"></nav>
 
-      <!-- newsletter -->
-      <div class="newsletter py-4">
-        <form action="">
-          <div class="row d-flex justify-content-center">
-            <div class="col-auto">
-              <p class="pt-2">
-                <strong>Sign Up</strong>
-              </p>
-            </div>
 
-            <div class="col-md-5 col-12">
-              <div class="form-outline form-white mb-4">
-                <input type="email" id="form5Example21" class="form-control" placeholder="Your Email" />
-              </div>
-            </div>
 
-            <div class="col-auto">
-              <button type="submit" class="btn btn-outline-light mb-4">
-                Subscribe
-              </button>
-            </div>
-          </div>
-        </form>
-      </div>
-
-      <!-- footer links -->
-      <div class="f-links">
-        <div class="row py-4">
-          <div class="col-lg-4 col-md-4 col-sm-4 mb-4">
-            <h5 class="text-uppercase">Company</h5>
-            <ul class="list-unstyled mb-0">
-              <li><a href="#!" class="text-white">Link 1</a></li>
-              <li><a href="#!" class="text-white">Link 1</a></li>
-            </ul>
-          </div>
-
-          <div class="col-lg-4 col-md-4 col-sm-4 mb-4">
-            <h5 class="text-uppercase">Support</h5>
-            <ul class="list-unstyled mb-0">
-              <li><a href="#!" class="text-white">Link 2</a></li>
-              <li><a href="#!" class="text-white">Link 2</a></li>
-            </ul>
-          </div>
-
-          <div class="col-lg-4 col-md-4 col-sm-4 mb-4">
-            <h5 class="text-uppercase">For Business</h5>
-            <ul class="list-unstyled mb-0">
-              <li><a href="#!" class="text-white">Link 3</a></li>
-              <li><a href="#!" class="text-white">Link 3</a></li>
-            </ul>
-          </div>
-
-          <!-- sns icons -->
-          <section class="sns-icons py-4">
-            <a class="btn btn-light m-2" href="#!" role="button"><i class="fa fa-lg fa-facebook-square"
-                aria-hidden="true"></i></a>
-            <a class="btn btn-light m-2" href="#!" role="button"><i class="fa fa-lg fa-twitter-square"
-                aria-hidden="true"></i></a>
-            <a class="btn btn-light m-2" href="#!" role="button"><i class="fa fa-lg fa-google-plus-square"
-                aria-hidden="true"></i></a>
-            <a class="btn btn-light m-2" href="#!" role="button"><i class="fa fa-lg fa-instagram"
-                aria-hidden="true"></i></a>
-            <a class="btn btn-light m-2" href="#!" role="button"><i class="fa fa-lg fa-linkedin-square"
-                aria-hidden="true"></i></a>
-            <a class="btn btn-light m-2" href="#!" role="button"><i class="fa fa-lg fa-github-square"
-                aria-hidden="true"></i></a>
-          </section>
-        </div>
-      </div>
-
-    </div>
-  </footer>
-  </section>
-  </div>
-
-  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-    © 2020 Copyright:
-    <a class="text-white" href="https://mdbootstrap.com/">MDBootstrap.com</a>
-  </div>
-  </footer>
+  <!-- JavaScript -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+  <script src="scripts/firebaseAPI_TEAM12.js"></script>
+  <script src="scripts/global.js"></script>
+  <script src="scripts/main.js"></script>
 </body>
 
 </html>
