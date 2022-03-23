@@ -8,10 +8,7 @@ var uiConfig = {
         // or whether we leave that to developer to handle.
         var user = authResult.user; //get the user object info
         if (authResult.additionalUserInfo.isNewUser){
-          //create a collection with name "users"
-          db.collection("users")
-          //define a document for a user with UID as a document ID
-          .doc(user.uid).set({
+          db.collection("users").doc(user.uid).set({
             name: user.displayName,
             email: user.email
           }).then(function(){
@@ -27,11 +24,11 @@ var uiConfig = {
         }
         return false;
       },
-      uiShown: function() {
-        // The widget is rendered.
-        // Hide the loader.
-        document.getElementById("loader").style.display = 'none';
-      }
+      // uiShown: function() {
+      //   // The widget is rendered.
+      //   // Hide the loader.
+      //   document.getElementById("loader").style.display = 'none';
+      // }
     },
     // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
     signInFlow: 'popup',
@@ -52,4 +49,3 @@ var uiConfig = {
   };
 
   ui.start('#firebaseui-auth-container', uiConfig);
-
