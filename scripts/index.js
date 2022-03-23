@@ -2,13 +2,13 @@
 // add a for loop to loop thorugh event data in the db, append the title of the event into this list
 // list will be updated to have all the event titles
 // will be able to get autocompleted suggestions on events
-var countries = [];
+var events = [];
 
 db.collection("events").get().then((querySnapshot) => { // reads event collection
   querySnapshot.forEach((doc) => { // loops thru each doc
       // doc.data() is never undefined for query doc snapshots
       console.log(doc.id, " => ", doc.data()); // checking out the event title
-      countries.push(doc.data().event_title); // appending it to the list
+      events.push(doc.data().event_title); // appending it to the list
   });
 });
 
