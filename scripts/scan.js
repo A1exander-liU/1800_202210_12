@@ -47,7 +47,6 @@ function pastScans() {
 
   scanRef.add({
     scanID: "000000000001",
-    location: "V5O 3S6, Vancouver"
   });
 }
 
