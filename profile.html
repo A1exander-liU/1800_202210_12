@@ -1,101 +1,83 @@
 <html>
 
 <head>
-    <!------------------------>
-    <!-- Required meta tags -->
-    <!------------------------>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- title -->
+  <title>pocketBook</title>
 
-    <!-------------------------------------------------------->
-    <!-- Firebase 8 Library related CSS, JS, JQuery go here -->
-    <!-------------------------------------------------------->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
-    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
+  <!-- meta -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!--Our Firebase Configs-->
-    <script src="./scripts/firebaseAPI_TEAM12.js"></script>
+  <!-------------------------------------------------------->
+  <!-- Firebase 8 Library related CSS, JS, JQuery ---------->
+  <!-------------------------------------------------------->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+  <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
 
-    <!-- Bootstrap Library CSS CDN -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
-    <!-- Bootstrap Library JS CDN -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
-        </script>
+  <!-- bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
-    <!-- Google Icons (Material Design)-->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- fontawesome -->
+  <script src="https://kit.fontawesome.com/1c466c7021.js" crossorigin="anonymous"></script>
 
-    <!-- font awesome -->
-    <script src="https://use.fontawesome.com/9ac00b78e6.js"></script>
-
-    <!-- css -->
-    <link rel="stylesheet" href="./css/styles.css">
-
-    <!-- JavaScript link file goes here -->
-    <script src="./scripts/profile.js"></script>
+  <!-- css -->
+  <link rel="stylesheet" href="./css/styles.css">
+<script src="./scripts/profile.js"></script>
 </head>
 
-<body>
-    <!-- top nav-bar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-dark">
-        <div class="container-fluid py-3">
-            <a class="navbar-brand text-white" href="index.html">
-                COMP1800 - DTC12</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="index.html">Home</a>
-                    </li>
-                </ul>
-                <form class="d-flex">
-                    <input class="form-control me-3 w-1000" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-light" type="submit">Search</button>
-                </form>
-            </div>
+<body class="white">
+  <!-- header -->
+  <nav id="headerPlaceholder" class="black"></nav>
+  <nav id="menubarPlaceholder" class="navy sticky-top"></nav>
+
+  <!-- user input -->
+  <main class="form-profile text-center my-5">
+    <div class="profile-icon text-white rounded-circle navy p-5"><i class="d-flex justify-content-center fa-solid fa-user fs-3"></i></div>
+      <form>
+        <div class="form-floating">
+          <input type="email" class="form-control" id="floatingName">
+          <label for="floatingInput">Name</label>
+        </div>
+        <span class="not-rounded">
+          <div class="form-floating">
+            <input type="email" class="form-control" id="floatingEmail">
+            <label for="floatingInput">Email address</label>
+          </div>
+          <div class="form-floating">
+            <input type="tel" class="form-control" id="floatingMobile">
+            <label for="floatingInput">Mobile number</label>
+          </div>
+          <div class="form-floating">
+            <input type="text" class="form-control" id="floatingAddress">
+            <label for="floatingInput">Address</label>
+          </div>
+        </span>
+        <div class="form-floating">
+          <input type="password" class="form-control" id="floatingPassword">
+          <label for="floatingPassword">Password</label>
         </div>
 
-    </nav>
+      <button class="w-100 btn btn-lg navy text-white" type="submit">Save</button>
+    </form>
+  </main>
 
-    <!-- the container for form -->
-    <br>
-    <div class="container">
-        <h1>User Profile </h1>
-        <form>
-            <fieldset class="mb-3" id="personalInfoFields" disabled>
-                <div class="form-group">
-                    <label >Name</label>
-                    <input type="text" id="nameInput" class="form-control" placeholder="Enter your name">
-                </div>
-                <div class="form-group">
-                    <label>Address</label>
-                    <input type="text" id="addressInput" class="form-control" placeholder="Enter your address">
-                </div>
-                <div class="form-group">
-                    <label >Phone Number</label>
-                    <input type="text" id="phoneInput" class="form-control" placeholder="Enter your number">
-                </div>
-            </fieldset>
-            <div class="d-flex justify-content-end mt-5">
-                <button type="button" class="btn btn-secondary" onclick="editUserInfo()">Edit</button>
-                <span style="width: 10px"></span>
-                <button type="button" class="btn btn-info" onclick="saveUserInfo()" >Save</button>
-            </div>
-        </form>
-</div>
+  <!-- floating button -->
+  <div id="buttonPlaceholder"></div>
 
-  
+  <!-- footer -->
+  <nav id="footerPlaceholder" class="black"></nav>
+
+
+
+  <!-- JavaScript -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+  <script src="scripts/global.js"></script>
+  <script src="scripts/main.js"></script>
 </body>
 
 </html>
