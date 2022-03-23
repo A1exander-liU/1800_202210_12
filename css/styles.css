@@ -1,205 +1,57 @@
-a {
-  text-decoration: none;
-  color: rgb(59, 59, 59);
+:root {
+	--black: #121212;
+	--navy: #30475E;
+	--white: #F5F5F5;
+	--red: #F05454;
+}
+.white {
+	background-color: var(--white);
 }
 
-.f-menu {
-  width: 45%;
-  background-color: lightgray;
-  margin: 10vh auto 4vh auto;
-  border-radius: 10px;
+.black {
+	background-color: var(--black);
 }
 
-
-.event-page-bar {
-  margin: auto;
-  border-width: 1px;
-  border-style: solid;
-  margin-top: 1%;
-  border-radius: 50px;
-  width: 35%;
-  text-align: center;
-  background-color: lightgray;
+.navy {
+	background-color: var(--navy);
 }
 
-#events-tab {
-  display: inline-block;
-  width: 49%;
-  text-align: center;
-  border-right-width: 1px;
-  border-right-style: solid;
-  border-radius: 50px 0 0 50px;
+.red {
+	background-color: var(--red);
 }
 
-#favourites-tab {
-  display: inline-block;
-  width: 49%;
-  text-align: center;
-  border-radius: 0 50px 50px 0;
+/* carousel */
+.carousel-bg img {
+	position: absolute;
+	width: 70%;
+	margin: auto;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+}
+.carousel-bg::before {
+	display: block;
+    background-image: url(/images/olympics01.jpg);
+    background-size: cover;
+    background-position: 0 center;
+    filter: blur(8px);
+    -webkit-filter: blur(8px);
+    content: "";
+    width: 100%;
+    height: 50vh;
+}
+.carousel-bg:nth-child(2)::before {
+    background-image: url(/images/olympics02.jpg);
+}
+.carousel-bg:last-child::before {
+    background-image: url(/images/olympics03.jpg);
+}
+.btn-floating {
+	z-index: 1;
 }
 
-#favourites-tab:hover {
-  background-color: gray;
-}
-
-#events-tab:hover{
-  background-color: gray;
-}
-
-.event-card {
-  margin: 4% auto;
-  display: inline-block;
-}
-
-.login-title {
-  text-align: center;
-  padding-top: 30px;
-}
-
-.login-direct {
-  text-align: center;
-  background-color: lightgray;
-  margin-top: 5%;
-  margin-bottom: 5%;
-  padding: 30px 15px 30px 15px;
-  border-radius: 10px;
-  border-width: 1px;
-  border-style: solid;
-  border-color: grey;
-  width: 40%;
-}
-
-#login-loader {
-  text-align: center;
-}
-
-.log-sign-button {
-  border-width: 1px;
-  border-style: solid;
-  border-color: rgb(44, 131, 218);
-  background-color: rgb(51, 153, 255);
-}
-
-.f-menu a {
-  margin: 0 5%;
-}
-
-
-a {
-  color: inherit;
-}
-
-h6{
-  color: cadetblue;
-}
-
-.card{
-  max-width: 540px;
-  margin-left: 1%;
-}
-
-.delete{
-  float: right;
-
-}
-.ticket{
-  align-content: center;
-  float: inline-end;
-
-}
-
-.admit{
-  text-align: center;
-  color: aliceblue;
-  background-color: cadetblue;
-  padding: 5px;
-  margin: 10px;
-
-}
-
-.QR{
-  padding: 5px;
-  margin: 10px;
-}
-
-.material-icons.md-36 {
-   font-size: 36px;
-}
-
-/* .material-icons:hover {
-  background-color: rgb(131, 131, 131);
-} */
-
-#firebaseui-auth-container {
-  margin-top: 10%;
-}
-
-/* events.html css */
-.container {
-  padding: 2%;
-}
-
-.card-content {
-  height: 95%;
-}
-
-.favourite-section{
-  height: 25%;
-}
-
-.favourite-button {
-  float: right;
-}
-
-/* media query */
-
-@media screen and (max-width: 830px) {
-  .f-menu {
-    width: 70%;
-  }
-}
-
-@media screen and (max-width: 600px) {
-  .login-direct {
-    width: 90%;
-  }
-  .event-page-bar {
-    width: 99%;
-    margin: auto;
-    margin-top: 5%;
-  }
-}
-
-@media screen and (max-width: 550px) {
-  .f-menu {
-    width: 95%;
-  }
-  .f-menu a {
-    margin: 0 2%;
-  }
-}
-
-@media screen and (max-width: 480px) {
-  #firebaseui-auth-container {
-    width: 90%;
-    margin: auto;
-    box-shadow: 0px 1px 1px 1px rgb(212, 212, 212);
-    margin-top: 15%;
-  }
-}
-
-@media screen and (max-width: 300px) {
-  .material-icons.md-36 {
-    font-size: 24px;
-  }
-}
-
-/* auto-completion */
-
-* { box-sizing: border-box; }
-body {
-  font: 16px Arial;
-}
+/* search bar */
 .autocomplete {
   /*the container must be positioned relative:*/
   position: relative;
@@ -211,7 +63,7 @@ input {
   padding: 10px;
   font-size: 16px;
 }
-input[type=text] {
+.autocomplete input[type=text] {
   background-color: #f1f1f1;
   width: 100%;
 }
@@ -244,4 +96,28 @@ input[type=submit] {
   /*when navigating through the items using the arrow keys:*/
   background-color: DodgerBlue !important;
   color: #ffffff;
+}
+.profile-icon {
+    width: 10vh;
+    height: 10vh;
+    margin: 0 auto;
+}
+
+
+/* media query */
+@media screen and (max-width:768px) {
+	.carousel-bg::before,
+	.carousel-bg:nth-child(2)::before,
+	.carousel-bg:last-child::before {
+		background-image: none;
+	}
+	.carousel-bg img {
+		width: 100%;
+	}
+}
+@media screen and (min-width:768px) {
+	.btn-floating button {
+		width: 10vh;
+		height: 10vh;
+	}
 }
