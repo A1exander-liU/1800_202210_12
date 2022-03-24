@@ -16,6 +16,7 @@
   <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
 
   <!--Our Firebase Configs-->
+  <script src="./scripts/scan.js"></script>
   <script src="./scripts/firebaseAPI_TEAM12.js"></script>
 
   <!-- Bootstrap Library CSS CDN -->
@@ -67,46 +68,80 @@
 
   <!-- Hero -->
   <div class="welcome-banner p-5 mb-4 bg-light rounded-3">
-    <div class="container-fluid py-5">
-      <h1>Add My Ticket</h1>
+    <div class="container-fluid">
+      <h1>My Cards</h1>
     </div>
   </div>
 
-  <form class="row g-3">
-    <div class="col-md-6">
-      <label for="inputConfirmation" class="form-label">Confirmation Number</label>
-      <input type="text" class="form-control" id="inputPassword4">
-    </div>
-
-    <div class="col-md-6">
-      <label for="inputEmail4" class="form-label">Email</label>
-      <input type="email" class="form-control" id="inputEmail4">
-    </div>
-
-    <div class="col-12">
-      <label for="inputName" class="form-label">Name</label>
-      <input type="text" class="form-control" id="inputAddress" placeholder="Firstname Lastname">
-    </div>
-
-    <div class="photo-pdf-file">
-      <label for="proof">Upload a file of your Ticket (optional): </label>
-
-      <input type="file" id="proof" name="proof" accept="image/png, image/jpeg">
-    </div>
-    <div class="col-12">
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" id="gridCheck">
-        <label class="form-check-label" for="gridCheck">
-          Save my information for later
-        </label>
+  <!-- Add buttons-->
+  <div class="event-page-bar">
+    <div class="container">
+      <div class="row justify-content-md-center">
+        <div class="col" id="events-tab">
+          <a href="add-scans.html">Add </a> <!-- button to add scans-->
+        </div>
+        <div class="col" id="events-tab">
+          <a href="">Save</a>
+        </div>
+        <div class="col" id="favourites-tab">
+          <a href="">History</a>
+        </div>
       </div>
     </div>
-    <div class="col-12">
-      <button type="submit" class="btn btn-primary">Confirm</button>
-    </div>
-  </form>
+  </div>
+  <br>
 
-  <!-- Floating Menu -->
+  <!-- Code Image -->
+
+  <div class="container my-5">
+    <h1>Your Tickets</h1>
+  </div>
+
+
+  <!-- Here is container for cards  -->
+  <div class="container">
+    <div id="events-card" class="row row-cols-auto">
+    </div>
+  </div>
+
+
+  <!-- Event card template-->
+
+  <!--- <template id="eventcardtemplate"> -->
+  <div class="card mb-3">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <button onclick="recordScan()"><img src="images/Fake_Qr_code.png" class="img-fluid rounded-start" alt="QR code generated goes here"></button>
+
+
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <button class="delete"> X</button>
+          <!-- delete button possibly for deleting tickets from page modify to js later-->
+          <h5 class="event-title">Event title</h5>
+          <p class="card-text">
+          <h6>Ticket ID</h6>
+          1234567890asdfghjkl
+          <h6> Purchaser</h6>
+          John Doe
+          <h6> Purchaser Email</h6>
+          johnDoe@email.com
+          </p>
+          <p class="card-text"><small class="text-muted">Mar-01-2023</small></p>
+        </div>
+        <div class="admit">
+          <h5>Admit</h5>
+          <h5>1</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--</template>-->
+
+
+  <!-- fLoating Menu -->
+  <!-- fLoating Menu -->
   <div class="f-menu d-flex flex-wrap justify-content-center align-items-center py-4">
     <a href="./index.html"><i class="material-icons md-36" id="home">home</i></a>
     <a href="./events.html"><i class="material-icons md-36" id="events">today</i></a>
