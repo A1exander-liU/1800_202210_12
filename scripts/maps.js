@@ -21,7 +21,7 @@ function display_past_scans() {
 
     map.on('load', () => {
         const features = [];
-        db.collection("random").get().then(testmap => {
+        db.collection("scans").get().then(testmap => {
             testmap.forEach(scan => {
                 coordinates = scan.data().coordinates;
                 time = scan.data().date
