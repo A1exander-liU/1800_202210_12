@@ -14,6 +14,9 @@ function populateInfo() {
                     var userName = userDoc.data().name;
                     var userAddress = userDoc.data().address;
                     var userPhone = userDoc.data().phone;
+                    
+                    // set button type back to submit so you can save the data
+                    $('#save_info').attr('type', 'submit')
 
                     //if the data fields are not empty, then write them in to the form.
                     if (userName != null) {
@@ -28,7 +31,9 @@ function populateInfo() {
                 })
         } 
         else {
-            // No user is signed in.
+            $("#save_info").click(function(){
+                $("#prompt_user").modal('show');
+            })
             console.log("No user is signed in");
         }
     });

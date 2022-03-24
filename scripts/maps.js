@@ -12,7 +12,7 @@ function display_past_scans() {
         container: 'map', // container ID
         style: 'mapbox://styles/mapbox/streets-v11', // style URL
         center: [-123.11934112777243,49.28341752492466], // starting position
-        zoom: 14 // starting zoom
+        zoom: 9 // starting zoom
     });
 
 

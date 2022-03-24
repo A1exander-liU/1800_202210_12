@@ -31,3 +31,8 @@
 .form-profile input[type="password"] {
   margin-bottom: 10px;
 }
+
+/* Modal button to prompt user to sign in/login */
+#prompt {
+  color: white;
+}
