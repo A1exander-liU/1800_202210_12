@@ -1,3 +1,16 @@
+var currentUser;
+firebase.auth().onAuthStateChanged(user => {
+    if (user) {
+        currentUser = db.collection("users").doc(user.uid);   //global
+        console.log(currentUser);
+
+    } else {
+        // No user is signed in.
+        console.log("No user is signed in");
+        window.location.href = "login.html";
+    }
+});
+
 function favourite_this_card(eventID){
     console.log("successful call" + eventID)
     
@@ -1003,7 +1016,7 @@ function displayCards(collection) {
     let events_array = []
     db.collection(collection)
     .orderBy(select) //sorting by options from drop down
-    .limit(6)
+    .limit(8)
     .get()
         .then(snap => {
             var i = 1;
@@ -1118,8 +1131,8 @@ function saveFavourites(eventID) {
         .then(function () {
             console.log("this event has been saved for user: " + currentUser); // + current user variable, change later-AN
             var iconID = 'save-' + eventID;
-            // console.log(iconID);
-            // document.getElementsByClassName(iconID).class = "fa-solid fa-heart"; //SOLID RED HEART HERE -AN
+            console.log('this iconID:'+iconID);
+            //document.getElementById(iconID).class ="fa-solid fa-heart"; //SOLID RED HEART HERE -AN
         });
 } // // // ----------- -AN
 
