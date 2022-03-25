@@ -43,6 +43,25 @@
   <!-- events -->
   <div class="container">
     <h1 class="my-5 pb-4 border-bottom border-dark">Upcoming Events</h1>
+
+
+    <div class="btn-group"> <!-- button that waits for user input sorting-->
+      <button class="btn btn-secondary btn-sm btn-dark navy dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        Sort by:
+      </button>
+      <ul class="dropdown-menu" id="sortKey">
+        <li id="event-title"> Name </li>
+        <li id="date"> Date </li>
+        <li id="price"> Price </li>
+      </ul> 
+    </div>
+
+    <div class="btn-group"> <!-- button that links to favoutires page-->
+      <button class="btn btn-secondary btn-sm btn-dark navy" type="button" href="favourites.html">Favourites</button>
+    </div>
+
+   
+    
     <div class="container">
       <div id="eventsList" class="row row-cols-auto">
         <!-- Templates for general use, not displayed -->
@@ -92,9 +111,9 @@
           <div class="card-desc container">Some info of event</div>
         </div>
         <div class="favourite-section container">
-          <button class="favourite-button">
+          
             <i class="fa-regular fa-heart" class="favourite"></i>
-          </button>
+
         </div>
       </div>
     </div>
@@ -103,6 +122,18 @@
 
   <!-- floating button -->
   <div id="buttonPlaceholder"></div>
+
+  <!--Pagination buttons-->
+
+    <div aria-label="Page navigation example">
+      <ul class="pagination justify-content-center">
+        <li class="page-item"><a class="page-link" id="prev">Previous</a></li>
+        <li class="page-item"><a class="page-link" id="1">1</a></li>
+        <li class="page-item"><a class="page-link" id="2">2</a></li>
+        <li class="page-item"><a class="page-link" id="3">3</a></li>
+        <li class="page-item"><a class="page-link" id="next">Next</a></li>
+      </ul>
+    </div>
 
   <!-- footer -->
   <nav id="footerPlaceholder" class="black"></nav>
@@ -113,7 +144,9 @@
     crossorigin="anonymous"></script>
   <script src="scripts/firebaseAPI_TEAM12.js"></script>
   <script src="scripts/global.js"></script>
-  <script src="scripts/main.js"></script>
+  <script src="scripts/events.js"></script>
+  <script src="scripts/index.js"></script>
+  <!-- <script src="scripts/main.js"></script>  NO MAIN.JS ON FILE MAYBE  -AN-->
 </body>
 
 </html>
