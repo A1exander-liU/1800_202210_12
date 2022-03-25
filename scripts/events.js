@@ -973,13 +973,13 @@ function write_event_info(){
             })
     })
 }
+
 // read events collection and display onto events.html
 function displayCards(collection) {
     let cardTemplate = document.getElementById("eventCardTemplate")   
-    let sortkey = document.getElementById("sortKey").value 
-    /// ADD HERE!!!! SORT BUTTON THAT WILL LET USER SORT INPUT (52:17) -AN
+    let select = document.getElementById('dropdown').value;/// not automatic need to refres to see result -AN
     db.collection(collection)
-    .orderBy('event_title') //SORTING BY EVENT-TITLE ON DB -AN
+    .orderBy(select) //sorting by options from drop down
     .limit(3)
     .get()
         .then(snap => {
@@ -1036,6 +1036,8 @@ function saveFavourites(eventID) {
             // document.getElementsByClassName(iconID).class = "fa-solid fa-heart"; //SOLID RED HEART HERE -AN
         });
 } // // // ----------- -AN
+
+
 
 
 function setup(){
