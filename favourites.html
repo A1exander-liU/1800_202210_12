@@ -2,216 +2,120 @@
 <html lang="en" dir="ltr">
 
 <head>
-    <meta charset="utf-8">
-    <title>COMP 1800 - DTC12</title>
+  <!-- title -->
+  <title>pocketBook</title>
 
-    <!-------------------------------------------------------->
-    <!-- Firebase 8 Library related CSS, JS, JQuery -->
-    <!-------------------------------------------------------->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
-    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
+  <!-- meta -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!--Our Firebase Configs-->
-    <script src="./scripts/firebaseAPI_TEAM12.js"></script>
+  <!-------------------------------------------------------->
+  <!-- Firebase 8 Library related CSS, JS, JQuery ---------->
+  <!-------------------------------------------------------->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+  <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
 
-    <!-- Bootstrap Library CSS CDN -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
-    <!-- Bootstrap Library JS CDN -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
-        </script>
+  <!-- bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
-    <!-- Google Icons (Material Design)-->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- fontawesome -->
+  <script src="https://kit.fontawesome.com/1c466c7021.js" crossorigin="anonymous"></script>
 
-    <!-- font awesome -->
-    <script src="https://use.fontawesome.com/9ac00b78e6.js"></script>
+  <!-- css -->
+  <link rel="stylesheet" href="./css/styles.css">
+  <link rel="stylesheet" href="./css/styles.css">
 
-    <!-- css -->
-    <link rel="stylesheet" href="./css/styles.css">
-
+  <!-- js -->
+  <script src="./scripts/events.js"></script>
 </head>
 
-<body>
-    <!-- top nav-bar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-dark px-2">
-        <div class="container-fluid py-3">
-          <a class="navbar-brand text-white" href="#">
-            COMP1800 - DTC12</a>
-          <button class="navbar-toggler bg-gradient" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarSupportedContent">
-            <ul class="navbar-nav">
-              <li class="nav-item dropdown mx-3">
-                <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown"
-                  aria-expanded="false"><span>Account</span></a>
-                <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
-                  <li><a class="dropdown-item" href="direct_to_login.html">Signup/Login</a></li>
-                  <li><a class="dropdown-item" href="profile.html">My Profile</a></li>
-                  <li><a class="dropdown-item" href="#">Settings</a></li>
-                </ul>
-              </li>
-              <li class="nav-item mx-2 py-2"><button class="btn btn-outline-light" type="submit">Download</button></li>
-            </ul>
+<body id="eventsPage" class="white">
+  <!-- header -->
+  <nav id="headerPlaceholder" class="black"></nav>
+  <nav id="menubarPlaceholder" class="navy sticky-top"></nav>
+
+  <!-- events -->
+  <div class="container">
+    <h1 class="my-5 pb-4 border-bottom border-dark">Your Favourites</h1>
+    <div class="container">
+      <div id="eventsList" class="row row-cols-auto">
+        <!-- Templates for general use, not displayed -->
+        <template id="eventTemplate">
+          <div class="col-md-6">
+            <div class="row g-0 border overflow-hidden flex-md-row mb-4 h-md-250 position-relative">
+              <div class="col p-4 d-flex flex-column position-static w-50 align-items-stretch">
+                <strong class="d-inline-block mb-2">Sports</strong>
+                <h3 class="card-title my-2 text-truncate">Title</h3>
+                <div class="mb-1 text-muted">Dates</div>
+                <span class="card-text mb-auto text-truncate">Short description of the event.</span>
+                <button class="btn btn-dark my-2 navy" type="button" name="button">Tickets</button>
+              </div>
+              <div class="col-auto d-lg-block w-50">
+                <img class="card-img w-100" src="images/olympics01.jpg">
+              </div>
+            </div>
           </div>
-        </div>
-    
-      </nav>
-    
-
-    <!-- Events and Favourites Bar -->
-    <div class="event-page-bar">
-        <div class="container">
-            <div class="row justify-content-md-center">
-                <div class="col" id="events-tab">
-                    <a href="./events.html">Events</a>
-                </div>
-                <div class="col" id="favourites-tab">
-                    <a href="./favourites.html">Favourites</a>
-                </div>
-            </div>
-        </div>
+        </template>
+      </div>
     </div>
+  </div>
 
-    <!-- Placeholder for event 'cards '-->
-    <div class="event-card card" data-bs-toggle="modal" data-bs-target="#exampleModal" style="width: 25%; margin-left: 8%;">
-        <img src="..." class="card-img-top" alt="...">
-        <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                content.</p>
-            <div style="text-align: right;">
-                <i class="material-icons md-36" id="home">favorite</i>
-            </div>
+  <!-- Container for event cards, rows and columns auto aligned-->
+  <div class="container">
+    <!-- Here is container for cards  -->
+    <div class="container">
+      <div id="events-go-here" class="row row-cols-auto">
+      </div>
+    </div>
+  </div>
+
+  <!-- Previous Template, used to popoulate the current event data for now -->
+  <template id="eventCardTemplate">
+    <div class="event-card card py-2 mx-2" style="width: 18rem;">
+      <div class="card-body">
+        <div class="card-content container">
+          <h5 class="card-title">Card title</h5>
+          <div class="card-img container">
+            <img src="#" alt="...">Placeholder for image source
+          </div>
+          <div class="card-type container">Card type</div>
+          <div class="card-genre container">Card genre</div>
+          <div class="card-date container">Card date</div>
+          <div class="card-time container">Card time</div>
+          <div class="card-location container">Card location</div>
+          <div class="card-desc container">Some info of event</div>
         </div>
-    </div>
+        <div class="favourite-section container">
 
-    <!-- Modal for event card -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="event-card card" style="width: 98%;">
-                        <img src="..." class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis reprehenderit veritatis officiis quam enim saepe accusamus, incidunt, facere maxime architecto neque expedita magni ad consectetur exercitationem quaerat molestias est nisi.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Back</button>
-                    <button type="button" class="btn btn-primary">Favourite</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-    <!-- fLoating Menu -->
-    <div class="f-menu d-flex flex-wrap justify-content-center align-items-center py-4">
-        <a href="./index.html"><i class="material-icons md-36" id="home">home</i></a>
-        <a href="./events.html"><i class="material-icons md-36" id="events">today</i></a>
-        <a href="./map.html"><i class="material-icons md-36" id="map">location_on</i></a>
-        <a href="./pastscans.html"><i class="material-icons md-36" id="past-scans">history</i></a>
-        <a href="./scan.html"><i class="material-icons md-36" id="qr-code">qr_code_2</i></a>
-    </div>
-
-    <!-- footer -->
-    <footer class="bg-dark text-center text-white">
-        <div class="container p-4">
-
-            <!-- newsletter -->
-            <div class="newsletter py-4">
-                <form action="">
-                    <div class="row d-flex justify-content-center">
-                        <div class="col-auto">
-                            <p class="pt-2">
-                                <strong>Sign Up</strong>
-                            </p>
-                        </div>
-
-                        <div class="col-md-5 col-12">
-                            <div class="form-outline form-white mb-4">
-                                <input type="email" id="form5Example21" class="form-control" placeholder="Your Email" />
-                            </div>
-                        </div>
-
-                        <div class="col-auto">
-                            <button type="submit" class="btn btn-outline-light mb-4">
-                                Subscribe
-                            </button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-
-            <!-- footer links -->
-            <div class="f-links">
-                <div class="row py-4">
-                    <div class="col-lg-4 col-md-4 col-sm-4 mb-4">
-                        <h5 class="text-uppercase">Company</h5>
-                        <ul class="list-unstyled mb-0">
-                            <li><a href="#!" class="text-white">Link 1</a></li>
-                            <li><a href="#!" class="text-white">Link 1</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="col-lg-4 col-md-4 col-sm-4 mb-4">
-                        <h5 class="text-uppercase">Support</h5>
-                        <ul class="list-unstyled mb-0">
-                            <li><a href="#!" class="text-white">Link 2</a></li>
-                            <li><a href="#!" class="text-white">Link 2</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="col-lg-4 col-md-4 col-sm-4 mb-4">
-                        <h5 class="text-uppercase">For Business</h5>
-                        <ul class="list-unstyled mb-0">
-                            <li><a href="#!" class="text-white">Link 3</a></li>
-                            <li><a href="#!" class="text-white">Link 3</a></li>
-                        </ul>
-                    </div>
-
-                    <!-- sns icons -->
-                    <section class="sns-icons py-4">
-                        <a class="btn btn-light m-2" href="#!" role="button"><i class="fa fa-lg fa-facebook-square"
-                                aria-hidden="true"></i></a>
-                        <a class="btn btn-light m-2" href="#!" role="button"><i class="fa fa-lg fa-twitter-square"
-                                aria-hidden="true"></i></a>
-                        <a class="btn btn-light m-2" href="#!" role="button"><i class="fa fa-lg fa-google-plus-square"
-                                aria-hidden="true"></i></a>
-                        <a class="btn btn-light m-2" href="#!" role="button"><i class="fa fa-lg fa-instagram"
-                                aria-hidden="true"></i></a>
-                        <a class="btn btn-light m-2" href="#!" role="button"><i class="fa fa-lg fa-linkedin-square"
-                                aria-hidden="true"></i></a>
-                        <a class="btn btn-light m-2" href="#!" role="button"><i class="fa fa-lg fa-github-square"
-                                aria-hidden="true"></i></a>
-                    </section>
-                </div>
-            </div>
+          <i class="fa-regular fa-heart" class="favourite"></i>
 
         </div>
-    </footer>
-    </section>
+      </div>
     </div>
+  </template>
 
-    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-        © 2020 Copyright:
-        <a class="text-white" href="https://mdbootstrap.com/">MDBootstrap.com</a>
-    </div>
-    </footer>
+
+  <!-- floating button -->
+  <div id="buttonPlaceholder"></div>
+
+  <!-- footer -->
+  <nav id="footerPlaceholder" class="black"></nav>
+
+  <!-- JavaScript -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"></script>
+  <script src="scripts/firebaseAPI_TEAM12.js"></script>
+  <script src="scripts/global.js"></script>
+  <script src="scripts/index.js"></script>
+  <script src="scripts/favourites.js"></script>
+  <!-- <script src="scripts/main.js"></script>  NO MAIN.JS ON FILE MAYBE  -AN-->
 </body>
 
 </html>
