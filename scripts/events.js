@@ -1,5 +1,5 @@
-function favourite_this_card(){
-    console.log("successful call")
+function favourite_this_card(eventID){
+    console.log("successful call" + eventID)
     
 }
 
@@ -975,9 +975,13 @@ function write_event_info(){
 }
 // read events collection and display onto events.html
 function displayCards(collection) {
-    let cardTemplate = document.getElementById("eventCardTemplate");
-
-    db.collection(collection).get()
+    let cardTemplate = document.getElementById("eventCardTemplate")   
+    let sortkey = document.getElementById("sortKey").value 
+    /// ADD HERE!!!! SORT BUTTON THAT WILL LET USER SORT INPUT (52:17) -AN
+    db.collection(collection)
+    .orderBy('event_title') //SORTING BY EVENT-TITLE ON DB -AN
+    .limit(3)
+    .get()
         .then(snap => {
             var i = 1;
             snap.forEach(doc => { //iterate thru each doc
@@ -1006,6 +1010,9 @@ function displayCards(collection) {
                 // newcard.querySelector('.card-text').setAttribute("id", "ctext" + i);
                 // newcard.querySelector('.card-image').setAttribute("id", "cimage" + i);
 
+                newcard.querySelector('i').id = 'save' + eventID; // saves the hikeID to user's document -AN
+                newcard.querySelector('i').onclick = () =>saveFavourites(eventID); //the hikeId as input -AN
+
                 //attach to gallery
                 document.getElementById(collection + "-go-here").appendChild(newcard);
                 i++;
@@ -1013,8 +1020,28 @@ function displayCards(collection) {
         }) 
 }
 
+//this function is called when the 'favourite' icon has been clicked.
+// // It will add the event to an events array
+// // // fill in the 'favourite icon to indicate user has liked the event
+function saveFavourites(eventID) {
+    currentUser.set({ //CURRENT USER VARIABLE HERE -AN
+            favourites: firebase.firestore.FieldValue.arrayUnion(eventID)
+        }, {
+            merge: true
+        })
+        .then(function () {
+            console.log("this event has been saved for user: " + currentUser); // + current user variable, change later-AN
+            var iconID = 'save-' + eventID;
+            // console.log(iconID);
+            // document.getElementsByClassName(iconID).class = "fa-solid fa-heart"; //SOLID RED HEART HERE -AN
+        });
+} // // // ----------- -AN
+
+
 function setup(){
-    displayCards("events");    
+    displayCards("events");   
+
+   
 }
 
 $(document).ready(setup)
