@@ -1003,7 +1003,7 @@ function displayCards(collection) {
     let events_array = []
     db.collection(collection)
     .orderBy(select) //sorting by options from drop down
-    .limit(48)
+    .limit(6)
     .get()
         .then(snap => {
             var i = 1;
