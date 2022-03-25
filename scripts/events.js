@@ -991,7 +991,7 @@ function displayCards(collection) {
                 var details = doc.data().info; // get event info
                 var date = doc.data().date; // get event date
                 var time = doc.data().time; // get event time
-                var venue = doc.data().venue.location; // get event location    
+                var venue = doc.data().venue.location; // get event location 
                 let newcard = cardTemplate.content.cloneNode(true);
 
                 //update card info

@@ -10,10 +10,10 @@ var uiConfig = {
         if (authResult.additionalUserInfo.isNewUser){
           db.collection("users").doc(user.uid).set({
             name: user.displayName,
-            email: user.email
+            email: user.email,
           }).then(function(){
             console.log("New user added to firestore");
-            window.localStorage.assign("index.html");
+            window.location = "index.html";
           })
           .catch(function(error){
             console.log(error);
