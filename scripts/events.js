@@ -987,24 +987,49 @@ function write_event_info(){
     })
 }
 
+let select = 'event_title' // defining a default value for select, can change this to something that makes more sense
+let current_page = 1
+let page_size = 6
+
+function get_sort_option(){ // select variable will be updated when user selects a different filter/sort option
+    select = $("#dropdown option:selected").val() // gets the value of the selected choice in dropdown menu
+    displayCards('events') // call function becuase you want the new sorted order of events to be immediately displayed
+    console.log(select) // checking if user selected choice matches with the code
+    
+}
+
+function display_page_buttons(total_pages){
+    console.log("called")
+    var pagination = 1
+    $('#page_buttons button').remove() // clear the buttons to make sure they do not keep stacking if you call this more than once
+    for (pagination; pagination<total_pages + 1; pagination++){
+        page_button = "<button type='button' class='btn navy text-white page_button' value='" + pagination + "'>" + pagination + "</button>"
+        old = $('#page_buttons').html()
+        $('#page_buttons').html(old + page_button)
+    }
+}
+
 // read events collection and display onto events.html
 function displayCards(collection) {
     let cardTemplate = document.getElementById("eventCardTemplate")   
-    let select = document.getElementById('dropdown').value;/// not automatic need to refres to see result -AN
+    // let select = document.getElementById('dropdown').value;/// not automatic need to refres to see result -AN
+    let events_array = []
     db.collection(collection)
     .orderBy(select) //sorting by options from drop down
     .limit(8)
     .get()
         .then(snap => {
             var i = 1;
+            $('#events-go-here div').remove()
             snap.forEach(doc => { //iterate thru each doc
-                var title = doc.data().event_title; // get event title
-                var type = doc.data().type; // get event type
-                var genre = doc.data().genre; // get event genre    
-                var details = doc.data().info; // get event info
-                var date = doc.data().date; // get event date
-                var time = doc.data().time; // get event time
-                var venue = doc.data().venue.location; // get event location 
+                events_array.push(doc.data()) // adding each event to an array
+                // var title = doc.data().event_title; // get event title
+                // var type = doc.data().type; // get event type
+                // var genre = doc.data().genre; // get event genre    
+                // var details = doc.data().info; // get event info
+                // var date = doc.data().date; // get event date
+                // var time = doc.data().time; // get event time
+                // var venue = doc.data().venue.location; // get event location 
                 let newcard = cardTemplate.content.cloneNode(true);
 
                 //update card info
@@ -1027,10 +1052,71 @@ function displayCards(collection) {
                 newcard.querySelector('i').onclick = () =>saveFavourites(eventID); //the hikeId as input -AN
 
                 //attach to gallery
-                document.getElementById(collection + "-go-here").appendChild(newcard);
+                // document.getElementById(collection + "-go-here").appendChild(newcard);
                 i++;
             })
+            total_events = events_array.length
+            total_pages = Math.ceil(total_events / page_size)
+            console.log(total_pages)
+            display_page_buttons(total_pages)
+            start_index = page_size * (current_page - 1)
+            stop_index = page_size * (current_page - 1) + page_size
+            for (start_index; start_index<stop_index; start_index++) { // adds the events to the dom
+                let newcard = cardTemplate.content.cloneNode(true);
+    
+                var title = events_array[start_index].event_title; // get event title
+                var type = events_array[start_index].type; // get event type
+                var genre = events_array[start_index].genre; // get event genre    
+                var details = events_array[start_index].info; // get event info
+                var date = events_array[start_index].date; // get event date
+                var time = events_array[start_index].time; // get event time
+                var venue = events_array[start_index].venue.location; // get event location
+                
+                // update the card information
+                newcard.querySelector('.card-title').innerHTML = title;
+                newcard.querySelector('.card-type').innerHTML = type;
+                newcard.querySelector('.card-genre').innerHTML = genre;
+                newcard.querySelector('.card-location').innerHTML = venue;
+                newcard.querySelector('.card-desc').innerHTML = details;
+                newcard.querySelector('.card-date').innerHTML = date;
+                newcard.querySelector('.card-time').innerHTML = time;
+    
+                document.getElementById(collection + "-go-here").appendChild(newcard);
+            }
+
         }) 
+}
+
+function get_current_page(){
+    current_page = $(this).val() // grabs the value which the apge number is stored in
+    console.log(current_page)
+    displayCards('events') // checking if it is the right page
+}
+
+function get_first_prev_next_last_button(){
+    if ($(this).attr('id') == 'first') { // if id of button clicked is 'first', set current page to first page
+        current_page = 1
+        displayCards('events')
+    }
+    else if ($(this).attr('id') == 'prev')  { // if id of button clicked is 'prev', minus 1 
+        current_page -= 1
+        if (current_page < 1) { // to make sure the current page doesn't go a page that doesn't exist
+            current_page = 1
+        }
+        displayCards('events')
+    }
+    else if ($(this).attr('id') == 'next') {
+        current_page += 1
+        if (current_page > total_pages) { // to make sure the current page doesn't go to page that doesn't exist
+            current_page = total_pages
+        }
+        displayCards('events')
+    }
+    else if ($(this).attr('id')) {
+        current_page = total_pages
+        displayCards('events')
+    }
+    console.log(current_page) // checking if it is the right page
 }
 
 //this function is called when the 'favourite' icon has been clicked.
@@ -1050,13 +1136,11 @@ function saveFavourites(eventID) {
         });
 } // // // ----------- -AN
 
-
-
-
 function setup(){
     displayCards("events");   
-
-   
+    $('#dropdown').change(get_sort_option) // determines if there was a change in the dropdown, i.e, there was a selection
+    $('body').on('click', '.page_button', get_current_page)
+    $('body').on('click', 'button', get_first_prev_next_last_button)
 }
 
 $(document).ready(setup)
