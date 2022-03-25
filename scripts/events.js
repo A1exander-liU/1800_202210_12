@@ -1112,7 +1112,7 @@ function get_first_prev_next_last_button(){
         }
         displayCards('events')
     }
-    else if ($(this).attr('id')) {
+    else if ($(this).attr('id') == 'last') {
         current_page = total_pages
         displayCards('events')
     }

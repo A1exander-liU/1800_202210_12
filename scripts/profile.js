@@ -19,6 +19,7 @@ function populateInfo() {
 
 
                     console.log("User is signed in")
+                    $('#save_info').attr('type', 'submit')
 
                     //if the data fields are not empty, then write them in to the form.
                     if (userName != null) {
