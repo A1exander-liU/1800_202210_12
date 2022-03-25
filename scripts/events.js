@@ -974,16 +974,26 @@ function write_event_info(){
     })
 }
 
+let select = 'event_title' // defining a default value for select, can change this to something that makes more sense
+
+function get_sort_option(){ // select variable will be updated when user selects a different filter/sort option
+    select = $("#dropdown option:selected").val() // gets the value of the selected choice in dropdown menu
+    displayCards('events') // call function becuase you want the new sorted order of events to be immediately displayed
+    console.log(select) // checking if user selected choice matches with the code
+    
+}
+
 // read events collection and display onto events.html
 function displayCards(collection) {
     let cardTemplate = document.getElementById("eventCardTemplate")   
-    let select = document.getElementById('dropdown').value;/// not automatic need to refres to see result -AN
+    // let select = document.getElementById('dropdown').value;/// not automatic need to refres to see result -AN
     db.collection(collection)
     .orderBy(select) //sorting by options from drop down
     .limit(3)
     .get()
         .then(snap => {
             var i = 1;
+            $('#events-go-here div').remove()
             snap.forEach(doc => { //iterate thru each doc
                 var title = doc.data().event_title; // get event title
                 var type = doc.data().type; // get event type
@@ -1042,7 +1052,7 @@ function saveFavourites(eventID) {
 
 function setup(){
     displayCards("events");   
-
+    $('#dropdown').change(get_sort_option) // determines if there was a change in the dropdown, i.e, there was a selection
    
 }
 
