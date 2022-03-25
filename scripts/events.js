@@ -974,31 +974,37 @@ function write_event_info(){
     })
 }
 // read events collection and display onto events.html
+// to intially display and collect the events from the events collection in the db
+let current_page = 1; // starting page when the events load up
+let page_size = 8; // amount of events on each page
+let events_array = [] // appending each event doc into an list to global variable events_array
 function displayCards(collection) {
     let cardTemplate = document.getElementById("eventCardTemplate");
-
     db.collection(collection).get()
         .then(snap => {
             var i = 1;
             snap.forEach(doc => { //iterate thru each doc
-                var title = doc.data().event_title; // get event title
-                var type = doc.data().type; // get event type
-                var genre = doc.data().genre; // get event genre    
-                var details = doc.data().info; // get event info
-                var date = doc.data().date; // get event date
-                var time = doc.data().time; // get event time
-                var venue = doc.data().venue.location; // get event location    
-                let newcard = cardTemplate.content.cloneNode(true);
+                events_array.push(doc.data())
+                // var title = doc.data().event_title; // get event title
+                // var type = doc.data().type; // get event type
+                // var genre = doc.data().genre; // get event genre    
+                // var details = doc.data().info; // get event info
+                // var date = doc.data().date; // get event date
+                // var time = doc.data().time; // get event time
+                // var venue = doc.data().venue.location; // get event location
+                
+                // clone/copy template for card
+                // let newcard = cardTemplate.content.cloneNode(true);
 
                 //update card info
-                var eventID = doc.id
-                newcard.querySelector('.card-title').innerHTML = title;
-                newcard.querySelector('.card-type').innerHTML = type;
-                newcard.querySelector('.card-genre').innerHTML = genre;
-                newcard.querySelector('.card-location').innerHTML = venue;
-                newcard.querySelector('.card-desc').innerHTML = details;
-                newcard.querySelector('.card-date').innerHTML = date;
-                newcard.querySelector('.card-time').innerHTML = time;
+                // var eventID = doc.id
+                // newcard.querySelector('.card-title').innerHTML = title;
+                // newcard.querySelector('.card-type').innerHTML = type;
+                // newcard.querySelector('.card-genre').innerHTML = genre;
+                // newcard.querySelector('.card-location').innerHTML = venue;
+                // newcard.querySelector('.card-desc').innerHTML = details;
+                // newcard.querySelector('.card-date').innerHTML = date;
+                // newcard.querySelector('.card-time').innerHTML = time;
                 // newcard.querySelector('.card-image').src = "./images/" + collection + ".jpg"; //hikes.jpg
 
                 //give unique ids to all elements for future use
@@ -1007,14 +1013,130 @@ function displayCards(collection) {
                 // newcard.querySelector('.card-image').setAttribute("id", "cimage" + i);
 
                 //attach to gallery
-                document.getElementById(collection + "-go-here").appendChild(newcard);
+                // document.getElementById(collection + "-go-here").appendChild(newcard);
                 i++;
             })
+            console.log(events_array)
+            total_events = events_array.length
+            total_pages = Math.ceil(total_events / page_size)
+            console.log(total_pages)
+            start_index = page_size * (current_page - 1)
+            stop_index = page_size * (current_page - 1) + page_size
+            $('#events-go-here.event-card').remove() // clears all events on the dom currently so they don't appear with the events of new page
+            for (start_index; start_index<stop_index; start_index++) { // adds the events to the dom
+            let newcard = cardTemplate.content.cloneNode(true);
+
+            var title = events_array[start_index].event_title; // get event title
+            var type = events_array[start_index].type; // get event type
+            var genre = events_array[start_index].genre; // get event genre    
+            var details = events_array[start_index].info; // get event info
+            var date = events_array[start_index].date; // get event date
+            var time = events_array[start_index].time; // get event time
+            var venue = events_array[start_index].venue.location; // get event location
+            
+            newcard.querySelector('.card-title').innerHTML = title;
+            newcard.querySelector('.card-type').innerHTML = type;
+            newcard.querySelector('.card-genre').innerHTML = genre;
+            newcard.querySelector('.card-location').innerHTML = venue;
+            newcard.querySelector('.card-desc').innerHTML = details;
+            newcard.querySelector('.card-date').innerHTML = date;
+            newcard.querySelector('.card-time').innerHTML = time;
+
+            document.getElementById(collection + "-go-here").appendChild(newcard);
+            }
+            var pagination = 1
+            $('#page_buttons button').remove()
+            for (pagination; pagination<total_pages + 1; pagination++){
+            page_button = "<button type='button' class='btn navy text-white page_button' value='" + pagination + "'>" + pagination + "</button>"
+            old = $('#page_buttons').html()
+            $('#page_buttons').html(old + page_button)
+            }
         }) 
 }
 
+function display_current_page_cards(){
+    // seperate function because displayCards will append to the events_array again with duplicate events
+    let cardTemplate = document.getElementById("eventCardTemplate");
+    total_events = events_array.length
+    total_pages = Math.ceil(total_events / page_size)
+    console.log(total_pages)
+    start_index = page_size * (current_page - 1)
+    stop_index = page_size * (current_page - 1) + page_size
+    $('#events-go-here div').remove() // clearing all current events on the dom so they don't appear when the nezt page of events appear
+    for (start_index; start_index<stop_index; start_index++) {
+    let newcard = cardTemplate.content.cloneNode(true);
+
+    var title = events_array[start_index].event_title; // get event title
+    var type = events_array[start_index].type; // get event type
+    var genre = events_array[start_index].genre; // get event genre    
+    var details = events_array[start_index].info; // get event info
+    var date = events_array[start_index].date; // get event date
+    var time = events_array[start_index].time; // get event time
+    var venue = events_array[start_index].venue.location; // get event location
+    
+    newcard.querySelector('.card-title').innerHTML = title; 
+    newcard.querySelector('.card-type').innerHTML = type;
+    newcard.querySelector('.card-genre').innerHTML = genre;
+    newcard.querySelector('.card-location').innerHTML = venue;
+    newcard.querySelector('.card-desc').innerHTML = details;
+    newcard.querySelector('.card-date').innerHTML = date;
+    newcard.querySelector('.card-time').innerHTML = time;
+
+    document.getElementById("events-go-here").appendChild(newcard);
+    }
+    
+}
+
+function display_page_buttons(total_pages){
+    var pagination = 1
+    $('#page_buttons button').remove() // clear the buttons to make sure they do not keep stacking if you call this more than once
+    for (pagination; pagination<total_pages; pagination++){
+        page_button = "<button type='button' class='btn navy text-white page_button' value='" + pagination + "'>" + pagination + "</button>"
+        old = $('#page_buttons').html()
+        $('#page_buttons').html(old + page_button)
+    }
+}
+
+function get_current_page(){
+    current_page = $(this).val() // grabs the value which the apge number is stored in
+    console.log(current_page) // checking if it is the right page
+}
+
+function get_first_prev_next_last_button(){
+    if ($(this).attr('id') == 'first') { // if id of button clicked is 'first', set current page to first page
+        current_page = 1
+    }
+    else if ($(this).attr('id') == 'prev')  { // if id of button clicked is 'prev', minus 1 
+        current_page -= 1
+        if (current_page < 1) { // to make sure the current page doesn't go a page that doesn't exist
+            current_page = 1
+        }
+    }
+    else if ($(this).attr('id') == 'next') {
+        current_page += 1
+        if (current_page > total_pages) { // to make sure the current page doesn't go to page that doesn't exist
+            current_page = total_pages
+        }
+    }
+    else if ($(this).attr('id')) {
+        current_page = total_pages
+    }
+    console.log(current_page) // checking if it is the right page
+}
+
 function setup(){
-    displayCards("events");    
+    displayCards("events");
+    // call function to get current page first then calling a function on the same dom object to display cards of that page
+    $('body').on('click', '.page_button', get_current_page)
+    $('body').on('click', '.page_button', display_current_page_cards)
+    $('body').on('click', '#first', get_first_prev_next_last_button)
+    $('body').on('click', '#first', display_current_page_cards)
+    $('body').on('click', '#prev', get_first_prev_next_last_button)
+    $('body').on('click', '#prev', display_current_page_cards)
+    $('body').on('click', '#next', get_first_prev_next_last_button)
+    $('body').on('click', '#next', display_current_page_cards)
+    $('body').on('click', '#last', get_first_prev_next_last_button) 
+    $('body').on('click', '#last', display_current_page_cards) 
 }
 
 $(document).ready(setup)
