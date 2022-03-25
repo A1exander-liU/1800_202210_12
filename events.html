@@ -29,7 +29,6 @@
 
   <!-- css -->
   <link rel="stylesheet" href="./css/styles.css">
-  <link rel="stylesheet" href="./css/styles.css">
 
   <!-- js -->
   <script src="./scripts/events.js"></script>
@@ -59,37 +58,6 @@
 
     </div>
 
-    <div class="container">
-      <div id="eventsList" class="row row-cols-auto">
-        <!-- Templates for general use, not displayed -->
-        <template id="eventTemplate">
-          <div class="col-md-6">
-            <div class="row g-0 border overflow-hidden flex-md-row mb-4 h-md-250 position-relative">
-              <div class="col p-4 d-flex flex-column position-static w-50 align-items-stretch">
-                <strong class="d-inline-block mb-2">Sports</strong>
-                <h3 class="card-title my-2 text-truncate">Title</h3>
-                <div class="mb-1 text-muted">Dates</div>
-                <span class="card-text mb-auto text-truncate">Short description of the event.</span>
-                <button class="btn btn-dark my-2 navy" type="button" name="button">Tickets</button>
-              </div>
-              <div class="col-auto d-lg-block w-50">
-                <img class="card-img w-100" src="images/olympics01.jpg">
-              </div>
-            </div>
-          </div>
-        </template>
-      </div>
-    </div>
-  </div>
-
-  <!-- Container for event cards, rows and columns auto aligned-->
-  <div class="container">
-    <!-- Here is container for cards  -->
-    <div class="container">
-      <div id="events-go-here" class="row row-cols-auto mx-auto">
-      </div>
-    </div>
-  </div>
 
   <!-- Pagination Buttons -->
   <div class="container">
@@ -112,46 +80,45 @@
     </div>
   </div>
 
-  <!-- Previous Template, used to popoulate the current event data for now -->
-  <template id="eventCardTemplate">
-    <div class="event-card card py-2 mx-2" style="width: 18rem;">
-      <div class="card-body">
-        <div class="card-content container">
-          <h5 class="card-title">Card title</h5>
-          <div class="card-img container">
-            <img src="#" alt="...">Placeholder for image source
-          </div>
-          <div class="card-type container">Card type</div>
-          <div class="card-genre container">Card genre</div>
-          <div class="card-date container">Card date</div>
-          <div class="card-time container">Card time</div>
-          <div class="card-location container">Card location</div>
-          <div class="card-desc container">Some info of event</div>
-        </div>
-        <div class="favourite-section container">
+  <div class="container">
+    <div id="eventsList" class="row row-cols-auto">
+      <!-- Templates for general use, not displayed -->
+    </div>
+  </div>
+</div>
 
-          <i class="fa-regular fa-heart" ></i>
-
-        </div>
+<template id="eventTemplate">
+  <div class="col-md-6">
+    <div class="row g-0 border overflow-hidden flex-md-row mb-4 h-md-250 position-relative">
+      <div class="col p-4 d-flex flex-column position-static w-50 align-items-stretch">
+        <strong class="d-inline-block mb-2">Sports</strong>
+        <h3 class="card-title my-2 text-truncate">Title</h3>
+        <div class="mb-1 text-muted">Dates</div>
+        <span class="card-text mb-auto text-truncate">Short description of the event.</span>
+        <button class="btn btn-dark my-2 navy" type="button" name="button">Tickets</button>
+      </div>
+      <div class="col-auto d-lg-block w-50">
+        <img class="card-img w-100" src="images/olympics01.jpg">
       </div>
     </div>
-  </template>
+  </div>
+</template>
 
-
-  <!-- floating button -->
-  <div id="buttonPlaceholder"></div>
 
   <!--Pagination buttons-->
 
   <!-- <div aria-label="Page navigation example">
-    <ul class="pagination justify-content-center">
-      <li class="page-item"><a class="page-link" id="prev">Previous</a></li>
-      <li class="page-item"><a class="page-link" id="1">1</a></li>
-      <li class="page-item"><a class="page-link" id="2">2</a></li>
-      <li class="page-item"><a class="page-link" id="3">3</a></li>
-      <li class="page-item"><a class="page-link" id="next">Next</a></li>
-    </ul>
-  </div> -->
+  <ul class="pagination justify-content-center">
+  <li class="page-item"><a class="page-link" id="prev">Previous</a></li>
+  <li class="page-item"><a class="page-link" id="1">1</a></li>
+  <li class="page-item"><a class="page-link" id="2">2</a></li>
+  <li class="page-item"><a class="page-link" id="3">3</a></li>
+  <li class="page-item"><a class="page-link" id="next">Next</a></li>
+</ul>
+</div> -->
+
+  <!-- floating button -->
+  <div id="buttonPlaceholder"></div>
 
   <!-- footer -->
   <nav id="footerPlaceholder" class="black"></nav>
