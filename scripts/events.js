@@ -1080,6 +1080,32 @@ function get_current_page(){
     displayCards('events') // checking if it is the right page
 }
 
+function get_first_prev_next_last_button(){
+    if ($(this).attr('id') == 'first') { // if id of button clicked is 'first', set current page to first page
+        current_page = 1
+        displayCards('events')
+    }
+    else if ($(this).attr('id') == 'prev')  { // if id of button clicked is 'prev', minus 1 
+        current_page -= 1
+        if (current_page < 1) { // to make sure the current page doesn't go a page that doesn't exist
+            current_page = 1
+        }
+        displayCards('events')
+    }
+    else if ($(this).attr('id') == 'next') {
+        current_page += 1
+        if (current_page > total_pages) { // to make sure the current page doesn't go to page that doesn't exist
+            current_page = total_pages
+        }
+        displayCards('events')
+    }
+    else if ($(this).attr('id')) {
+        current_page = total_pages
+        displayCards('events')
+    }
+    console.log(current_page) // checking if it is the right page
+}
+
 //this function is called when the 'favourite' icon has been clicked.
 // // It will add the event to an events array
 // // // fill in the 'favourite icon to indicate user has liked the event
@@ -1101,6 +1127,7 @@ function setup(){
     displayCards("events");   
     $('#dropdown').change(get_sort_option) // determines if there was a change in the dropdown, i.e, there was a selection
     $('body').on('click', '.page_button', get_current_page)
+    $('body').on('click', 'button', get_first_prev_next_last_button)
 }
 
 $(document).ready(setup)
