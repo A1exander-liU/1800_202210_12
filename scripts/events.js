@@ -1,15 +1,15 @@
 var currentUser;
-firebase.auth().onAuthStateChanged(user => {
-    if (user) {
-        currentUser = db.collection("users").doc(user.uid);   //global
-        console.log(currentUser);
+// firebase.auth().onAuthStateChanged(user => {
+//     if (user) {
+//         currentUser = db.collection("users").doc(user.uid);   //global
+//         console.log(currentUser);
 
-    } else {
-        // No user is signed in.
-        console.log("No user is signed in");
-        window.location.href = "login.html";
-    }
-});
+//     } else {
+//         // No user is signed in.
+//         console.log("No user is signed in");
+//         window.location.href = "login.html";
+//     }
+// });
 
 function favourite_this_card(eventID){
     console.log("successful call" + eventID)
@@ -42,12 +42,15 @@ async function readJSON() {
 }
 
 
-let select = 'event_title' // defining a default value for select, can change this to something that makes more sense
+let select = 'name' // defining a default value for select, can change this to something that makes more sense
 let current_page = 1
 let page_size = 6
+let order
 
 function get_sort_option(){ // select variable will be updated when user selects a different filter/sort option
     select = $("#dropdown option:selected").val() // gets the value of the selected choice in dropdown menu
+    order = $('#dropdown option:selected').attr('id')
+    console.log(order)
     displayCards('events') // call function becuase you want the new sorted order of events to be immediately displayed
     console.log(select) // checking if user selected choice matches with the code
 
@@ -66,16 +69,16 @@ function display_page_buttons(total_pages){
 
 // read events collection and display onto events.html
 function displayCards(collection) {
-    let cardTemplate = document.getElementById("eventCardTemplate")
+    let cardTemplate = document.getElementById("eventTemplate")
     // let select = document.getElementById('dropdown').value;/// not automatic need to refres to see result -AN
     let events_array = []
     db.collection(collection)
-    .orderBy(select) //sorting by options from drop down
-    .limit(8)
+    .orderBy(select, order) //sorting by options from drop down
+    .limit(4)
     .get()
         .then(snap => {
             var i = 1;
-            $('#events-go-here div').remove()
+            $('#eventsList div').remove()
             snap.forEach(doc => { //iterate thru each doc
                 events_array.push(doc.data()) // adding each event to an array
                 // var title = doc.data().event_title; // get event title
@@ -89,13 +92,13 @@ function displayCards(collection) {
 
                 //update card info
                 var eventID = doc.id
-                newcard.querySelector('.card-title').innerHTML = title;
-                newcard.querySelector('.card-type').innerHTML = type;
-                newcard.querySelector('.card-genre').innerHTML = genre;
-                newcard.querySelector('.card-location').innerHTML = venue;
-                newcard.querySelector('.card-desc').innerHTML = details;
-                newcard.querySelector('.card-date').innerHTML = date;
-                newcard.querySelector('.card-time').innerHTML = time;
+                newcard.querySelector('.event-title').innerHTML = title;
+                // newcard.querySelector('.card-type').innerHTML = type;
+                // newcard.querySelector('.card-genre').innerHTML = genre;
+                // newcard.querySelector('.card-location').innerHTML = venue;
+                newcard.querySelector('.event-info').innerHTML = details;
+                // newcard.querySelector('.card-date').innerHTML = date;
+                // newcard.querySelector('.card-time').innerHTML = time;
                 // newcard.querySelector('.card-image').src = "./images/" + collection + ".jpg"; //hikes.jpg
 
                 //give unique ids to all elements for future use
@@ -103,14 +106,15 @@ function displayCards(collection) {
                 // newcard.querySelector('.card-text').setAttribute("id", "ctext" + i);
                 // newcard.querySelector('.card-image').setAttribute("id", "cimage" + i);
 
-                newcard.querySelector('i').id = 'save' + eventID; // saves the hikeID to user's document -AN
-                newcard.querySelector('i').onclick = () =>saveFavourites(eventID); //the hikeId as input -AN
+                // newcard.querySelector('i').id = 'save' + eventID; // saves the hikeID to user's document -AN
+                // newcard.querySelector('i').onclick = () =>saveFavourites(eventID); //the hikeId as input -AN
 
                 //attach to gallery
                 // document.getElementById(collection + "-go-here").appendChild(newcard);
                 i++;
             })
             total_events = events_array.length
+            console.log(total_events)
             total_pages = Math.ceil(total_events / page_size)
             console.log(total_pages)
             display_page_buttons(total_pages)
@@ -119,24 +123,24 @@ function displayCards(collection) {
             for (start_index; start_index<stop_index; start_index++) { // adds the events to the dom
                 let newcard = cardTemplate.content.cloneNode(true);
 
-                var title = events_array[start_index].event_title; // get event title
-                var type = events_array[start_index].type; // get event type
-                var genre = events_array[start_index].genre; // get event genre
-                var details = events_array[start_index].info; // get event info
-                var date = events_array[start_index].date; // get event date
-                var time = events_array[start_index].time; // get event time
-                var venue = events_array[start_index].venue.location; // get event location
+                var title = events_array[start_index].name; // get event title
+                // var type = events_array[start_index].type; // get event type
+                // var genre = events_array[start_index].genre; // get event genre
+                var details = events_array[start_index].details; // get event info
+                // var date = events_array[start_index].date; // get event date
+                // var time = events_array[start_index].time; // get event time
+                // var venue = events_array[start_index].venue.location; // get event location
 
                 // update the card information
-                newcard.querySelector('.card-title').innerHTML = title;
-                newcard.querySelector('.card-type').innerHTML = type;
-                newcard.querySelector('.card-genre').innerHTML = genre;
-                newcard.querySelector('.card-location').innerHTML = venue;
-                newcard.querySelector('.card-desc').innerHTML = details;
-                newcard.querySelector('.card-date').innerHTML = date;
-                newcard.querySelector('.card-time').innerHTML = time;
+                newcard.querySelector('.event-title').innerHTML = title;
+                // newcard.querySelector('.card-type').innerHTML = type;
+                // newcard.querySelector('.card-genre').innerHTML = genre;
+                // newcard.querySelector('.card-location').innerHTML = venue;
+                newcard.querySelector('.event-info').innerHTML = details;
+                // newcard.querySelector('.card-date').innerHTML = date;
+                // newcard.querySelector('.card-time').innerHTML = time;
 
-                document.getElementById(collection + "-go-here").appendChild(newcard);
+                document.getElementById(collection + "List").appendChild(newcard);
             }
 
         })
