@@ -1,4 +1,4 @@
-var currentUser;
+// var currentUser;
 // firebase.auth().onAuthStateChanged(user => {
 //     if (user) {
 //         currentUser = db.collection("users").doc(user.uid);   //global
@@ -13,7 +13,6 @@ var currentUser;
 
 function favourite_this_card(eventID){
     console.log("successful call" + eventID)
-
 }
 
 
@@ -101,9 +100,9 @@ function displayCards(collection) {
                 // newcard.querySelector('.card-time').innerHTML = time;
                 // newcard.querySelector('.card-image').src = "./images/" + collection + ".jpg"; //hikes.jpg
 
-                //give unique ids to all elements for future use
-                // newcard.querySelector('.card-title').setAttribute("id", "ctitle" + i);
-                // newcard.querySelector('.card-text').setAttribute("id", "ctext" + i);
+                //give unique ids to all elemrd-title').setAttribute("id", "ctitle" + i);
+                // newcard.querySelector('.ents for future use
+                // newcard.querySelector('.cacard-text').setAttribute("id", "ctext" + i);
                 // newcard.querySelector('.card-image').setAttribute("id", "cimage" + i);
 
                 // newcard.querySelector('i').id = 'save' + eventID; // saves the hikeID to user's document -AN
@@ -136,13 +135,11 @@ function displayCards(collection) {
                 // newcard.querySelector('.card-type').innerHTML = type;
                 // newcard.querySelector('.card-genre').innerHTML = genre;
                 // newcard.querySelector('.card-location').innerHTML = venue;
-                newcard.querySelector('.event-info').innerHTML = details;
                 // newcard.querySelector('.card-date').innerHTML = date;
                 // newcard.querySelector('.card-time').innerHTML = time;
 
                 document.getElementById(collection + "List").appendChild(newcard);
             }
-
         })
 }
 
@@ -182,24 +179,36 @@ function get_first_prev_next_last_button(){
 // // It will add the event to an events array
 // // // fill in the 'favourite icon to indicate user has liked the event
 function saveFavourites(eventID) {
-    currentUser.set({ //CURRENT USER VARIABLE HERE -AN
-            favourites: firebase.firestore.FieldValue.arrayUnion(eventID)
-        }, {
-            merge: true
-        })
-        .then(function () {
-            console.log("this event has been saved for user: " + currentUser); // + current user variable, change later-AN
-            var iconID = 'save-' + eventID;
-            console.log('this iconID:'+iconID);
-            //document.getElementById(iconID).class ="fa-solid fa-heart"; //SOLID RED HEART HERE -AN
-        });
-} // // // ----------- -AN
+    firebase.auth().onAuthStateChanged(user => {
+        if (user) {
+            currentUser = db.collection("users").doc(user.uid); 
+            currentUser.set({ //CURRENT USER VARIABLE HERE -AN
+                    favourites: firebase.firestore.FieldValue.arrayUnion(eventID)
+                }, {
+                    merge: true
+                })
+                .then(function () {
+                    console.log("this event has been saved for user: " + currentUser); // + current user variable, change later-AN
+                    var iconID = 'save-' + eventID;
+                    console.log('this iconID:'+iconID);
+                    //document.getElementById(iconID).class ="fa-solid fa-heart"; //SOLID RED HEART HERE -AN
+                });
+        } // // // ----------- -AN
+    });
+}
+
+function get_eventID(){
+    eventID = $(this).next().next().text()
+    console.log(eventID)
+    saveFavourites(eventID)
+}
 
 function setup(){
     displayCards("events");
     $('#dropdown').change(get_sort_option) // determines if there was a change in the dropdown, i.e, there was a selection
     $('body').on('click', '.page_button', get_current_page)
     $('body').on('click', 'button', get_first_prev_next_last_button)
+    $('body').on('click', 'i', get_eventID)
 }
 
 $(document).ready(setup)
