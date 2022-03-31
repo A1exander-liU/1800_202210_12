@@ -2,10 +2,12 @@
 firebase.auth().onAuthStateChanged(user => {
     // Check if user is signed in:
     if (user) { // if they are
+        console.log("User signed in.")
         $('#login').attr('href', '../main.html') // change the linked html page to index.html
         $('#login').text('Sign Out') // change the button text to signout 
     }
     else { // if they are not
+        console.log("User not signed in.")
         $('#login').attr('href', '../login.html') // change the linked html page to login.html
         $('#login').text('Login') // change the button text to login
 

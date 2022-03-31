@@ -102,6 +102,10 @@ input[type=submit] {
     height: 10vh;
     margin: 0 auto;
 }
+/* Sign in button */
+.mdl-button--raised.mdl-button--colored {
+  background-color: var(--navy);
+}
 
 
 /* media query */
