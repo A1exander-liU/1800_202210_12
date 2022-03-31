@@ -34,7 +34,8 @@ function show_login_prompt(){
         $(".restricted").text("You cannot view your favourited events if you have not signed in.") // customizing the message
         $(".profile_prompt").modal('show')
     }
-    if ($(this).attr('id') == 'wallet') { // checking if the id of the link you click is id of link to wallet.html
+    // grabbing the children inside clicked button, using button instead or else you have to cick center of button to redirect since that is where the a tag, but you want click anywhere on the button
+    if ($(this).children().attr('id') == 'wallet') { // checking if the id of the link you click is id of link to wallet.html
         $(".restricted").text("You cannot view your wallet if you have not signed in.") // customizing the message
         $(".profile_prompt").modal('show')
     }
@@ -47,6 +48,7 @@ function show_login_prompt(){
 function setup(){
     $('body').on('click', '#login', signout) // when you click on the sign in/sign out button call signout function
     $('body').on('click', 'a', show_login_prompt) // when you click on an <a> tag call this
+    $('body').on('click', 'button', show_login_prompt)
 }
 
 $(document).ready(setup)
