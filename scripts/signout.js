@@ -11,6 +11,7 @@ firebase.auth().onAuthStateChanged(user => {
 
         $('#profile').attr('href', '#') // changing the link to blank so they don't get redirected
         $('#favourites').attr('href', '#') // changed the link to blank so they don't get redirected
+        $('#wallet').attr('href', '#')
     }
 })
 
@@ -30,6 +31,10 @@ function show_login_prompt(){
     }
     if ($(this).attr('id') == 'favourites') { // checking if the id of the link you click is id of link to favourites.html
         $("#restricted").text("You cannot view your favourited events if you have not signed in.") // customizing the message
+        $("#profile_prompt").modal('show')
+    }
+    if ($(this).attr('id') == 'wallet') { // checking if the id of the link you click is id of link to wallet.html
+        $("#restricted").text("You cannot view your wallet if you have not signed in.") // customizing the message
         $("#profile_prompt").modal('show')
     }
 }
