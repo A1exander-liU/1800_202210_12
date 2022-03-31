@@ -11,7 +11,7 @@ firebase.auth().onAuthStateChanged(user => {
         $('#login').attr('href', '../login.html') // change the linked html page to login.html
         $('#login').text('Login') // change the button text to login
 
-        $('#profile').attr('href', '#') // changing the link to blank so they don't get redirected
+        // $('#profile').attr('href', '#') // changing the link to blank so they don't get redirected
         $('#favourites').attr('href', '#') // changed the link to blank so they don't get redirected
         $('#wallet').attr('href', '#')
         $('#history').attr('href', '#')
@@ -28,10 +28,10 @@ function signout(){
 }
 
 function show_login_prompt(){
-    if ($(this).attr('id') == 'profile') { // checking if the id of the link you clicked on is id of link to profile.html
-        $(".restricted").text("You cannot view your profile if you have not signed in.") // customizing the message
-        $(".profile_prompt").modal('show') // diplaying the modal
-    }
+    // if ($(this).attr('id') == 'profile') { // checking if the id of the link you clicked on is id of link to profile.html
+    //     $(".restricted").text("You cannot view your profile if you have not signed in.") // customizing the message
+    //     $(".profile_prompt").modal('show') // diplaying the modal
+    // }
     if ($(this).attr('id') == 'favourites') { // checking if the id of the link you click is id of link to favourites.html
         $(".restricted").text("You cannot view your favourited events if you have not signed in.") // customizing the message
         $(".profile_prompt").modal('show')

@@ -1,3 +1,24 @@
+function get_user_location() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(show_current_position)
+  }
+}
+get_user_location()
+
+var userlat;
+var userlong;
+
+function show_current_position(position) {
+  userlat = position.coords.latitude;
+  userlong = position.coords.longitude;
+  nextStep();
+}
+
+function nextStep() {
+  console.log(userlat)
+  console.log(userlong)
+}
+
 // timestamp
 $(".pocket").click(function() {
   const timestamp = firebase.firestore.Timestamp.now();
