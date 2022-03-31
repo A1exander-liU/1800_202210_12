@@ -19,6 +19,7 @@ function signout(){
       
 }
 
+
 function setup(){
     $('body').on('click', '#login', signout)
 }
