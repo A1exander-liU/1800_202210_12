@@ -48,7 +48,7 @@ function show_login_prompt(){
 function setup(){
     $('body').on('click', '#login', signout) // when you click on the sign in/sign out button call signout function
     $('body').on('click', 'a', show_login_prompt) // when you click on an <a> tag call this
-    $('body').on('click', 'button', show_login_prompt)
+    $('body').on('click', 'button', show_login_prompt) // wallet.html is a button
 }
 
 $(document).ready(setup)
