@@ -8,7 +8,7 @@ db.collection("events").get().then((querySnapshot) => { // reads event collectio
   querySnapshot.forEach((doc) => { // loops thru each doc
       // doc.data() is never undefined for query doc snapshots
       console.log(doc.id, " => ", doc.data()); // checking out the event title
-      events.push(doc.data().event_title); // appending it to the list
+      events.push(doc.data().name); // appending it to the list
   });
 });
 
