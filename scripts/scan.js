@@ -19,6 +19,23 @@ $(".pocket").click(function() {
   })
 })
 
+// display name (can change where we want to display their name)
+firebase.auth().onAuthStateChanged(user => {
+  // Check if user is signed in:
+  if (user) {                                                                
+      currentUser = db.collection("users").doc(user.uid);
+      //get the document for current user.
+      currentUser.get()
+      .then(userDoc => {
+         var username = userDoc.data().name; // getting user name
+         console.log(username); // checkin if it is right
+         $("#username").text(username);            
+      })
+  } else {
+      // No user is signed in.
+  }
+});
+
 
 // Populate history cards
 function displayHistoryCards(collection) {
