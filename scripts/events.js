@@ -137,6 +137,7 @@ function displayCards(collection) {
                 // newcard.querySelector('.card-location').innerHTML = venue;
                 // newcard.querySelector('.card-date').innerHTML = date;
                 // newcard.querySelector('.card-time').innerHTML = time;
+                newcard.querySelector('.read-more').href = "moreInfo.html?eventName="+title;
 
                 document.getElementById(collection + "List").appendChild(newcard);
             }
@@ -193,7 +194,7 @@ function saveFavourites(eventID) {
                     console.log('this iconID:'+iconID);
                     //document.getElementById(iconID).class ="fa-solid fa-heart"; //SOLID RED HEART HERE -AN
                 });
-        } // // // ----------- -AN
+        } 
     });
 }
 
