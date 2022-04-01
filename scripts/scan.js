@@ -19,16 +19,17 @@ function show_current_position(position) {
 
 }
 
-function format_address(address){
+function format_address(address){ // storing the recieved object in this variable
   console.log("format address called")
   // console.log(address.results[0])
-  city = address.results[0].locations[0].adminArea5
-  street = address.results[0].locations[0].street
-  useraddress = city + ", " +  street
+  city = address.results[0].locations[0].adminArea5 // just doing some traversal inside object to extract the city
+  street = address.results[0].locations[0].street // just doing some traversal inside the object to extract the address
+  // can change later what we want to extract out
+  useraddress = city + ", " +  street // formatting and concatenating the city with the address
   // console.log(useraddress)
 }
 
-function get_user_address(){
+function get_user_address(){ // just to for api calling to reverse geocode/get address from coordinates
   console.log("ajax called")
   $.ajax(
     { 
