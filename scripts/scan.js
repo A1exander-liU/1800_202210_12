@@ -98,7 +98,7 @@ function displayHistoryCards(collection) {
           var timestamp = doc.data().timeStamp;
           var date = timestamp.toDate();
           var location = doc.data().address
-          console.log(date);
+          console.log(date.toLocaleString());
           console.log(location)
           let newcard = historyTemplate.content.cloneNode(true);
   
