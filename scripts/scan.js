@@ -82,17 +82,19 @@ firebase.auth().onAuthStateChanged(user => {
 function displayHistoryCards(collection) {
   let eventTemplate = document.getElementById("historyTemplate");
 
-  db.collection(collection).get()
+  db.collection(collection).orderBy('timeStamp', "desc").limit(5).get()
     .then(snap => {
       var i = 1;
       snap.forEach(doc => { //iterate thru each doc
         var timestamp = doc.data().timeStamp;
         var date = timestamp.toDate();
+        var location = doc.data().address
         console.log(date);
+        console.log(location)
         let newcard = historyTemplate.content.cloneNode(true);
 
         newcard.querySelector('strong').innerHTML = i + " :"
-        newcard.querySelector('.time-stamp').innerHTML = date;
+        newcard.querySelector('.time-stamp').innerHTML = date + ", " + location;
 
         document.getElementById("historyList").appendChild(newcard);
         i++;
