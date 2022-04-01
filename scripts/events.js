@@ -1,8 +1,17 @@
+<<<<<<< HEAD
+// authentication
+var currentUser;
+firebase.auth().onAuthStateChanged(user => {
+    if (user) {
+        currentUser = db.collection("users").doc(user.uid);   //global
+        console.log(currentUser);
+=======
 // var currentUser;
 // firebase.auth().onAuthStateChanged(user => {
 //     if (user) {
 //         currentUser = db.collection("users").doc(user.uid);   //global
 //         console.log(currentUser);
+>>>>>>> 1ac4f5b87767177e22b2b87191cf02915a0eec16
 
 //     } else {
 //         // No user is signed in.
@@ -15,7 +24,7 @@ function favourite_this_card(eventID){
     console.log("successful call" + eventID)
 }
 
-
+// populate database with sports events
 async function readJSON() {
   i = 0
   const response = await fetch(
@@ -68,8 +77,13 @@ function display_page_buttons(total_pages){
 
 // read events collection and display onto events.html
 function displayCards(collection) {
+<<<<<<< HEAD
+    let cardTemplate = document.getElementById("eventCardTemplate")
+    // let select = document.getElementById('dropdown').value;/// not automatic need to refresh to see result -AN
+=======
     let cardTemplate = document.getElementById("eventTemplate")
     // let select = document.getElementById('dropdown').value;/// not automatic need to refres to see result -AN
+>>>>>>> 1ac4f5b87767177e22b2b87191cf02915a0eec16
     let events_array = []
     db.collection(collection)
     .orderBy(select, order) //sorting by options from drop down
@@ -100,6 +114,11 @@ function displayCards(collection) {
                 // newcard.querySelector('.card-time').innerHTML = time;
                 // newcard.querySelector('.card-image').src = "./images/" + collection + ".jpg"; //hikes.jpg
 
+<<<<<<< HEAD
+
+                newcard.querySelector('i').id = 'save' + eventID;
+                newcard.querySelector('i').onclick = () =>saveFavourites(eventID);
+=======
                 //give unique ids to all elemrd-title').setAttribute("id", "ctitle" + i);
                 // newcard.querySelector('.ents for future use
                 // newcard.querySelector('.cacard-text').setAttribute("id", "ctext" + i);
@@ -107,6 +126,7 @@ function displayCards(collection) {
 
                 // newcard.querySelector('i').id = 'save' + eventID; // saves the hikeID to user's document -AN
                 // newcard.querySelector('i').onclick = () =>saveFavourites(eventID); //the hikeId as input -AN
+>>>>>>> 1ac4f5b87767177e22b2b87191cf02915a0eec16
 
                 //attach to gallery
                 // document.getElementById(collection + "-go-here").appendChild(newcard);

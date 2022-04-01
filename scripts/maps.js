@@ -1,7 +1,4 @@
 
-
-
-
 // MAPBOX DISPLAY
 function display_past_scans() {
 
