@@ -7,11 +7,7 @@ var events = [];
 db.collection("events").get().then((querySnapshot) => { // reads event collection
   querySnapshot.forEach((doc) => { // loops thru each doc
       // doc.data() is never undefined for query doc snapshots
-<<<<<<< HEAD
       // console.log(doc.id, " => ", doc.data());
-=======
-      console.log(doc.id, " => ", doc.data()); // checking out the event title
->>>>>>> 1ac4f5b87767177e22b2b87191cf02915a0eec16
       events.push(doc.data().name); // appending it to the list
   });
 });
