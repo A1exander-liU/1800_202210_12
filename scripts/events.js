@@ -221,7 +221,7 @@ function setup(){
     $('body').on('click', '.page_button', get_current_page)
     $('body').on('click', 'button', get_first_prev_next_last_button)
     $('body').on('click', 'i', get_eventID)
-    $('body').on('click', 'a', get_details)
+    $('body').on('click', '.read-more', get_details)
 }
     
 $(document).ready(setup)
