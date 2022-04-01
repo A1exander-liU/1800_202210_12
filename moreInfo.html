@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <!-- title -->
+  <title>pocketBook</title>
+
+  <!-- meta -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-------------------------------------------------------->
+  <!-- Firebase 8 Library related CSS, JS, JQuery ---------->
+  <!-------------------------------------------------------->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+  <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
+
+
+  <!-- bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+  <!-- fontawesome -->
+  <script src="https://kit.fontawesome.com/1c466c7021.js" crossorigin="anonymous"></script>
+
+  <!-- css -->
+  <link rel="stylesheet" href="./css/styles.css">
+
+  <!-- js -->
+  <script src="./scripts/events.js"></script>
+</head>
+
+<body id="eventsPage" class="white">
+  <!-- header -->
+  <nav id="headerPlaceholder" class="black"></nav>
+  <nav id="menubarPlaceholder" class="navy sticky-top"></nav>
+
+  <!-- events -->
+  <div class="container">
+    <h1 class="my-5 pb-4 border-bottom border-dark">
+      About<span class="name"></span>
+    </h1>
+
+    <div id="aboutEvent">
+      <div class="p-4 p-md-5 mb-4 text-white rounded bg-dark">
+        <div class="col-md-6 px-0">
+          <img src="image" width="100%">
+        </div>
+      </div>
+
+      <div class="row mb-2">
+        <div class="row g-5">
+          <div class="col-md-8">
+
+            <h2 class="pb-4 mb-4 fst-italic border-bottom name">
+              Title goes here
+            </h2>
+
+            <p class="card-text mb-auto text-truncate details">This shows details of the event</p>
+
+
+          </div>
+          <!--SIDE DIV-->
+          <div class="col-md-4">
+            <div class="position-sticky" style="top: 2rem;">
+              <div class="p-4">
+                <h4 class="fst-italic">Tickets</h4>
+                <p>This is some additional ticket information.</p>
+              </div>
+              <button class="btn btn-dark my-2 navy" type="button" name="button">Tickets</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+
+    <!-- Pagination Buttons -->
+    <!-- <div class="container">
+    <div class="container text-center">
+
+      <button type="button" class="btn navy text-white" id="first">
+        First
+      </button>
+      <button type="button" class="btn navy text-white" id="prev">
+        Prev
+      </button>
+      <!-- Span used to hold page buttons -->
+    <!-- <span id="page_buttons"></span>
+      <button type="button" class="btn navy text-white" id="next">
+        Next
+      </button>
+      <button type="button" class="btn navy text-white" id="last">
+        Last
+      </button>
+    </div>
+  </div>  -->
+
+    <div class="container">
+      <div id="eventsList" class="row row-cols-auto">
+        <!-- Templates for general use, not displayed -->
+      </div>
+    </div>
+  </div>
+
+
+  <!-- floating button -->
+  <div id="buttonPlaceholder"></div>
+
+  <!-- footer -->
+  <nav id="footerPlaceholder" class="black"></nav>
+
+  <!-- JavaScript -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"></script>
+  <script src="scripts/firebaseAPI_TEAM12.js"></script>
+  <script src="scripts/global.js"></script>
+  <script src="scripts/events.js"></script>
+  <script src="scripts/index.js"></script>
+  <script src="scripts/moreInfo.js"></script>
+  <!-- <script src="scripts/main.js"></script>  NO MAIN.JS ON FILE MAYBE  -AN-->
+</body>
+
+</html>
