@@ -1,3 +1,4 @@
+// authentication
 var currentUser;
 firebase.auth().onAuthStateChanged(user => {
     if (user) {
@@ -16,7 +17,7 @@ function favourite_this_card(eventID){
 
 }
 
-
+// populate database with sports events
 async function readJSON() {
   i = 0
   const response = await fetch(
@@ -67,7 +68,7 @@ function display_page_buttons(total_pages){
 // read events collection and display onto events.html
 function displayCards(collection) {
     let cardTemplate = document.getElementById("eventCardTemplate")
-    // let select = document.getElementById('dropdown').value;/// not automatic need to refres to see result -AN
+    // let select = document.getElementById('dropdown').value;/// not automatic need to refresh to see result -AN
     let events_array = []
     db.collection(collection)
     .orderBy(select) //sorting by options from drop down
@@ -98,13 +99,9 @@ function displayCards(collection) {
                 newcard.querySelector('.card-time').innerHTML = time;
                 // newcard.querySelector('.card-image').src = "./images/" + collection + ".jpg"; //hikes.jpg
 
-                //give unique ids to all elements for future use
-                // newcard.querySelector('.card-title').setAttribute("id", "ctitle" + i);
-                // newcard.querySelector('.card-text').setAttribute("id", "ctext" + i);
-                // newcard.querySelector('.card-image').setAttribute("id", "cimage" + i);
 
-                newcard.querySelector('i').id = 'save' + eventID; // saves the hikeID to user's document -AN
-                newcard.querySelector('i').onclick = () =>saveFavourites(eventID); //the hikeId as input -AN
+                newcard.querySelector('i').id = 'save' + eventID;
+                newcard.querySelector('i').onclick = () =>saveFavourites(eventID);
 
                 //attach to gallery
                 // document.getElementById(collection + "-go-here").appendChild(newcard);
