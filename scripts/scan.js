@@ -30,12 +30,18 @@ function add_scan_to_db() { // add the scan to the db
     console.log(userName);
     })
 
-    db.collection("history").add({
-    name: currentUser,
-    timeStamp: timeStamp,
-    coordinates: [userlong, userlat], // adding long before lat because mapboxgl accepts coords as [long, lat] not [lat, long]
-    address: useraddress, // formatted address can add more stuff if we wanna
+    currentUser.collection("history").add({ // craeting a history subcollection in the current user doc
+      timeStamp: timeStamp, 
+      coordinates: [userlong, userlat],
+      address: useraddress,
     })
+
+    // db.collection("history").add({
+    // name: currentUser,
+    // timeStamp: timeStamp,
+    // coordinates: [userlong, userlat], // adding long before lat because mapboxgl accepts coords as [long, lat] not [lat, long]
+    // address: useraddress, // formatted address can add more stuff if we wanna
+    // })
     }
   })
 }
