@@ -41,69 +41,48 @@
 
   <!-- events -->
   <div class="container">
-    <h1 class="my-5 pb-4 border-bottom border-dark">About<span class="card-title my-2 text-truncate event-title"></span>
+    <h1 class="my-5 pb-4 border-bottom border-dark">
+      About<span class="name"></span>
     </h1>
 
-    <!-- Sorting button that changes the order of cards -->
-    <!-- <div class="sortingOption">
-      Sort By:
-      <select class="btn btn-secondary btn-sm btn-dark navy" id="dropdown">
-        <option value="name" id="asc">A - Z</option>
-        <option value="name" id="desc">Z - A</option>
-      </select> -->
+    <div id="aboutEvent">
+      <div class="p-4 p-md-5 mb-4 text-white rounded bg-dark">
+        <div class="col-md-6 px-0">
+          <img src="image" width="100%">
+        </div>
+      </div>
 
-    <!-- button that links to favoutires page-->
-    <!-- <div class="btn-group">
-        <a class="btn btn-secondary btn-sm btn-dark navy" type="button" href="favourites.html">Favourites </a>
-      </div> -->
+      <div class="row mb-2">
+        <div class="row g-5">
+          <div class="col-md-8">
 
-  </div>
+            <h2 class="pb-4 mb-4 fst-italic border-bottom name">
+              Title goes here
+            </h2>
 
-  <div class="container">
-    <div id="eventsList" class="row row-cols-auto">
-      <!-- Templates for general use, not displayed -->
-      <template id="eventTemplate">
-        <div class="col-lg">
-          <div class="row g-0 border overflow-hidden flex-md-row mb-4 h-md-250 position-relative">
-            <div class="col p-4 d-flex flex-column position-static w-50 align-items-stretch">
-              <i class="fa-regular fa-heart"></i>
-              <strong class="d-inline-block mb-2">Sports</strong>
-              <h3 class="card-title my-2 text-truncate event-title">Title</h3>
-              <div class="mb-1 text-muted card-date">Date: </div>
-              <br>
-              <div class="mb-1 text-muted card-time">Time: <span>time_zone</span> </div>
-              <br>
-              <div class="mb-1 text-muted card-location">Venue: </div>
-              <br>
-              <hr>
-              <div class="card-text mb-auto event-info">Short description of the event.</div>
-            </div>
-            <div class="col-auto d-lg-block w-50">
-              <img class="card-img w-100 event-img" src="images/olympics01.jpg">
+            <p class="card-text mb-auto text-truncate details">This shows details of the event</p>
 
-              <div>
-                <div class="mb-1 text-muted card-genre">Genre:</div>
-                <br>
 
+          </div>
+          <!--SIDE DIV-->
+          <div class="col-md-4">
+            <div class="position-sticky" style="top: 2rem;">
+              <div class="p-4">
+                <h4 class="fst-italic">Tickets</h4>
+                <p>This is some additional ticket information.</p>
               </div>
-
-              <div>
-                <div class="mb-1 text-muted">Price: <span>low price</span> - <span>high prices</span>
-                  <strong>currency</strong></div>
-
-                <button class="btn btn-dark my-2 navy" type="button" name="button">Tickets</button>
-              </div>
+              <button class="btn btn-dark my-2 navy" type="button" name="button">Tickets</button>
             </div>
           </div>
         </div>
-      </template>
+
+      </div>
     </div>
-  </div>
-  </div>
 
 
-  <!-- Pagination Buttons -->
-  <!-- <div class="container">
+
+    <!-- Pagination Buttons -->
+    <!-- <div class="container">
     <div class="container text-center">
 
       <button type="button" class="btn navy text-white" id="first">
@@ -113,7 +92,7 @@
         Prev
       </button>
       <!-- Span used to hold page buttons -->
-  <!-- <span id="page_buttons"></span>
+    <!-- <span id="page_buttons"></span>
       <button type="button" class="btn navy text-white" id="next">
         Next
       </button>
@@ -123,11 +102,11 @@
     </div>
   </div>  -->
 
-  <div class="container">
-    <div id="eventsList" class="row row-cols-auto">
-      <!-- Templates for general use, not displayed -->
+    <div class="container">
+      <div id="eventsList" class="row row-cols-auto">
+        <!-- Templates for general use, not displayed -->
+      </div>
     </div>
-  </div>
   </div>
 
 
@@ -145,6 +124,7 @@
   <script src="scripts/global.js"></script>
   <script src="scripts/events.js"></script>
   <script src="scripts/index.js"></script>
+  <script src="scripts/moreInfo.js"></script>
   <!-- <script src="scripts/main.js"></script>  NO MAIN.JS ON FILE MAYBE  -AN-->
 </body>
 
