@@ -116,7 +116,7 @@ input[type=submit] {
 	.carousel-bg::before,
 	.carousel-bg:nth-child(2)::before,
 	.carousel-bg:last-child::before {
-		background-image: none;
+	background-image: none;
 	}
 	.carousel-bg img {
 		width: 100%;
