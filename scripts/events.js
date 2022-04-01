@@ -1,9 +1,17 @@
+
+// authentication
 // var currentUser;
 // firebase.auth().onAuthStateChanged(user => {
 //     if (user) {
 //         currentUser = db.collection("users").doc(user.uid);   //global
 //         console.log(currentUser);
+    
 
+// var currentUser;
+// firebase.auth().onAuthStateChanged(user => {
+//     if (user) {
+//         currentUser = db.collection("users").doc(user.uid);   //global
+//         console.log(currentUser);
 //     } else {
 //         // No user is signed in.
 //         console.log("No user is signed in");
@@ -68,6 +76,8 @@ function display_page_buttons(total_pages){
 
 // read events collection and display onto events.html
 function displayCards(collection) {
+    // let cardTemplate = document.getElementById("eventCardTemplate")
+    // let select = document.getElementById('dropdown').value;/// not automatic need to refresh to see result -AN
     let cardTemplate = document.getElementById("eventTemplate")
     // let select = document.getElementById('dropdown').value;/// not automatic need to refres to see result -AN
     let events_array = []
@@ -88,7 +98,6 @@ function displayCards(collection) {
                 // var time = doc.data().time; // get event time
                 // var venue = doc.data().venue.location; // get event location
                 let newcard = cardTemplate.content.cloneNode(true);
-
                 //update card info
                 var eventID = doc.id
                 newcard.querySelector('.event-title').innerHTML = title;
@@ -104,10 +113,8 @@ function displayCards(collection) {
                 // newcard.querySelector('.ents for future use
                 // newcard.querySelector('.cacard-text').setAttribute("id", "ctext" + i);
                 // newcard.querySelector('.card-image').setAttribute("id", "cimage" + i);
-
                 // newcard.querySelector('i').id = 'save' + eventID; // saves the hikeID to user's document -AN
                 // newcard.querySelector('i').onclick = () =>saveFavourites(eventID); //the hikeId as input -AN
-
                 //attach to gallery
                 // document.getElementById(collection + "-go-here").appendChild(newcard);
                 i++;
@@ -182,7 +189,7 @@ function get_first_prev_next_last_button(){
 function saveFavourites(eventID) {
     firebase.auth().onAuthStateChanged(user => {
         if (user) {
-            currentUser = db.collection("users").doc(user.uid); 
+            currentUser = db.collection("users").doc(user.uid);
             currentUser.set({ //CURRENT USER VARIABLE HERE -AN
                     favourites: firebase.firestore.FieldValue.arrayUnion(eventID)
                 }, {
@@ -194,7 +201,7 @@ function saveFavourites(eventID) {
                     console.log('this iconID:'+iconID);
                     //document.getElementById(iconID).class ="fa-solid fa-heart"; //SOLID RED HEART HERE -AN
                 });
-        } 
+        }
     });
 }
 
@@ -216,5 +223,5 @@ function setup(){
     $('body').on('click', 'i', get_eventID)
     $('body').on('click', 'a', get_details)
 }
-
+    
 $(document).ready(setup)
