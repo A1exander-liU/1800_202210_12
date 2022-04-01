@@ -75,7 +75,7 @@ function display_page_buttons(total_pages){
 
 // read events collection and display onto events.html
 function displayCards(collection) {
-    let cardTemplate = document.getElementById("eventCardTemplate")
+    // let cardTemplate = document.getElementById("eventCardTemplate")
     // let select = document.getElementById('dropdown').value;/// not automatic need to refresh to see result -AN
     let cardTemplate = document.getElementById("eventTemplate")
     // let select = document.getElementById('dropdown').value;/// not automatic need to refres to see result -AN
