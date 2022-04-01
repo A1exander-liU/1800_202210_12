@@ -6,9 +6,19 @@ var events = [];
 
 db.collection("events").get().then((querySnapshot) => { // reads event collection
   querySnapshot.forEach((doc) => { // loops thru each doc
+<<<<<<< HEAD
     // doc.data() is never undefined for query doc snapshots
     console.log(doc.id, " => ", doc.data()); // checking out the event title
     events.push(doc.data().name); // appending it to the list
+=======
+      // doc.data() is never undefined for query doc snapshots
+<<<<<<< HEAD
+      // console.log(doc.id, " => ", doc.data());
+=======
+      console.log(doc.id, " => ", doc.data()); // checking out the event title
+>>>>>>> 1ac4f5b87767177e22b2b87191cf02915a0eec16
+      events.push(doc.data().name); // appending it to the list
+>>>>>>> eded63c88d24feaec75b1fae8c1a1ee14ca4ffdf
   });
 });
 
@@ -101,7 +111,7 @@ function autocomplete(inp, arr) {
     for (var i = 0; i < x.length; i++) {
       if (elmnt != x[i] && elmnt != inp) {
         x[i].parentNode.removeChild(x[i]);
-        window.location.href = ('moreInfo.html?eventName=Aquafit')
+  
       }
 
     }

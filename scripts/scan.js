@@ -19,6 +19,10 @@ function show_current_position(position) {
 
 }
 
+function go_to_map() {
+  window.location = "maps.html"
+}
+
 function add_scan_to_db() { // add the scan to the db
   const timeStamp = firebase.firestore.Timestamp.now() // getting current timestamp
   console.log(timeStamp)
@@ -98,7 +102,7 @@ function displayHistoryCards(collection) {
           var timestamp = doc.data().timeStamp;
           var date = timestamp.toDate();
           var location = doc.data().address
-          console.log(date);
+          console.log(date.toLocaleString());
           console.log(location)
           let newcard = historyTemplate.content.cloneNode(true);
   

@@ -1,7 +1,4 @@
 
-
-
-
 // MAPBOX DISPLAY
 function display_past_scans() {
 
@@ -34,7 +31,7 @@ function display_past_scans() {
                         features.push({
                             'type': 'Feature',
                             'properties': {
-                                'description': `<strong>Location: ${place}</strong><p>Scanned on: ${time.toDate()}</p>`,
+                                'description': `<strong>Location: ${place}</strong><p>Scanned on: ${time.toDate().toLocaleString()}</p>`,
                                 'icon': 'marker-15' // need to change size
                             },
                             'geometry': {
