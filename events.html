@@ -82,7 +82,7 @@
         </template>
       </div>
     </div>
-  </div> 
+  </div>
 
 
 
@@ -114,7 +114,7 @@
   </div>
   </div>
 
-  <!-- <template id="eventTemplate">
+  <template id="eventTemplate">
     <div class="col-md-6">
       <div class="row g-0 border overflow-hidden flex-md-row mb-4 h-md-250 position-relative">
         <div class="col p-4 d-flex flex-column position-static w-50 align-items-stretch">
@@ -130,7 +130,7 @@
         </div>
       </div>
     </div>
-  </template> -->
+  </template>
 
 
   <!--Pagination buttons-->
@@ -144,6 +144,26 @@
   <li class="page-item"><a class="page-link" id="next">Next</a></li>
 </ul>
 </div> -->
+
+  <!-- Modal to prompt user to login/sign up -->
+  <div class="modal fade profile_prompt" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">Unable to perform this action</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body restricted">
+          You cannot save your information if you have not signed in.
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <a href="login.html"><button type="button" class="btn navy text-white" id="prompt">SignUp/Login</button></a>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- floating button -->
   <div id="buttonPlaceholder"></div>
@@ -159,6 +179,7 @@
   <script src="scripts/global.js"></script>
   <script src="scripts/events.js"></script>
   <script src="scripts/index.js"></script>
+  <script src="scripts/signout.js"></script>
   <!-- <script src="scripts/main.js"></script>  NO MAIN.JS ON FILE MAYBE  -AN-->
 </body>
 

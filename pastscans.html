@@ -19,7 +19,6 @@
   <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
   <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
 
-
   <!-- bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
@@ -37,7 +36,7 @@
 
   <!-- history -->
   <div class="container">
-    <h1 class="my-5 pb-4 border-bottom border-dark">Recent Scans</h1>
+    <h1 class="my-5 pb-4 border-bottom border-dark"><span id="username"></span>'s Recent Scans</h1>
     <div id="historyList" class="d-flex flex-column align-items-stretch flex-shrink-0">
       <template id="historyTemplate">
         <a href="#" class="list-group-item list-group-item-action py-3 lh-tight">
