@@ -19,6 +19,10 @@ function show_current_position(position) {
 
 }
 
+function go_to_map() {
+  window.location = "maps.html"
+}
+
 function add_scan_to_db() { // add the scan to the db
   const timeStamp = firebase.firestore.Timestamp.now() // getting current timestamp
   console.log(timeStamp)
