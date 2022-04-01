@@ -121,16 +121,11 @@ input[type=submit] {
 	.carousel-bg img {
 		width: 100%;
 	}
-  .navbar-nav.nav-justified.w-100.text-center.flex-row{
-    bottom: 0vh;
-    position: fixed;
-    background-color: #30475E;
-  }
 }
 
 @media screen and (min-width:768px) {
 	.btn-floating button {
 		width: 10vh;
 		height: 10vh;
-	} 
+	}
 }
