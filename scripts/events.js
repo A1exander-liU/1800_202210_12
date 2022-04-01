@@ -1,10 +1,11 @@
 
 // authentication
-var currentUser;
-firebase.auth().onAuthStateChanged(user => {
-    if (user) {
-        currentUser = db.collection("users").doc(user.uid);   //global
-        console.log(currentUser);
+// var currentUser;
+// firebase.auth().onAuthStateChanged(user => {
+//     if (user) {
+//         currentUser = db.collection("users").doc(user.uid);   //global
+//         console.log(currentUser);
+    
 
 // var currentUser;
 // firebase.auth().onAuthStateChanged(user => {
@@ -108,9 +109,6 @@ function displayCards(collection) {
                 // newcard.querySelector('.card-time').innerHTML = time;
                 // newcard.querySelector('.card-image').src = "./images/" + collection + ".jpg"; //hikes.jpg
 
-                newcard.querySelector('i').id = 'save' + eventID;
-                newcard.querySelector('i').onclick = () =>saveFavourites(eventID);
-
                 //give unique ids to all elemrd-title').setAttribute("id", "ctitle" + i);
                 // newcard.querySelector('.ents for future use
                 // newcard.querySelector('.cacard-text').setAttribute("id", "ctext" + i);
@@ -208,7 +206,8 @@ function saveFavourites(eventID) {
 }
 
 function get_details(){
-    window.location.href= ('moreInfo.html?eventName=+title')
+    window.location.href = ('moreInfo.html?eventName=+title')
+    
 }
 function get_eventID(){
     eventID = $(this).next().next().text()
@@ -224,5 +223,5 @@ function setup(){
     $('body').on('click', 'i', get_eventID)
     $('body').on('click', 'a', get_details)
 }
-
+    
 $(document).ready(setup)
