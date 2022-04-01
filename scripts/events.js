@@ -95,7 +95,7 @@ function displayCards(collection) {
                 // newcard.querySelector('.card-type').innerHTML = type;
                 // newcard.querySelector('.card-genre').innerHTML = genre;
                 // newcard.querySelector('.card-location').innerHTML = venue;
-                newcard.querySelector('.event-info').innerHTML = details;
+                // newcard.querySelector('.event-info').innerHTML = details;
                 // newcard.querySelector('.card-date').innerHTML = date;
                 // newcard.querySelector('.card-time').innerHTML = time;
                 // newcard.querySelector('.card-image').src = "./images/" + collection + ".jpg"; //hikes.jpg
@@ -199,7 +199,7 @@ function saveFavourites(eventID) {
 }
 
 function get_details(){
-    window.location.href= ('moreInfo.html?eventName=+title')
+    window.location.href= ('moreInfo.html?eventName=Aquafit')
 }
 function get_eventID(){
     eventID = $(this).next().next().text()
