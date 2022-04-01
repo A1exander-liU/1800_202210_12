@@ -1,21 +1,31 @@
 /// this a function that creates a URL of the selected object then display the remaining details left out from the cards thats in the database///
-function showDetails(eventID) {
-   
-    console.log( eventID + "is inside the show details")
-    let params = new URL(window.location.href); ///ceates a URL object
-    let name = params.searchParams.get("name")
-    console.log("MY name:" + name)
-    let image = params.searchParams.get("image")
-    let details = params.searchParams.get("details")
+function showDetails() {
+
+    let params = new URL(window.location.href); ///creates a URL object
+    let name = params.searchParams.get("eventName")
+    console.log("MY name:" + name + "myparams: "+ params)
     
-    // newCard.querySelector('name').innerHTML = id ;
-    // newCard.querySelector('image') = image ;
-    // newCard.querySelector('details') = details ;
-    document.getElementsByClassName("name").innerHTML = name;  
-    document.getElementsByClassName("details").innerHTML = details; 
-    // $(".name").innerHTML(id);
+    db.collection("events").where('name','==', name)
+    .get()
+    .then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+            console.log(`${doc.id} => ${doc.data()}`);
+            var dname = doc.name
+            var details = doc.details
+            console.log("MY name:" + name + "the Dname is:" + dname + " details" + details)
+            document.getElementsByClassName("name").innerHTML = name;
+        });
     
-   
+    // db.collection("events").where("name", "==", name)
+    // .get().then(doc => {
+    //     console.log(doc + "this is in show DETAILS")
+    //     // console.log("MY name:" + name + "details" + details)
+
+    //    
+    //     document.getElementsByClassName("details").innerHTML = details;
+    //     $(".name").innerHTML(name);
+
+    });
 }
 
 showDetails();
