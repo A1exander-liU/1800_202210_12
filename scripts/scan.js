@@ -19,14 +19,36 @@ function show_current_position(position) {
 
 }
 
+function add_scan_to_db() { // add the scan to the db
+  const timeStamp = firebase.firestore.Timestamp.now() // getting current timestamp
+  console.log(timeStamp)
+  firebase.auth().onAuthStateChanged(user => { // check if they are logged in
+  if (user) { // if they are logged in
+    var currentUser = db.collection("users").doc(user.uid);
+    currentUser.get().then(userDoc => {
+    var userName = userDoc.data().name;
+    console.log(userName);
+    })
+
+    db.collection("history").add({
+    name: currentUser,
+    timeStamp: timeStamp,
+    coordinates: [userlong, userlat], // adding long before lat because mapboxgl accepts coords as [long, lat] not [lat, long]
+    address: useraddress, // formatted address can add more stuff if we wanna
+    })
+    }
+  })
+}
+
 function format_address(address){ // storing the recieved object in this variable
-  console.log("format address called")
+  console.log("request processing...")
   // console.log(address.results[0])
   city = address.results[0].locations[0].adminArea5 // just doing some traversal inside object to extract the city
   street = address.results[0].locations[0].street // just doing some traversal inside the object to extract the address
   // can change later what we want to extract out
   useraddress = city + ", " +  street // formatting and concatenating the city with the address
-  // console.log(useraddress)
+  console.log(useraddress)
+  add_scan_to_db()
 }
 
 function get_user_address(){ // just to for api calling to reverse geocode/get address from coordinates
@@ -37,32 +59,7 @@ function get_user_address(){ // just to for api calling to reverse geocode/get a
         "type": "GET",
         "success": format_address
     }
-)
-}
-
-// timestamp
-$(".pocket").click(function() {
-  const timestamp = firebase.firestore.Timestamp.now();
-  console.log(timestamp);
-
-  firebase.auth().onAuthStateChanged(user => {
-    if (user) {
-      get_user_address()
-      var currentUser = db.collection("users").doc(user.uid);
-      currentUser.get().then(userDoc => {
-        var userName = userDoc.data().name;
-        console.log(userName);
-      })
-
-      db.collection("history").add({
-        name: currentUser,
-        timeStamp: timestamp,
-        coordinates: [userlat, userlong],
-        address: useraddress,
-      })
-    }
-  })
-})
+)}
 
 // display name (can change where we want to display their name)
 firebase.auth().onAuthStateChanged(user => {
@@ -80,7 +77,6 @@ firebase.auth().onAuthStateChanged(user => {
       // No user is signed in.
   }
 });
-
 
 // Populate history cards
 function displayHistoryCards(collection) {
@@ -107,3 +103,9 @@ function displayHistoryCards(collection) {
 if($("body").is("#historyPage")){
   displayHistoryCards("history");
 }
+
+function setup(){
+  $('.pocket').click(get_user_address)
+}
+
+$(document).ready(setup)

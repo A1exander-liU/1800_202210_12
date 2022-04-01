@@ -24,8 +24,8 @@ function display_past_scans() {
         db.collection("history").get().then(testmap => {
             testmap.forEach(scan => {
                 coordinates = scan.data().coordinates;
-                time = scan.data().date
-                place = scan.data().place;
+                place = scan.data().address;
+                time = scan.data().timeStamp
                 // console.log(coordinates, time.toDate());
                 // url = scan.data().url;
 
@@ -33,7 +33,7 @@ function display_past_scans() {
                     'type': 'Feature',
                     'properties': {
                         'description': `<strong>Location: ${place}</strong><p>Scanned on: ${time.toDate()}</p>`,
-                        'icon': 'mountain-15'
+                        'icon': 'marker-15' // need to change size
                     },
                     'geometry': {
                         'type': 'Point',
