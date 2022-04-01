@@ -199,7 +199,10 @@ function saveFavourites(eventID) {
 }
 
 function get_details(){
-    window.location.href= ('moreInfo.html?eventName=Aquafit')
+    eventID = $(this)
+    var name = name //get the event is and place in a variable 
+    var testweb = "moreInfo.html?eventName=" + name //create link with variable name
+    window.location.href= testweb
 }
 function get_eventID(){
     eventID = $(this).next().next().text()
