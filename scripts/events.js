@@ -199,8 +199,8 @@ function saveFavourites(eventID) {
 }
 
 function get_details(){
-    eventID = $(this)
-    var name = name //get the event is and place in a variable 
+    eventID = $(this).prev().prev().prev().text()
+    var name = eventID //get the event is and place in a variable 
     var testweb = "moreInfo.html?eventName=" + name //create link with variable name
     window.location.href= testweb
 }
