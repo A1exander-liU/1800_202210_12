@@ -30,12 +30,18 @@ function add_scan_to_db() { // add the scan to the db
     console.log(userName);
     })
 
-    db.collection("history").add({
-    name: currentUser,
-    timeStamp: timeStamp,
-    coordinates: [userlong, userlat], // adding long before lat because mapboxgl accepts coords as [long, lat] not [lat, long]
-    address: useraddress, // formatted address can add more stuff if we wanna
+    currentUser.collection("history").add({ // craeting a history subcollection in the current user doc
+      timeStamp: timeStamp, 
+      coordinates: [userlong, userlat],
+      address: useraddress,
     })
+
+    // db.collection("history").add({
+    // name: currentUser,
+    // timeStamp: timeStamp,
+    // coordinates: [userlong, userlat], // adding long before lat because mapboxgl accepts coords as [long, lat] not [lat, long]
+    // address: useraddress, // formatted address can add more stuff if we wanna
+    // })
     }
   })
 }
@@ -82,24 +88,29 @@ firebase.auth().onAuthStateChanged(user => {
 function displayHistoryCards(collection) {
   let eventTemplate = document.getElementById("historyTemplate");
 
-  db.collection(collection).orderBy('timeStamp', "desc").limit(5).get()
-    .then(snap => {
-      var i = 1;
-      snap.forEach(doc => { //iterate thru each doc
-        var timestamp = doc.data().timeStamp;
-        var date = timestamp.toDate();
-        var location = doc.data().address
-        console.log(date);
-        console.log(location)
-        let newcard = historyTemplate.content.cloneNode(true);
-
-        newcard.querySelector('strong').innerHTML = i + " :"
-        newcard.querySelector('.time-stamp').innerHTML = date + ", " + location;
-
-        document.getElementById("historyList").appendChild(newcard);
-        i++;
+  firebase.auth().onAuthStateChanged(user => {
+    if (user) {
+      currentUser = db.collection("users").doc(user.uid)
+      currentUser.collection(collection).orderBy('timeStamp', "desc").limit(5).get()
+      .then(snap => {
+        var i = 1;
+        snap.forEach(doc => { //iterate thru each doc
+          var timestamp = doc.data().timeStamp;
+          var date = timestamp.toDate();
+          var location = doc.data().address
+          console.log(date);
+          console.log(location)
+          let newcard = historyTemplate.content.cloneNode(true);
+  
+          newcard.querySelector('strong').innerHTML = i + " :"
+          newcard.querySelector('.time-stamp').innerHTML = date + ", " + location;
+  
+          document.getElementById("historyList").appendChild(newcard);
+          i++;
+        })
       })
-    })
+    }
+  })
 }
 
 if($("body").is("#historyPage")){
