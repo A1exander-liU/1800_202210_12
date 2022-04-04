@@ -13,28 +13,17 @@ function showDetails() {
                 console.log(doc.id, " => ", doc.data());
                 var data = doc.data();
                 details = data.details
-
-                console.log("these are inside: " + details);
-
+                image = data.image
+                photo = document.getElementById("photo");
+                photo.src = image
                 document.querySelector(".details").innerHTML = details;
 
-
+                console.log("these are inside: " + details + image);
 
             });
-
         });
-
-
-
-
-
-
     document.querySelector(".name").innerHTML = name;
     console.log("these are outside: " + name + details)
-
-
-
-
 }
 
 showDetails();
