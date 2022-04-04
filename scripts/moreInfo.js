@@ -6,7 +6,7 @@ function showDetails() {
     var name = params.searchParams.get("eventName")
     console.log("MY name:" + name + "myparams: " + params)
 
-    db.collection("events").where('name', '==', name)
+    db.collection("events").where('name', '==', name) //filter the events based on the field give by the href link
         .get()
         .then(function (querySnapshot) {
             querySnapshot.forEach(function (doc) {
@@ -14,8 +14,12 @@ function showDetails() {
                 var data = doc.data();
                 details = data.details
                 image = data.image
+
+                //these append the imagelink into a variable that is populated img='' 
                 photo = document.getElementById("photo");
                 photo.src = image
+
+                // populates details of the event 
                 document.querySelector(".details").innerHTML = details;
 
                 console.log("these are inside: " + details + image);
