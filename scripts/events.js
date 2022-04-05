@@ -130,6 +130,7 @@ function displayCards(collection) {
                 let newcard = cardTemplate.content.cloneNode(true);
 
                 var title = events_array[start_index].name; // get event title
+                console.log(title)
                 // var type = events_array[start_index].type; // get event type
                 // var genre = events_array[start_index].genre; // get event genre
                 var details = events_array[start_index].details; // get event info
@@ -212,6 +213,7 @@ function get_details(){
 function get_eventID(){
     eventID = $(this).next().next().text()
     console.log(eventID)
+    $(this).attr('class', 'fa-solid fa-heart')
     saveFavourites(eventID)
 }
 

@@ -13,14 +13,14 @@ function display_past_scans() {
     });
 
     // Add zoom and rotation controls to the map.
-    map.addControl(new mapboxgl.NavigationControl());
+    map.addControl(new mapboxgl.NavigationControl()); 
 
     map.on('load', () => {
         const features = [];
         firebase.auth().onAuthStateChanged(user => {
             if (user) {
                 currentUser = db.collection("users").doc(user.uid)
-                currentUser.collection("history").get().then(testmap => {
+                currentUser.collection("history").orderBy('timeStamp', 'desc').limit(5).get().then(testmap => {
                     testmap.forEach(scan => {
                         coordinates = scan.data().coordinates;
                         place = scan.data().address;
