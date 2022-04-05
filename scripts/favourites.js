@@ -30,8 +30,8 @@ function getFavourites(user) {
                         let newCard = CardTemplate.content.cloneNode(true);
                         newCard.querySelector('.card-title').innerHTML = eventTitle;
                         newCard.querySelector('.card-text').innerHTML = eventInfo;
-                        newCard.querySelector('a').onclick = () => setEventData(eventID); //NO EVENT ID?!?
-                        eventCardGroup.appendChild(newCard);
+                        // newCard.querySelector('a').onclick = () => setEventData(eventID); //NO EVENT ID?!?
+                        favouritesList.appendChild(newCard);
                     } else {
                         console.log("lots of query data")
                     }
