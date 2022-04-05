@@ -104,7 +104,7 @@ function displayCards(collection) {
                 // newcard.querySelector('.card-type').innerHTML = type;
                 // newcard.querySelector('.card-genre').innerHTML = genre;
                 // newcard.querySelector('.card-location').innerHTML = venue;
-                // newcard.querySelector('.event-info').innerHTML = details;
+                newcard.querySelector('.event-info').innerHTML = details;
                 // newcard.querySelector('.card-date').innerHTML = date;
                 // newcard.querySelector('.card-time').innerHTML = time;
                 // newcard.querySelector('.card-image').src = "./images/" + collection + ".jpg"; //hikes.jpg
@@ -207,10 +207,11 @@ function saveFavourites(eventID) {
 }
 
 function get_details(){
-    eventID = $(this).prev().prev().prev().text()
-    var name = eventID //get the event is and place in a variable 
-    var testweb = "moreInfo.html?eventName=" + name //create link with variable name
-    window.location.href= testweb
+    console.log('called')
+    $('#search-bar').attr('action', 'favourites.html')
+    // var name = eventID //get the event is and place in a variable 
+    // var testweb = "moreInfo.html?eventName=" + name //create link with variable name
+    // window.location.href= testweb
 }
 function get_eventID(){
     eventID = $(this).next().next().text()
@@ -225,7 +226,7 @@ function setup(){
     $('body').on('click', '.page_button', get_current_page)
     $('body').on('click', 'button', get_first_prev_next_last_button)
     $('body').on('click', 'i', get_eventID)
-    $('body').on('click', '.read-more', get_details)
+    // $('.read-more').click(get_details)
 }
     
 $(document).ready(setup)

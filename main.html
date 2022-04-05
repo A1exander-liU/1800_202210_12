@@ -43,11 +43,11 @@
       <h1 class="display-5 fw-bold pb-3 font-monospace">NEXT GAMES</h1>
 
       <!-- search bar -->
-      <form autocomplete="off" action="events.html">
+      <form autocomplete="off" action="moreInfo.html" method="get">
         <div class="autocomplete d-inline-block justify-content-center w-75">
-          <input type="text" id="myInput" class="w-100 form-control">
+          <input type="text" name="eventName" id="eventName" class="w-100 form-control">
         </div>
-        <button class="btn btn-dark btn-mid navy align-top" type="submit"><i class="fa fa-search"></i>
+        <button class="btn btn-dark btn-mid navy align-top read-more" type="submit" value="submit"><i class="fa fa-search"></i>
         </button>
       </form>
 
@@ -144,7 +144,8 @@
   <script src="scripts/main.js"></script>
   <script src="scripts/index.js"></script>
   <script src="scripts/signout.js"></script>
-  <script>autocomplete(document.getElementById("myInput"), events);</script>
+  <script src="events.js"></script>
+  <script>autocomplete(document.getElementById("eventName"), events);</script>
 
 </body>
 
