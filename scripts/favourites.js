@@ -41,3 +41,15 @@ function getFavourites(user) {
             });
         })
 }
+
+function get_details(){
+    var name = $(this).parent().find('h3').text() // traversing to the h3 that holds the name of event tht will be used to construct the URL
+    var testweb = "moreInfo.html?eventName=" + name //create link with variable name
+    window.location.href= testweb // bringing user to new URL
+}
+
+function setup(){
+    $('body').on('click', '.read-more', get_details)
+}
+
+$(document).ready(setup)
