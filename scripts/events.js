@@ -104,7 +104,7 @@ function displayCards(collection) {
                 // newcard.querySelector('.card-type').innerHTML = type;
                 // newcard.querySelector('.card-genre').innerHTML = genre;
                 // newcard.querySelector('.card-location').innerHTML = venue;
-                newcard.querySelector('.event-info').innerHTML = details;
+                // newcard.querySelector('.event-info').innerHTML = details;
                 // newcard.querySelector('.card-date').innerHTML = date;
                 // newcard.querySelector('.card-time').innerHTML = time;
                 // newcard.querySelector('.card-image').src = "./images/" + collection + ".jpg"; //hikes.jpg
@@ -207,8 +207,10 @@ function saveFavourites(eventID) {
 }
 
 function get_details(){
-    window.location.href = ('moreInfo.html?eventName=+title')
-    
+    eventID = $(this).prev().prev().prev().text()
+    var name = eventID //get the event is and place in a variable 
+    var testweb = "moreInfo.html?eventName=" + name //create link with variable name
+    window.location.href= testweb
 }
 function get_eventID(){
     eventID = $(this).next().next().text()
