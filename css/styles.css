@@ -121,6 +121,8 @@ input[type=submit] {
 	.carousel-bg img {
 		width: 100%;
 	}
+<<<<<<< HEAD
+=======
   .navbar-nav.nav-justified.w-100.text-center.flex-row{
     bottom: 0vh;
     position: fixed;
@@ -130,12 +132,17 @@ input[type=submit] {
     position:sticky;
     margin-bottom: 50px;
   }
+>>>>>>> 1ed3c5a59965cab9e2c171e928e6d1aaddb6838c
 }
 
 @media screen and (min-width:768px) {
 	.btn-floating button {
 		width: 10vh;
 		height: 10vh;
+<<<<<<< HEAD
+	}
+=======
   
 	} 
+>>>>>>> 1ed3c5a59965cab9e2c171e928e6d1aaddb6838c
 }
