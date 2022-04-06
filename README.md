@@ -13,9 +13,13 @@ This browser based web application to ...
 ## Technologies
 Technologies used for this project:
 * HTML, CSS
-* JavaScript
+* JavaScript, jQuery, AJAX
 * Bootstrap
-* ...
+* Firebase, Firestore
+* MapQuest 
+* MapBox 
+* FontAwesome
+* Data for populating our event cards: https://sports.api.decathlon.com/sports
 
 ## Content
 Content of the project folder:
