@@ -69,8 +69,8 @@ function remove_favourite() {
 }
 
 function getFavourites() { // need to split this boi up, it is way too big lol
-    $('#eventsList *').remove()
-    $('#favouritesList *').remove()
+    // $('#eventsList *').remove() // not rermoving elements change selector to something else
+    $('#favouritesList *').remove() // not removing elements change selector to something else
     firebase.auth().onAuthStateChanged(user => {
         if (user) {
             db.collection("users").doc(user.uid).get()

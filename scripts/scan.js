@@ -8,11 +8,11 @@ function get_user_location() {
     navigator.geolocation.getCurrentPosition(show_current_position) // getting their current coords
   }
 }
-get_user_location()
 
 function show_current_position(position) {
   userlat = position.coords.latitude; // getting the lat from the coords
   userlong = position.coords.longitude; // getting the long from te coords
+  get_user_address()
   console.log(userlat, userlong)
   // reverse geocode the coordinates to get the address
 
@@ -61,7 +61,7 @@ function format_address(address){ // storing the recieved object in this variabl
   add_scan_to_db()
 }
 
-function get_user_address(){ // just to for api calling to reverse geocode/get address from coordinates
+function get_user_address() { // just to for api calling to reverse geocode/get address from coordinates
   console.log("ajax called")
   $.ajax(
     { 
@@ -122,7 +122,7 @@ if($("body").is("#historyPage")){
 }
 
 function setup(){
-  $('.pocket').click(get_user_address)
+  $('.pocket').click(get_user_location)
 }
 
 $(document).ready(setup)
