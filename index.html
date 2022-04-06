@@ -35,8 +35,6 @@
 <body>
   <!-- header -->
   <nav id="headerPlaceholder" class="black"></nav>
-  <!-- menu-bar -->
-  <nav id="menubarPlaceholder" class="navy sticky-top"></nav>
 
 
   <!-- jumbotron -->
@@ -45,11 +43,12 @@
       <h1 class="display-5 fw-bold pb-3 font-monospace">NEXT GAMES</h1>
 
       <!-- search bar -->
-      <form autocomplete="off" action="events.html">
+      <form autocomplete="off" action="/action_page.php">
         <div class="autocomplete d-inline-block justify-content-center w-75">
-          <input type="text" id="myInput" class="w-100 form-control">
+          <input type="text" id="myInput" placeholder="seach events here..." class="w-100 form-control">
         </div>
-        <button id="searchEvents" class="btn btn-dark btn-mid navy align-top" type="submit"><i class="fa fa-search"></i></button>
+        <button class="btn btn-dark btn-mid navy align-top" type="submit"><i class="fa fa-search"></i>
+        </button>
       </form>
 
     </div>

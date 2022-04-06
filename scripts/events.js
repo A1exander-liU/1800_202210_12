@@ -68,7 +68,7 @@ function display_page_buttons(total_pages){
     var pagination = 1
     $('#page_buttons button').remove() // clear the buttons to make sure they do not keep stacking if you call this more than once
     for (pagination; pagination<total_pages + 1; pagination++){
-        page_button = "<button type='button' class='btn navy text-white page_button' value='" + pagination + "'>" + pagination + "</button>"
+        page_button = "<button type='button' class='btn navy text-white favourite_page_button' value='" + pagination + "'>" + pagination + "</button>"
         old = $('#page_buttons').html()
         $('#page_buttons').html(old + page_button)
     }
@@ -130,6 +130,7 @@ function displayCards(collection) {
                 let newcard = cardTemplate.content.cloneNode(true);
 
                 var title = events_array[start_index].name; // get event title
+                console.log(title)
                 // var type = events_array[start_index].type; // get event type
                 // var genre = events_array[start_index].genre; // get event genre
                 var details = events_array[start_index].details; // get event info
@@ -206,12 +207,14 @@ function saveFavourites(eventID) {
 }
 
 function get_details(){
-    window.location.href = ('moreInfo.html?eventName=+title')
-    
+    var name = $(this).parent().find('h3').text() // traversing to the h3 that holds the name of event tht will be used to construct the URL
+    var testweb = "moreInfo.html?eventName=" + name //create link with variable name
+    window.location.href= testweb // bringing user to new URL
 }
 function get_eventID(){
     eventID = $(this).next().next().text()
     console.log(eventID)
+    $(this).attr('class', 'fa-solid fa-heart')
     saveFavourites(eventID)
 }
 
@@ -220,7 +223,7 @@ function setup(){
     $('#dropdown').change(get_sort_option) // determines if there was a change in the dropdown, i.e, there was a selection
     $('body').on('click', '.page_button', get_current_page)
     $('body').on('click', 'button', get_first_prev_next_last_button)
-    $('body').on('click', 'i', get_eventID)
+    $('body').on('click', '.not-favourited', get_eventID)
     $('body').on('click', '.read-more', get_details)
 }
     

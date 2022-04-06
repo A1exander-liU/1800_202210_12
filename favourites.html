@@ -53,75 +53,62 @@
       <option value="name" id="desc">Z - A</option>
     </select>
 
-    <!-- button that links to favoutires page-->
+    <!-- button that links to favoutires page
     <div class="btn-group">
       <a class="btn btn-secondary btn-sm btn-dark navy" type="button" href="favourites.html">Favourites </a>
-    </div>
+    </div> -->
 
   </div>
 
+<!-- DO NOT DELETE THIS CONTAINER PLZ -->
   <div class="container">
     <div id="eventsList" class="row row-cols-auto">
       <!-- Templates for general use, not displayed -->
-      <template id="eventTemplate">
-        <div class="col-md-6">
-          <div class="row g-0 border overflow-hidden flex-md-row mb-4 h-md-250 position-relative">
-            <div class="col p-4 d-flex flex-column position-static w-50 align-items-stretch">
-              <i class="fa-regular fa-heart"></i>
-              <strong class="d-inline-block mb-2">Sports</strong>
-              <h3 class="card-title my-2 text-truncate event-title">Title</h3>
-              <div class="mb-1 text-muted">Dates</div>
-              <span class="card-text mb-auto text-truncate event-info">Short description of the event.</span>
-              <button class="btn btn-dark my-2 navy" type="button" name="button">Tickets</button>
-            </div>
-            <div class="col-auto d-lg-block w-50">
-              <img class="card-img w-100 event-img" src="images/olympics01.jpg">
-            </div>
-          </div>
-        </div>
-      </template>
     </div>
   </div>
 </div>
+<!--  -->
 
-
-
-<!-- Pagination Buttons -->
-<div class="container">
-  <div class="container text-center">
-
-    <button type="button" class="btn navy text-white" id="first">
-      First
-    </button>
-    <button type="button" class="btn navy text-white" id="prev">
-      Prev
-    </button>
-    <!-- Span used to hold page buttons -->
-    <span id="page_buttons"></span>
-    <button type="button" class="btn navy text-white" id="next">
-      Next
-    </button>
-    <button type="button" class="btn navy text-white" id="last">
-      Last
-    </button>
-  </div>
-</div>
 
 <div class="container">
-  <div id="eventsList" class="row row-cols-auto">
+  <div id="favouritesList" class="row row-cols-auto">
     <!-- Templates for general use, not displayed -->
   </div>
 </div>
 </div>
 
+<!-- Pagination Buttons -->
+<div class="container">
+  <div class="container text-center">
+      
+    <button type="button" class="btn navy text-white" id="favourite_first">
+      First
+    </button>
+    <button type="button" class="btn navy text-white" id="favourite_prev">
+      Prev
+    </button>
+    <!-- Span used to hold page buttons -->
+    <span id="favourite_page_buttons"></span>
+    <button type="button" class="btn navy text-white" id="favourite_next">
+      Next
+    </button>
+    <button type="button" class="btn navy text-white" id="favourite_last">
+      Last
+    </button>
+  </div>
+</div>
+
+
 <template id="eventTemplate">
 <div class="col-md-6">
   <div class="row g-0 border overflow-hidden flex-md-row mb-4 h-md-250 position-relative">
     <div class="col p-4 d-flex flex-column position-static w-50 align-items-stretch">
+      <i class="fa-solid fa-heart favourited"></i>
       <strong class="d-inline-block mb-2">Sports</strong>
       <h3 class="card-title my-2 text-truncate">Title</h3>
       <div class="mb-1 text-muted">Dates</div>
       <span class="card-text mb-auto text-truncate">Short description of the event.</span>
+      <a class="btn btn-dark my-2 navy read-more" type="button" name="button">More Information</a>
       <button class="btn btn-dark my-2 navy" type="button" name="button">Tickets</button>
     </div>
     <div class="col-auto d-lg-block w-50">
@@ -156,8 +143,9 @@
   crossorigin="anonymous"></script>
 <script src="scripts/firebaseAPI_TEAM12.js"></script>
 <script src="scripts/global.js"></script>
-<script src="scripts/events.js"></script>
-<script src="scripts/index.js"></script>
+<script src="scripts/favourites.js"></script>
+<!-- <script src="scripts/events.js"></script> -->
+<!-- <script src="scripts/index.js"></script> -->
 <!-- <script src="scripts/main.js"></script>  NO MAIN.JS ON FILE MAYBE  -AN-->
 </body>
 
