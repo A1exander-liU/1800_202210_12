@@ -68,7 +68,7 @@ function display_page_buttons(total_pages){
     var pagination = 1
     $('#page_buttons button').remove() // clear the buttons to make sure they do not keep stacking if you call this more than once
     for (pagination; pagination<total_pages + 1; pagination++){
-        page_button = "<button type='button' class='btn navy text-white page_button' value='" + pagination + "'>" + pagination + "</button>"
+        page_button = "<button type='button' class='btn navy text-white favourite_page_button' value='" + pagination + "'>" + pagination + "</button>"
         old = $('#page_buttons').html()
         $('#page_buttons').html(old + page_button)
     }
