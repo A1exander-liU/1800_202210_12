@@ -136,7 +136,7 @@ function setup(){
     getFavourites()
     $('body').on('click', '.read-more', get_details)
     $('body').on('click', '.favourite_page_button', grab_current_page)
-    $('body').on('click', 'i', remove_favourite)
+    $('body').on('click', '.favourited', remove_favourite)
 }
 
 
