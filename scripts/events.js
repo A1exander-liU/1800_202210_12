@@ -226,5 +226,5 @@ function setup(){
     $('body').on('click', '.not-favourited', get_eventID)
     $('body').on('click', '.read-more', get_details)
 }
-    
+
 $(document).ready(setup)
