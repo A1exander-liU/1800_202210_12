@@ -127,11 +127,6 @@ input[type=submit] {
 		width: 100%;
 	}
 
-  .navbar-nav.nav-justified.w-100.text-center.flex-row{
-    bottom: 0vh;
-    position: fixed;
-    background-color: #30475E;
-  }
   .btn-floating button{
     position:sticky;
     margin-bottom: 50px;
