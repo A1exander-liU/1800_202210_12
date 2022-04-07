@@ -1,27 +1,3 @@
-// authentication
-// var currentUser;
-// firebase.auth().onAuthStateChanged(user => {
-//     if (user) {
-//         currentUser = db.collection("users").doc(user.uid);   //global
-//         console.log(currentUser);
-    
-
-// var currentUser;
-// firebase.auth().onAuthStateChanged(user => {
-//     if (user) {
-//         currentUser = db.collection("users").doc(user.uid);   //global
-//         console.log(currentUser);
-//     } else {
-//         // No user is signed in.
-//         console.log("No user is signed in");
-//         window.location.href = "login.html";
-//     }
-// });
-
-function favourite_this_card(eventID){
-    console.log("successful call" + eventID)
-}
-
 // populate database with sports events
 async function readJSON() {
   i = 0
@@ -100,7 +76,7 @@ function displayCardsOnScreen(start_index, stop_index, events_array) {
 // read events collection and display onto events.html
 function displayCards() {
     let events_array = []
-    db.collection("events").orderBy(select, order).limit(4).get().then(snap => {                                                      //sorting by options from drop down
+    db.collection("events").orderBy(select, order).limit(12).get().then(snap => {                                                      //sorting by options from drop down
             var i = 1;
             $('#eventsList div').remove()
             snap.forEach(doc => { //iterate thru each doc
@@ -168,6 +144,10 @@ function saveFavourites(eventID) {
                 });
         }
     });
+}
+
+function favourite_this_card(eventID){
+    console.log("successful call" + eventID)
 }
 
 function get_details(){
