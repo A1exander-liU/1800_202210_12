@@ -13,7 +13,7 @@ db.collection("events").get().then((querySnapshot) => { // reads event collectio
 });
 
 
-function autocomplete(inp, arr) { // 80 line function, me: nice
+function autocomplete(inp, arr) { // 80 line function
   /*the autocomplete function takes two arguments,
   the text field element and an array of possible autocompleted values:*/
   var currentFocus;
@@ -101,7 +101,7 @@ function autocomplete(inp, arr) { // 80 line function, me: nice
     for (var i = 0; i < x.length; i++) {
       if (elmnt != x[i] && elmnt != inp) {
         x[i].parentNode.removeChild(x[i]);
-  
+
       }
 
     }

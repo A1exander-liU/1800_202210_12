@@ -1,4 +1,3 @@
-
 // MAPBOX DISPLAY
 function display_past_scans() {
 
@@ -13,7 +12,7 @@ function display_past_scans() {
     });
 
     // Add zoom and rotation controls to the map.
-    map.addControl(new mapboxgl.NavigationControl()); 
+    map.addControl(new mapboxgl.NavigationControl());
 
     map.on('load', () => {
         const features = [];
@@ -25,9 +24,8 @@ function display_past_scans() {
                         coordinates = scan.data().coordinates;
                         place = scan.data().address;
                         time = scan.data().timeStamp
-                        // console.log(coordinates, time.toDate());
                         // url = scan.data().url;
-        
+
                         features.push({
                             'type': 'Feature',
                             'properties': {
@@ -61,39 +59,39 @@ function display_past_scans() {
                             'icon-allow-overlap': true
                         }
                     });
-        
+
                     // When a click event occurs on a feature in the places layer, open a popup at the
                     // location of the feature, with description HTML from its properties.
                     map.on('click', 'scan_history', (e) => {
                         // Copy coordinates array.
                         const coordinates = e.features[0].geometry.coordinates.slice();
                         const description = e.features[0].properties.description;
-        
+
                         // Ensure that if the map is zoomed out such that multiple
                         // copies of the feature are visible, the popup appears
                         // over the copy being pointed to.
                         while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
                             coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
                         }
-        
+
                         new mapboxgl.Popup()
                             .setLngLat(coordinates)
                             .setHTML(description)
                             .addTo(map);
                     });
-        
+
                     // Change the cursor to a pointer when the mouse is over the places layer.
                     map.on('mouseenter', 'scan_history', () => {
                         map.getCanvas().style.cursor = 'pointer';
                     });
-        
+
                     // Change it back to a pointer when it leaves.
                     map.on('mouseleave', 'scan_history', () => {
                         map.getCanvas().style.cursor = '';
                     });
                 })
             }
-    
+
         })
     });
 }
