@@ -60,7 +60,7 @@ function displayCardsOnScreen(start_index, stop_index, events_array) {
         firebase.auth().onAuthStateChanged(user => {
             if (user) {
                 db.collection("users").doc(user.uid).get().then(userDoc => {
-                    favourites = userDoc.data().favourites; 
+                    favourites = userDoc.data().favourites;
                     if (favourites.includes(title)) { // checking if the event is one of the user's favourite
                         favourite_button.add('fa-solid'); // add a class to the array that will make the heart solid before card is displayed
                     }
@@ -83,8 +83,8 @@ function displayCards() {
             })
             total_events = events_array.length;
             total_pages = Math.ceil(total_events / page_size);
-            display_page_buttons(total_pages); 
-            start_index = page_size * (current_page - 1); // to decide which index of the array of events to start from 
+            display_page_buttons(total_pages);
+            start_index = page_size * (current_page - 1); // to decide which index of the array of events to start from
             stop_index = page_size * (current_page - 1) + page_size; // to decide which index of the array of events to end at
             displayCardsOnScreen(start_index, stop_index, events_array)
         })
@@ -148,10 +148,10 @@ function favourite_this_card(eventID){
     console.log("successful call" + eventID)
 }
 
-// rediredct to moreInfo.html when moreinfo is clicked
+// rediredct to more-info.html when more-info is clicked
 function get_details(){
     var name = $(this).parent().find('h3').text() // traversing to the h3 that holds the name of event tht will be used to construct the URL
-    var testweb = "moreInfo.html?eventName=" + name //create link with variable name
+    var testweb = "more-info.html?eventName=" + name //create link with variable name
     window.location.href= testweb // bringing user to new URL
 }
 

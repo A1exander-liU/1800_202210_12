@@ -132,7 +132,7 @@ function show_favourites(favourites, start, stop) {
 
 function get_details(){
     var name = $(this).parent().find('h3').text() // traversing to the h3 that holds the name of event tht will be used to construct the URL
-    var testweb = "moreInfo.html?eventName=" + name //create link with variable name
+    var testweb = "more-info.html?eventName=" + name //create link with variable name
     window.location.href= testweb // bringing user to new URL
 }
 
