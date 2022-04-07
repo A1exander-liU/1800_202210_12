@@ -1,9 +1,6 @@
-<div align="center">
-  <h1>pocketBook</h1>
-</div>
+## pocketBook
 
-
-## Table of Contents
+## Table of Contents 
 
 * [General info](#general-info)
 * [Creators](#creators)

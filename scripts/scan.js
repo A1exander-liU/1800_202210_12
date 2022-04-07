@@ -1,18 +1,17 @@
-let userlat;
-let userlong;
 let usercoords;
-let useraddress;
+
 
 function get_user_location() {
+  console.log('called get user location')
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(show_current_position) // getting their current coords
   }
 }
 
-function show_current_position(position) {
+function show_current_position(position) { 
   userlat = position.coords.latitude; // getting the lat from the coords
   userlong = position.coords.longitude; // getting the long from te coords
-  get_user_address()
+  get_user_address(userlat, userlong)
   console.log(userlat, userlong)
   // reverse geocode the coordinates to get the address
 }
@@ -21,7 +20,7 @@ function go_to_map() {
   window.location = "maps.html"
 }
 
-function add_scan_to_db() { // add the scan to the db
+function add_scan_to_db(useraddress) { // add the scan to the db
   const timeStamp = firebase.firestore.Timestamp.now() // getting current timestamp
   console.log(timeStamp)
   firebase.auth().onAuthStateChanged(user => { // check if they are logged in
@@ -31,7 +30,7 @@ function add_scan_to_db() { // add the scan to the db
     var userName = userDoc.data().name;
     console.log(userName);
     })
-    currentUser.collection("history").add({ // craeting a history subcollection in the current user doc
+    currentUser.collection("history").add({ // creating a history subcollection in the current user doc
       timeStamp: timeStamp,
       coordinates: [userlong, userlat],
       address: useraddress,
@@ -48,10 +47,10 @@ function format_address(address){ // storing the recieved object in this variabl
   // can change later what we want to extract out
   useraddress = city + ", " +  street // formatting and concatenating the city with the address
   console.log(useraddress)
-  add_scan_to_db()
+  add_scan_to_db(useraddress)
 }
 
-function get_user_address() { // just for api calling to reverse geocode/get address from coordinates
+function get_user_address(userlat, userlong) { // just for api calling to reverse geocode/get address from coordinates
   console.log("ajax called")
   $.ajax(
     {
@@ -111,8 +110,8 @@ if($("body").is("#historyPage")){
 }
 
 function setup(){
-  $('.scan').click(get_user_location)
-  $('.scan').click(show_confirmation)
+  $('.modal-body').click(get_user_location) // not being called but coords are beiing displayed
+  $('.trigger').click(show_confirmation)
 }
 
 $(document).ready(setup)

@@ -59,10 +59,9 @@ function remove_favourite() {
             event_name = $(this).next().next().text()
             current_user = db.collection("users").doc(user.uid)
             current_user.update({
-                favourites: firebase.firestore.FieldValue.arrayRemove(event_name)
+                favourites: firebase.firestore.FieldValue.arrayRemove(event_name) // remove from array
             });
-            // $(this).parent().parent().parent().remove()
-            getFavourites()
+            getFavourites() // call to show update favourites
             console.log("removed succesfully from favourites")
 
             }
@@ -70,9 +69,9 @@ function remove_favourite() {
     );
 }
 
-
-function displayFavourites(favourited_events) { // displays the favourited events
-    $('#favouritesList div').remove()
+// displays the favourited events according to the current page
+function displayFavourites(favourited_events) {
+    $('#favouritesList div').remove() // prevents the events from stacking on future calls
     let CardTemplate = document.getElementById("eventTemplate");
     total_events = favourited_events.length;
     console.log('array size', total_events)
@@ -146,9 +145,6 @@ function setup(){
     $('body').on('click', '#favourite_prev', favourite_prev_page)
     $('body').on('click', '#favourite_next', favourite_next_page)
     $('body').on('click', '#favourite_last', favourite_last_page)
-
 }
-
-
 
 $(document).ready(setup)

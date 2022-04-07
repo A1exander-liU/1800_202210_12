@@ -36,7 +36,7 @@ function populateInfo() {
         }
         else {
             $("#save_info").click(function(){ // if they click save but they arent signed in, call this callback function
-                $("#prompt_user").modal('show'); // display modal to user telling them to sign in/up
+                $(".profile_prompt").modal('show'); // display modal to user telling them to sign in/up
             })
             console.log("No user is signed in");
         }
