@@ -1,4 +1,4 @@
-## pocketBook
+<h1 align="center"> pocketBook </h1>
 
 ## Table of Contents
 
@@ -85,7 +85,7 @@ It has the following subfolders and files:
     /header.html
     /menubar.html
     /prompt.html
-├── css                      # Folder for styles
+└── css                      # Folder for styles
     /styles.css              # CSS file for general styling
     /profile.css             # CSS file specifically for profile.html
 ```
