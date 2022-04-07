@@ -1,13 +1,18 @@
-## My Web Application (Add your Title here)
+## pocketBook
 
 * [General info](#general-info)
 * [Technologies](#technologies)
 * [Contents](#content)
 
 ## General Info
-'pocketBook' is the browser based web application to solve the inconvenience
-of physical IDs. This event platform application serves as your ID/ vaccine
-passport.
+'pocketBook' is the browser based web application to solve the inconvenience of physical IDs.
+This event platform application serves as your ID/ vaccine passport.
+
+## Creators
+Toco Tachibana (https://github.com/toco-t)
+Alexie Narciso ()
+Alexander Liu ()
+
 
 ## Technologies
 Technologies used for this project:
@@ -55,7 +60,6 @@ It has the following subfolders and files:
     /passport.jpg
     /QRcode.png
     /tickets.jpg          
-
 ├── scripts                  # Folder for scripts
     /authentication.js
     /events.js
@@ -70,7 +74,6 @@ It has the following subfolders and files:
     /script.js
     /signout.js
     /wallet.js
-
 ├── partials                 # Folder for skeltons
     /carousel.html
     /floatbutton.html
@@ -78,17 +81,15 @@ It has the following subfolders and files:
     /header.html
     /menubar.html
     /prompt.html
-
 ├── css                      # Folder for styles
     /styles.css              # CSS file for general styling
     /profile.css             # CSS file specifically for profile.html
-
 Firebase hosting files:
 ├── .firebaserc...
 
 
 ```
 
-Tips for file naming files and folders:
+<!-- Tips for file naming files and folders:
 * use lowercase with no spaces
-* use dashes (not underscore) for word separation
+* use dashes (not underscore) for word separation -->
