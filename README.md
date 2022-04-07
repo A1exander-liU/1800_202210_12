@@ -9,7 +9,8 @@
 
 ## General Info
 'pocketBook' is the browser based web application to solve the inconvenience of physical IDs.  
-This event platform application serves as your ID/ vaccine passport.
+This event platform application serves as your ID/ vaccine passport.  
+[pocketBook](https://comp1800pocketbook.netlify.app/)
 
 ## Creators
 *Toco Tachibana* (https://github.com/toco-t)  
@@ -35,7 +36,6 @@ Content of the project folder:
  Top level of project folder:
 ├── .gitignore               # Git ignore file
 ├── index.html
-├── main.html                # landing HTML file, this is what users see when you come to url
 ├── login.html               # HTML page for users to sign up or sign in   
 ├── events.html              # HTML page for displaying the events
 ├── favourites.html          # HTML page for displaying user's favourited events
@@ -87,8 +87,4 @@ It has the following subfolders and files:
 ├── css                      # Folder for styles
     /styles.css              # CSS file for general styling
     /profile.css             # CSS file specifically for profile.html
-Firebase hosting files:
-├── .firebaserc...
-
-
 ```
