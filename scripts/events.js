@@ -67,7 +67,7 @@ function display_page_buttons(total_pages){
     var pagination = 1
     $('#page_buttons button').remove() // clear the buttons to make sure they do not keep stacking if you call this more than once
     for (pagination; pagination<total_pages + 1; pagination++){
-        page_button = "<button type='button' class='btn navy text-white favourite_page_button' value='" + pagination + "'>" + pagination + "</button>"
+        page_button = "<button type='button' class='btn navy text-white page_button' value='" + pagination + "'>" + pagination + "</button>"
         old = $('#page_buttons').html()
         $('#page_buttons').html(old + page_button)
     }
@@ -108,34 +108,34 @@ function displayCards() {
 function get_current_page(){
     current_page = $(this).val() // grabs the value which the apge number is stored in
     console.log(current_page)
-    displayCards('events') // checking if it is the right page
+    displayCards() // checking if it is the right page
 }
 
-function get_first_prev_next_last_button(){
-    if ($(this).attr('id') == 'first') { // if id of button clicked is 'first', set current page to first page
+function first_page_button() {
+    current_page = 1;
+    displayCards()
+}
+
+function prev_page_button() {
+    current_page -= 1;
+    if (current_page < 1) {
         current_page = 1
-        displayCards('events')
     }
-    else if ($(this).attr('id') == 'prev')  { // if id of button clicked is 'prev', minus 1
-        current_page -= 1
-        if (current_page < 1) { // to make sure the current page doesn't go a page that doesn't exist
-            current_page = 1
-        }
-        displayCards('events')
-    }
-    else if ($(this).attr('id') == 'next') {
-        current_page += 1
-        if (current_page > total_pages) { // to make sure the current page doesn't go to page that doesn't exist
-            current_page = total_pages
-        }
-        displayCards('events')
-    }
-    else if ($(this).attr('id') == 'last') {
-        current_page = total_pages
-        displayCards('events')
-    }
+    displayCards()
 }
 
+function next_page_button() {
+    current_page += 1;
+    if (current_page > total_pages) {
+        current_page = total_pages
+    }
+    displayCards()
+}
+
+function last_page_button() {
+    current_page = total_pages;
+    displayCards()
+}
 
 //this function is called when the 'favourite' icon has been clicked.
 // // It will add the event to an events array
@@ -175,7 +175,14 @@ function setup(){
     displayCards();
     $('#dropdown').change(get_sort_option) // determines if there was a change in the dropdown, i.e, there was a selection
     $('body').on('click', '.page_button', get_current_page)
-    $('body').on('click', 'button', get_first_prev_next_last_button)
+    // $('body').on('click', 'button', get_first_prev_next_last_button)
+
+    $('body').on('click', '#first', first_page_button)
+    $('body').on('click', '#prev', prev_page_button)
+    $('body').on('click', '#next', next_page_button)
+    $('body').on('click', '#last', last_page_button)
+
+
     $('body').on('click', '.not-favourited', get_eventID)
     $('body').on('click', '.read-more', get_details)
 }
