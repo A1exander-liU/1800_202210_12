@@ -54,17 +54,23 @@ It has the following subfolders and files:
     /olympics03.jpg
     /passport.jpg
     /QRcode.png
-    /tickets.jpg                   
+    /tickets.jpg          
+
 ├── scripts                  # Folder for scripts
     /authentication.js
     /events.js
     /favourites.js
-    /
-    /
-    /
-    /
-    /
-    /    
+    /firebaseAPI_TEAM12.js
+    /global.js
+    /index.js
+    /maps.js
+    /moreInfo.js
+    /profile.js
+    /scan.js
+    /script.js
+    /signout.js
+    /wallet.js
+
 ├── partials                 # Folder for skeltons
     /carousel.html
     /floatbutton.html
@@ -72,6 +78,7 @@ It has the following subfolders and files:
     /header.html
     /menubar.html
     /prompt.html
+
 ├── css                      # Folder for styles
     /styles.css              # CSS file for general styling
     /profile.css             # CSS file specifically for profile.html
