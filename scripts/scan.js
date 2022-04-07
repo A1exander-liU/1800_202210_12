@@ -78,7 +78,7 @@ firebase.auth().onAuthStateChanged(user => {
 
 // Populate history cards
 function displayHistoryCards(collection) {
-  let eventTemplate = document.getElementById("historyTemplate");
+  let historyTemplate = document.getElementById("historyTemplate");
   firebase.auth().onAuthStateChanged(user => {
     if (user) {
       currentUser = db.collection("users").doc(user.uid)
