@@ -4,6 +4,7 @@ function loadSkeleton(){
     console.log($('#footerPlaceholder').load('../partials/footer.html'));
     console.log($('#buttonPlaceholder').load('../partials/floatbutton.html'));
     console.log($('#promptPlaceholder').load('../partials/prompt.html'));
+    console.log($('#carouselPlaceholder').load('../partials/carousel.html'));
 }
 
 loadSkeleton();
