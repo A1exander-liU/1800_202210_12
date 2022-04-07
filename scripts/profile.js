@@ -16,11 +16,8 @@ function populateInfo() {
                     var userAddress = userDoc.data().address;
                     var userPhone = userDoc.data().phone;
                     console.log(userName, userEmail, userAddress, userPhone)
-
-
                     console.log("User is signed in")
                     $('#save_info').attr('type', 'submit')
-
                     //if the data fields are not empty, then write them in to the form.
                     if (userName != null) {
                         document.getElementById("nameInput").value = userName;
@@ -58,17 +55,14 @@ function saveUserInfo() {
     userName = document.getElementById('nameInput').value;
     userPhone = document.getElementById('phoneInput').value;
     userAddress = document.getElementById('addressInput').value;
-
     currentUser.update({
             name: userName,
             phone: userPhone,
             address: userAddress
-        })
-        .then(() => {
+        }).then(() => {
             console.log("Document successfully updated!");
             document.getElementById('personalInfoFields').disabled = false;
         })
-
     //Enable the form fields
     document.getElementById('personalInfoFields').disabled = true;
 }

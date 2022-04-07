@@ -74,14 +74,25 @@ function display_page_buttons(total_pages){
 }
 
 function displayCardsOnScreen(start_index, stop_index, events_array) {
+    let favourites;
     let cardTemplate = document.getElementById("eventTemplate")
     for (start_index; start_index<stop_index; start_index++) { // adds the events to the dom
         let newcard = cardTemplate.content.cloneNode(true);
-        var title = events_array[start_index].name; // get event title
-        var details = events_array[start_index].details; // get event info
+        let title = events_array[start_index].name; // get event title
+        let details = events_array[start_index].details; // get event info
         newcard.querySelector('.event-title').innerHTML = title; // set titile of card
         newcard.querySelector('.card-text').innerHTML = details; // set info of card
-        // newcard.querySelector('.not-favourited').class = "" // cyrrent exp
+        let favourite_button = newcard.querySelector('.not-favourited').classList;
+        console.log(favourite_button)
+        const user = firebase.auth().currentUser;
+        if (user) {
+            db.collection("users").doc(user.uid).get().then(userDoc => {
+                favourites = userDoc.data().favourites;
+                if (favourites.includes(title)) {
+                    favourite_button.add('fa-solid');
+                }
+            })
+        }
         document.getElementById("eventsList").appendChild(newcard);
     }
 }
@@ -167,7 +178,7 @@ function get_details(){
 function get_eventID(){
     eventID = $(this).next().next().text()
     console.log(eventID)
-    $(this).attr('class', 'fa-solid fa-heart')
+    $(this).attr('class', 'fa-solid fa-heart not-favourited')
     saveFavourites(eventID)
 }
 
@@ -176,13 +187,10 @@ function setup(){
     $('#dropdown').change(get_sort_option) // determines if there was a change in the dropdown, i.e, there was a selection
     $('body').on('click', '.page_button', get_current_page)
     // $('body').on('click', 'button', get_first_prev_next_last_button)
-
     $('body').on('click', '#first', first_page_button)
     $('body').on('click', '#prev', prev_page_button)
     $('body').on('click', '#next', next_page_button)
     $('body').on('click', '#last', last_page_button)
-
-
     $('body').on('click', '.not-favourited', get_eventID)
     $('body').on('click', '.read-more', get_details)
 }
