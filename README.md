@@ -51,9 +51,10 @@ It has the following subfolders and files:
     /
     /
     /
-    /                 #
-├── styles                   # Folder for styles
-    /blah.css                #
+    /                        #
+├── css                      # Folder for styles
+    /styles.css              # CSS file for general styling
+    /profile.css             # CSS file specifically for profile.html
 
 Firebase hosting files:
 ├── .firebaserc...
