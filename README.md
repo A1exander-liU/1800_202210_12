@@ -1,6 +1,7 @@
 ## pocketBook
 
 * [General info](#general-info)
+* [Creators](#creators)
 * [Technologies](#technologies)
 * [Contents](#content)
 
