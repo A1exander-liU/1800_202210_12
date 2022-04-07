@@ -6,13 +6,13 @@
 * [Contents](#content)
 
 ## General Info
-'pocketBook' is the browser based web application to solve the inconvenience of physical IDs.
+'pocketBook' is the browser based web application to solve the inconvenience of physical IDs.  
 This event platform application serves as your ID/ vaccine passport.
 
 ## Creators
-Toco Tachibana (https://github.com/toco-t)
-Alexie Narciso ()
-Alexander Liu ()
+*Toco Tachibana* (https://github.com/toco-t)  
+*Alexie Narciso* ()  
+*Alexander Liu* ()
 
 
 ## Technologies
