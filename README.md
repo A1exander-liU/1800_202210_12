@@ -5,10 +5,9 @@
 * [Contents](#content)
 
 ## General Info
-This browser based web application to ...
-* Hi, my name is Toco. I'm excited about this project.
-* Hi my name is Alexander. I'm excited to do the git conflict.
-* Hi my name is Alexie. I'm exited about this project because I like my team
+'pocketBook' is the browser based web application to solve the inconvenience
+of physical IDs. This event platform application serves as your ID/ vaccine
+passport.
 
 ## Technologies
 Technologies used for this project:
@@ -16,8 +15,8 @@ Technologies used for this project:
 * JavaScript, jQuery, AJAX
 * Bootstrap
 * Firebase, Firestore
-* MapQuest 
-* MapBox 
+* MapQuest
+* MapBox
 * FontAwesome
 * Data for populating our event cards: https://sports.api.decathlon.com/sports
 
@@ -27,7 +26,16 @@ Content of the project folder:
 ```
  Top level of project folder:
 ├── .gitignore               # Git ignore file
-├── index.html               # landing HTML file, this is what users see when you come to url
+├── index.html               # landing HTML file
+├── login.html              
+├── main.html
+├── maps.html
+├── events.html
+├── favourites.html
+├── moreInfo.html
+├── wallet.html
+├── pastscans.html
+├── profile.html                
 └── README.md
 
 It has the following subfolders and files:
