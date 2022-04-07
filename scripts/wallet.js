@@ -1,3 +1,4 @@
+// populate the modal in wallet.html
 $(".pocket").click(function(){
   switch(this.id){
     case "vaccine-card":
