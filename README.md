@@ -40,6 +40,7 @@ Content of the project folder:
 
 It has the following subfolders and files:
 ├── .git                     # Folder for git repo
+├── .vscode                  # Folder for vscode settings
 ├── images                   # Folder for images
     /barcode.png
     /confirmation.png
@@ -63,7 +64,14 @@ It has the following subfolders and files:
     /
     /
     /
-    /                        #
+    /    
+├── partials                 # Folder for skeltons
+    /carousel.html
+    /floatbutton.html
+    /footer.html
+    /header.html
+    /menubar.html
+    /prompt.html
 ├── css                      # Folder for styles
     /styles.css              # CSS file for general styling
     /profile.css             # CSS file specifically for profile.html
