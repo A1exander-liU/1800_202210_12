@@ -13,6 +13,7 @@
 ## General Info
 'pocketBook' is the browser based web application to solve the inconvenience of physical IDs.  
 This event platform application serves as your ID/ vaccine passport.  
+  
 [pocketBook](https://comp1800pocketbook.netlify.app/)
 
 ## Creators
