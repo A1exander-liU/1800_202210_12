@@ -111,6 +111,11 @@ input[type=submit] {
   background-color: #223344;
 }
 
+/* Tosat */
+.toast-container {
+  z-index: 7000;
+}
+
 /* media query */
 @media screen and (max-width:768px) {
 	.carousel-bg::before,

@@ -8,11 +8,11 @@ function get_user_location() {
     navigator.geolocation.getCurrentPosition(show_current_position) // getting their current coords
   }
 }
-get_user_location()
 
 function show_current_position(position) {
   userlat = position.coords.latitude; // getting the lat from the coords
   userlong = position.coords.longitude; // getting the long from te coords
+  get_user_address()
   console.log(userlat, userlong)
   // reverse geocode the coordinates to get the address
 
@@ -33,19 +33,11 @@ function add_scan_to_db() { // add the scan to the db
     var userName = userDoc.data().name;
     console.log(userName);
     })
-
     currentUser.collection("history").add({ // craeting a history subcollection in the current user doc
       timeStamp: timeStamp, 
       coordinates: [userlong, userlat],
       address: useraddress,
     })
-
-    // db.collection("history").add({
-    // name: currentUser,
-    // timeStamp: timeStamp,
-    // coordinates: [userlong, userlat], // adding long before lat because mapboxgl accepts coords as [long, lat] not [lat, long]
-    // address: useraddress, // formatted address can add more stuff if we wanna
-    // })
     }
   })
 }
@@ -61,7 +53,7 @@ function format_address(address){ // storing the recieved object in this variabl
   add_scan_to_db()
 }
 
-function get_user_address(){ // just to for api calling to reverse geocode/get address from coordinates
+function get_user_address() { // just to for api calling to reverse geocode/get address from coordinates
   console.log("ajax called")
   $.ajax(
     { 
@@ -91,12 +83,10 @@ firebase.auth().onAuthStateChanged(user => {
 // Populate history cards
 function displayHistoryCards(collection) {
   let eventTemplate = document.getElementById("historyTemplate");
-
   firebase.auth().onAuthStateChanged(user => {
     if (user) {
       currentUser = db.collection("users").doc(user.uid)
-      currentUser.collection(collection).orderBy('timeStamp', "desc").limit(5).get()
-      .then(snap => {
+      currentUser.collection(collection).orderBy('timeStamp', "desc").limit(5).get().then(snap => {
         var i = 1;
         snap.forEach(doc => { //iterate thru each doc
           var timestamp = doc.data().timeStamp;
@@ -105,10 +95,8 @@ function displayHistoryCards(collection) {
           console.log(date.toLocaleString());
           console.log(location)
           let newcard = historyTemplate.content.cloneNode(true);
-  
           newcard.querySelector('strong').innerHTML = i + " :"
           newcard.querySelector('.time-stamp').innerHTML = date + ", " + location;
-  
           document.getElementById("historyList").appendChild(newcard);
           i++;
         })
@@ -117,12 +105,17 @@ function displayHistoryCards(collection) {
   })
 }
 
+function show_confirmation() {
+  
+}
+
 if($("body").is("#historyPage")){
   displayHistoryCards("history");
 }
 
 function setup(){
-  $('.pocket').click(get_user_address)
+  $('.scan').click(get_user_location)
+  $('.scan').click(show_confirmation)
 }
 
 $(document).ready(setup)

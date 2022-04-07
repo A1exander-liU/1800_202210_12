@@ -12,7 +12,7 @@ function show_login_prompt(){
         $(".profile_prompt").modal('show')
     }
     // grabbing the children inside clicked button, using button instead or else you have to cick center of button to redirect since that is where the a tag, but you want click anywhere on the button
-    if ($(this).children().attr('id') == 'wallet') { // checking if the id of the link you click is id of link to wallet.html
+    if ($(this).parent().attr('id') == 'wallet') { // checking if the id of the link you click is id of link to wallet.html
         $(".restricted").text("You cannot view your wallet if you have not signed in.") // customizing the message
         $(".profile_prompt").modal('show')
     }
@@ -47,7 +47,7 @@ firebase.auth().onAuthStateChanged(user => {
 
 function signout(){
     firebase.auth().signOut().then(() => { // signing out the user
-        console.log("Successful signup")
+        console.log("Successful signout")
       }).catch((error) => {
         console.log(error)
       });

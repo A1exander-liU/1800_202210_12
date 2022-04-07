@@ -7,37 +7,40 @@
 // });
 
 
-let size_of_page = 4; // how many will appear on each page
+let size_of_page = 6; // how many will appear on each page
 let this_page = 1; // current page number, starts at 1
+let select = 'name';
+let order;
 
-function get_first_prev_next_last_button(){
-    if ($(this).attr('id') == 'favourite_first') { // if id of button clicked is 'first', set current page to first page
-        current_page = 1
-        // call function to display
+function favourite_first_page() {
+    this_page = 1;
+    getFavourites()
+}
+
+function favourite_prev_page() {
+    this_page -= 1;
+    if (this_page < 1) {
+        this_page = 1;
     }
-    else if ($(this).attr('id') == 'favourite_prev')  { // if id of button clicked is 'prev', minus 1
-        current_page -= 1
-        if (current_page < 1) { // to make sure the current page doesn't go a page that doesn't exist
-            current_page = 1
-        }
-        // call function to display
+    getFavourites()
+}
+
+function favourite_next_page() {
+    this_page += 1;
+    if (this_page > total_pages) {
+        this_page = total_pages;
     }
-    else if ($(this).attr('id') == 'favourite_next') {
-        current_page += 1
-        if (current_page > total_pages) { // to make sure the current page doesn't go to page that doesn't exist
-            current_page = total_pages
-        }
-        // call function to display
-    }
-    else if ($(this).attr('id') == 'favourite_last') {
-        current_page = total_pages
-        // call functino to display
-    }
-    console.log(current_page) // checking if it is the right page
+    getFavourites()
+}
+
+function favourite_last_page() {
+    this_page = total_pages;
+    getFavourites()
 }
 
 function grab_current_page() {
-    this_page = $(this).val()
+    this_page = $(this).val();
+    getFavourites()
     // call the function to dislpay the liked events
 }
 
@@ -45,7 +48,7 @@ function display_favourites_page_buttons(page_amount) {
     pagination = 1;
     $('#favourite_page_buttons button').remove()
     for (pagination; pagination < page_amount + 1; pagination++) {
-        page_button = "<button type='button' class='btn navy text-white page_button' value='" + pagination + "'>" + pagination + "</button>"
+        page_button = "<button type='button' class='btn navy text-white favourite_page_button' value='" + pagination + "'>" + pagination + "</button>"
         old = $('#favourite_page_buttons').html()
         $('#favourite_page_buttons').html(old + page_button)
     }
@@ -59,7 +62,7 @@ function remove_favourite() {
             current_user.update({
                 favourites: firebase.firestore.FieldValue.arrayRemove(event_name)
             });
-            $(this).parent().parent().parent().remove()
+            // $(this).parent().parent().parent().remove()
             getFavourites()
             console.log("removed succesfully from favourites")
  
@@ -68,44 +71,46 @@ function remove_favourite() {
     );
 }
 
-function getFavourites() {
-    $('#eventsList *').remove()
-    $('#favouritesList *').remove()
+
+function displayFavourites(favourited_events) {
+    let CardTemplate = document.getElementById("eventTemplate");
+    total_events = favourited_events.length;
+    console.log('array size', total_events)
+    total_pages = Math.ceil(total_events / size_of_page);
+    display_favourites_page_buttons(total_pages)
+    start_value = size_of_page * (this_page - 1);
+    console.log('start index', start_value)
+    stop_value = size_of_page * (this_page - 1) + size_of_page;
+    console.log('stop index', stop_value)
+    for (start_value; start_value < stop_value; start_value++) {
+        console.log(favourited_events[start_value])
+        db.collection("events").where("name", "==", favourited_events[start_value]).get().then(snap => {
+            queryData = snap.docs;
+            var doc = queryData[0].data();
+            var event_title = doc.name;
+            var event_info = doc.details;
+            let newcard = CardTemplate.content.cloneNode(true);
+            newcard.querySelector('.card-title').innerHTML = event_title;
+            newcard.querySelector('.card-text').innerHTML = event_info;
+            favouritesList.appendChild(newcard);
+        })
+    }
+}
+
+function getFavourites() { // need to split this boi up, it is way too big lol
+    let favourited_events = []
+    // $('#eventsList *').remove() // not rermoving elements change selector to something else
+    $('#favouritesList div').remove() // not removing elements change selector to something else
     firebase.auth().onAuthStateChanged(user => {
         if (user) {
             db.collection("users").doc(user.uid).get()
             .then(userDoc => {
                 var favourites = userDoc.data().favourites;
-                console.log(favourites);
-
-                let CardTemplate = document.getElementById("eventTemplate");
-                favourited_events = []
+                // let CardTemplate = document.getElementById("eventTemplate");
                 favourites.forEach(thisEventTitle => {
                     favourited_events.push(thisEventTitle)
-                    console.log(thisEventTitle);
-                    db.collection("events").where("name", "==", thisEventTitle).get().then(snap => {
-                        size = snap.size;
-                        console.log(size)
-                        queryData = snap.docs;
-                        console.log(queryData)
-                        
-                        if (size == 1) {
-                            var doc = queryData[0].data();
-                            var eventTitle = doc.name; //gets the name field 
-                            var eventInfo = doc.details;
-                            // var eventID = doc.name //gets the unique ID field
-                            let newCard = CardTemplate.content.cloneNode(true);
-                            newCard.querySelector('.card-title').innerHTML = eventTitle;
-                            newCard.querySelector('.card-text').innerHTML = eventInfo;
-                            // newCard.querySelector('a').onclick = () => setEventData(eventID); //NO EVENT ID?!?
-                            favouritesList.appendChild(newCard);
-                        } else {
-                            console.log("lots of query data")
-                        }
-
-                    })
-
                 });
+                displayFavourites(favourited_events)
             })
             }
         })
@@ -137,6 +142,12 @@ function setup(){
     $('body').on('click', '.read-more', get_details)
     $('body').on('click', '.favourite_page_button', grab_current_page)
     $('body').on('click', '.favourited', remove_favourite)
+
+    $('body').on('click', '#favourite_first', favourite_first_page)
+    $('body').on('click', '#favourite_prev', favourite_prev_page)
+    $('body').on('click', '#favourite_next', favourite_next_page)
+    $('body').on('click', '#favourite_last', favourite_last_page)
+
 }
 
 
