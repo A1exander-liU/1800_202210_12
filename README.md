@@ -42,19 +42,41 @@ Content of the project folder:
 It has the following subfolders and files:
 ├── .git                     # Folder for git repo
 ├── images                   # Folder for images
-    /blah.jpg                #
+    /barcode.png
+    /confirmation.png
+    /id-card.jpg
+    /ID.jpg
+    /logo.png
+    /logo.svg
+    /olympic_logo.jpg
+    /olympics01.jpg
+    /olympics02.jpg
+    /olympics03.jpg
+    /passport.jpg
+    /QRcode.png
+    /tickets.jpg
+├── partials                # Folder for loading html elements
+    /carousel.html
+    /floatbutton.html
+    /footer.html
+    /menubar.html
+    /prompt.html     
 ├── scripts                  # Folder for scripts
     /authentication.js
     /events.js
     /favourites.js
-    /
-    /
-    /
-    /
-    /
-    /                 #
+    /firebaseAPI_TEAM12.js
+    /global.js
+    /index.js
+    /maps.js
+    /moreInfo.js
+    /profile.js
+    /scan.js
+    /script.js
+    /wallet.js                 
 ├── styles                   # Folder for styles
-    /blah.css                #
+    /profile.css
+    /styles.css                
 
 Firebase hosting files:
 ├── .firebaserc...

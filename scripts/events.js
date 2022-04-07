@@ -24,25 +24,23 @@ async function readJSON() {
 }
 
 
-let select = 'name' // defining a default value for select, can change this to something that makes more sense
-let current_page = 1
-let page_size = 4
-let order
+let select = 'name' // defining a default value to orderby
+let current_page = 1 // current page starts at one
+let page_size = 4 // amount of cards to display one each page
+let order // ascending or desc
 
-function get_sort_option(){ // select variable will be updated when user selects a different filter/sort option
+function get_sort_option() { // select variable will be updated when user selects a different filter/sort option
     select = $("#dropdown option:selected").val() // gets the value of the selected choice in dropdown menu
     order = $('#dropdown option:selected').attr('id')
-    console.log(order)
     displayCards('events') // call function becuase you want the new sorted order of events to be immediately displayed
-    console.log(select) // checking if user selected choice matches with the code
-
 }
 
-function display_page_buttons(total_pages){
+// dyanmicallly creates pagination buttons depending on how many events and amount displayed page per page
+function display_page_buttons(total_pages) {
     console.log("called")
     var pagination = 1
     $('#page_buttons button').remove() // clear the buttons to make sure they do not keep stacking if you call this more than once
-    for (pagination; pagination<total_pages + 1; pagination++){
+    for (pagination; pagination<total_pages + 1; pagination++) {
         page_button = "<button type='button' class='btn navy text-white page_button' value='" + pagination + "'>" + pagination + "</button>"
         old = $('#page_buttons').html()
         $('#page_buttons').html(old + page_button)
@@ -73,7 +71,7 @@ function displayCardsOnScreen(start_index, stop_index, events_array) {
     }
 }
 
-// read events collection and display onto events.html
+// read events collection and call function to display onto events.html
 function displayCards() {
     let events_array = []
     db.collection("events").orderBy(select, order).limit(6).get().then(snap => {                                                      //sorting by options from drop down
@@ -150,11 +148,14 @@ function favourite_this_card(eventID){
     console.log("successful call" + eventID)
 }
 
+// rediredct to moreInfo.html when moreinfo is clicked
 function get_details(){
     var name = $(this).parent().find('h3').text() // traversing to the h3 that holds the name of event tht will be used to construct the URL
     var testweb = "moreInfo.html?eventName=" + name //create link with variable name
     window.location.href= testweb // bringing user to new URL
 }
+
+// getting the name of the event that will serve as the eventID used to build the url
 function get_eventID(){
     eventID = $(this).next().next().text() // grabbing name of event which will be used get rest of card info
     console.log(eventID)
