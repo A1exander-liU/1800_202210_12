@@ -95,10 +95,8 @@ function displayHistoryCards(collection) {
           console.log(date.toLocaleString());
           console.log(location)
           let newcard = historyTemplate.content.cloneNode(true);
-  
           newcard.querySelector('strong').innerHTML = i + " :"
           newcard.querySelector('.time-stamp').innerHTML = date + ", " + location;
-  
           document.getElementById("historyList").appendChild(newcard);
           i++;
         })
@@ -107,12 +105,17 @@ function displayHistoryCards(collection) {
   })
 }
 
+function show_confirmation() {
+  
+}
+
 if($("body").is("#historyPage")){
   displayHistoryCards("history");
 }
 
 function setup(){
-  $('.pocket').click(get_user_location)
+  $('.scan').click(get_user_location)
+  $('.scan').click(show_confirmation)
 }
 
 $(document).ready(setup)

@@ -6,3 +6,26 @@ function loadSkeleton(){
 }
 
 loadSkeleton();
+
+
+(function() {
+    window.onresize = displayWindowSize;
+    window.onload = displayWindowSize;
+  
+    function displayWindowSize() {
+      let myWidth = window.innerWidth;
+      let myHeight = window.innerHeight;
+      console.log(myWidth, myHeight)
+      $('.confirmation').css({'top': myHeight / 2.9, 'right': myWidth / 2.5})
+    };
+  
+  
+  })();
+
+function setup() {
+    $('body').on('click', '.trigger', function(){
+        $('.toast').toast('show');
+    })
+}
+
+$(document).ready(setup)
