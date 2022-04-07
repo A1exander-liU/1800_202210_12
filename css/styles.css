@@ -1,21 +1,22 @@
+/* defining color scheme */
+/* colours for css files*/
 :root {
 	--black: #121212;
 	--navy: #30475E;
 	--white: #F5F5F5;
 	--red: #F05454;
 }
+
+/* colours for html class */
 .white {
 	background-color: var(--white);
 }
-
 .black {
 	background-color: var(--black);
 }
-
 .navy {
 	background-color: var(--navy);
 }
-
 .red {
 	background-color: var(--red);
 }
@@ -102,16 +103,16 @@ input[type=submit] {
     height: 10vh;
     margin: 0 auto;
 }
+
 /* Sign in button */
 .mdl-button--raised.mdl-button--colored {
   background-color: var(--navy);
 }
-
 .mdl-button--raised.mdl-button--colored:hover {
   background-color: #223344;
 }
 
-/* Tosat */
+/* toast */
 .toast-container {
   z-index: 7000;
 }
