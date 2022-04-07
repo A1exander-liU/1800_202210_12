@@ -1,4 +1,4 @@
-<h1 aligh="center">pocketBook</h1>
+<div align="center"><h1>pocketBook</h1></div>
 
 ## Table of Contents
 
