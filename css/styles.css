@@ -129,20 +129,19 @@ input[type=submit] {
 	}
 }
 
+/* media query for toast */
 @media screen and (min-width:800px) {
   .toast-container {
     width: 250px;
     height: 250px;
   }
 }
-
 @media screen and (max-width:700px) {
   .toast-container {
     width: 200px;
     height: 200px;
   }
 }
-
 @media screen and (max-width: 400px) {
   .toast-container {
     width: 150px;

@@ -1,14 +1,21 @@
-## My Web Application (Add your Title here)
+## pocketBook
+
+## Table of Contents 
 
 * [General info](#general-info)
+* [Creators](#creators)
 * [Technologies](#technologies)
 * [Contents](#content)
 
 ## General Info
-This browser based web application to ...
-* Hi, my name is Toco. I'm excited about this project.
-* Hi my name is Alexander. I'm excited to do the git conflict.
-* Hi my name is Alexie. I'm exited about this project because I like my team
+'pocketBook' is the browser based web application to solve the inconvenience of physical IDs.  
+This event platform application serves as your ID/ vaccine passport.
+
+## Creators
+*Toco Tachibana* (https://github.com/toco-t)  
+*Alexie Narciso* (https://github.com/Nalexie)  
+*Alexander Liu* (https://github.com/A1exander-liU)
+
 
 ## Technologies
 Technologies used for this project:
@@ -16,8 +23,8 @@ Technologies used for this project:
 * JavaScript, jQuery, AJAX
 * Bootstrap
 * Firebase, Firestore
-* MapQuest 
-* MapBox 
+* MapQuest
+* MapBox
 * FontAwesome
 * Data for populating our event cards: https://sports.api.decathlon.com/sports
 
@@ -30,17 +37,18 @@ Content of the project folder:
 ├── index.html
 ├── main.html                # landing HTML file, this is what users see when you come to url
 ├── login.html               # HTML page for users to sign up or sign in   
-├── events.html              # HTML page for displaying the events 
-├── favourites.html          # HTML page for displaying user's favourited events 
+├── events.html              # HTML page for displaying the events
+├── favourites.html          # HTML page for displaying user's favourited events
 ├── maps.html                # HTML page to display map with user's most recent scans on it
 ├── moreInfo.html            # HTML page to display full info of the event  
-├── pastscans.html           # HTML page to display your most your most recent scans as cards 
-├── profile.html             # HTML page to display and update user info 
+├── pastscans.html           # HTML page to display your most your most recent scans as cards
+├── profile.html             # HTML page to display and update user info
 ├── wallet.html              # HTML page to display vaccine passport, ID, tickets
 └── README.md
 
 It has the following subfolders and files:
 ├── .git                     # Folder for git repo
+├── .vscode                  # Folder for vscode settings
 ├── images                   # Folder for images
     /barcode.png
     /confirmation.png
@@ -54,13 +62,7 @@ It has the following subfolders and files:
     /olympics03.jpg
     /passport.jpg
     /QRcode.png
-    /tickets.jpg
-├── partials                # Folder for loading html elements
-    /carousel.html
-    /floatbutton.html
-    /footer.html
-    /menubar.html
-    /prompt.html     
+    /tickets.jpg          
 ├── scripts                  # Folder for scripts
     /authentication.js
     /events.js
@@ -73,17 +75,20 @@ It has the following subfolders and files:
     /profile.js
     /scan.js
     /script.js
-    /wallet.js                 
-├── styles                   # Folder for styles
-    /profile.css
-    /styles.css                
-
+    /signout.js
+    /wallet.js
+├── partials                 # Folder for skeltons
+    /carousel.html
+    /floatbutton.html
+    /footer.html
+    /header.html
+    /menubar.html
+    /prompt.html
+├── css                      # Folder for styles
+    /styles.css              # CSS file for general styling
+    /profile.css             # CSS file specifically for profile.html
 Firebase hosting files:
 ├── .firebaserc...
 
 
 ```
-
-Tips for file naming files and folders:
-* use lowercase with no spaces
-* use dashes (not underscore) for word separation
