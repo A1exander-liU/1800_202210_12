@@ -11,8 +11,8 @@ This event platform application serves as your ID/ vaccine passport.
 
 ## Creators
 *Toco Tachibana* (https://github.com/toco-t)  
-*Alexie Narciso* ()  
-*Alexander Liu* ()
+*Alexie Narciso* (https://github.com/Nalexie)  
+*Alexander Liu* (https://github.com/A1exander-liU)
 
 
 ## Technologies
