@@ -1,5 +1,6 @@
-var currentUser // copy the demo to see if it works, don't work right now, have no idea why, no errors
+var currentUser
 
+// populate the user profile page dynamically 
 function populateInfo() {
     firebase.auth().onAuthStateChanged(user => {
         // Check if user is signed in:
@@ -32,7 +33,7 @@ function populateInfo() {
                         document.getElementById("phoneInput").value = userPhone;
                     }
                 })
-        } 
+        }
         else {
             $("#save_info").click(function(){ // if they click save but they arent signed in, call this callback function
                 $("#prompt_user").modal('show'); // display modal to user telling them to sign in/up
@@ -42,15 +43,10 @@ function populateInfo() {
     });
 }
 
-//call the function to run it 
+//call the function to run it
 populateInfo();
 
-function editUserInfo() {
-    //Enable the form fields
-    document.getElementById('personalInfoFields').disabled = false;
- }
-editUserInfo(); // form always enabled, we dont use edit button
-
+// update users' informatinon in users collection in db
 function saveUserInfo() {
     userName = document.getElementById('nameInput').value;
     userPhone = document.getElementById('phoneInput').value;
@@ -66,4 +62,3 @@ function saveUserInfo() {
     //Enable the form fields
     document.getElementById('personalInfoFields').disabled = true;
 }
-
