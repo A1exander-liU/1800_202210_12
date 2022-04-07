@@ -7,7 +7,7 @@
 // });
 
 
-let size_of_page = 4; // how many will appear on each page
+let size_of_page = 6; // how many will appear on each page
 let this_page = 1; // current page number, starts at 1
 let select = 'name';
 let order;
@@ -62,7 +62,7 @@ function remove_favourite() {
             current_user.update({
                 favourites: firebase.firestore.FieldValue.arrayRemove(event_name)
             });
-            $(this).parent().parent().parent().remove()
+            // $(this).parent().parent().parent().remove()
             getFavourites()
             console.log("removed succesfully from favourites")
  
@@ -100,7 +100,7 @@ function displayFavourites(favourited_events) {
 function getFavourites() { // need to split this boi up, it is way too big lol
     let favourited_events = []
     // $('#eventsList *').remove() // not rermoving elements change selector to something else
-    $('#favouritesList *').remove() // not removing elements change selector to something else
+    $('#favouritesList div').remove() // not removing elements change selector to something else
     firebase.auth().onAuthStateChanged(user => {
         if (user) {
             db.collection("users").doc(user.uid).get()

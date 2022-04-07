@@ -76,7 +76,7 @@ function displayCardsOnScreen(start_index, stop_index, events_array) {
 // read events collection and display onto events.html
 function displayCards() {
     let events_array = []
-    db.collection("events").orderBy(select, order).limit(12).get().then(snap => {                                                      //sorting by options from drop down
+    db.collection("events").orderBy(select, order).limit(6).get().then(snap => {                                                      //sorting by options from drop down
             var i = 1;
             $('#eventsList div').remove()
             snap.forEach(doc => { //iterate thru each doc
