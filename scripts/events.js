@@ -26,7 +26,7 @@ async function readJSON() {
 
 let select = 'name' // defining a default value for select, can change this to something that makes more sense
 let current_page = 1
-let page_size = 6
+let page_size = 4
 let order
 
 function get_sort_option(){ // select variable will be updated when user selects a different filter/sort option
@@ -58,13 +58,13 @@ function displayCardsOnScreen(start_index, stop_index, events_array) {
         let details = events_array[start_index].details; // get event info
         newcard.querySelector('.event-title').innerHTML = title; // set titile of card
         newcard.querySelector('.card-text').innerHTML = details; // set info of card
-        let favourite_button = newcard.querySelector('.not-favourited').classList;
+        let favourite_button = newcard.querySelector('.not-favourited').classList; // getting an array of the selected of not-favourited
         firebase.auth().onAuthStateChanged(user => {
             if (user) {
                 db.collection("users").doc(user.uid).get().then(userDoc => {
-                    favourites = userDoc.data().favourites;
-                    if (favourites.includes(title)) {
-                        favourite_button.add('fa-solid');
+                    favourites = userDoc.data().favourites; 
+                    if (favourites.includes(title)) { // checking if the event is one of the user's favourite
+                        favourite_button.add('fa-solid'); // add a class to the array that will make the heart solid before card is displayed
                     }
                 })
             }
@@ -78,16 +78,16 @@ function displayCards() {
     let events_array = []
     db.collection("events").orderBy(select, order).limit(6).get().then(snap => {                                                      //sorting by options from drop down
             var i = 1;
-            $('#eventsList div').remove()
+            $('#eventsList div').remove() // making sure the previous page of cards are removed so they do not stack
             snap.forEach(doc => { //iterate thru each doc
                 events_array.push(doc.data()); // adding each event to an array
                 i++;
             })
             total_events = events_array.length;
             total_pages = Math.ceil(total_events / page_size);
-            display_page_buttons(total_pages);
-            start_index = page_size * (current_page - 1);
-            stop_index = page_size * (current_page - 1) + page_size;
+            display_page_buttons(total_pages); 
+            start_index = page_size * (current_page - 1); // to decide which index of the array of events to start from 
+            stop_index = page_size * (current_page - 1) + page_size; // to decide which index of the array of events to end at
             displayCardsOnScreen(start_index, stop_index, events_array)
         })
 }
@@ -99,13 +99,13 @@ function get_current_page(){
 }
 
 function first_page_button() {
-    current_page = 1;
-    displayCards()
+    current_page = 1; // change curreent page to first page
+    displayCards() // call function to display right new page right away
 }
 
 function prev_page_button() {
     current_page -= 1;
-    if (current_page < 1) {
+    if (current_page < 1) { // to  make sure you do not go beloew the first page
         current_page = 1
     }
     displayCards()
@@ -113,14 +113,14 @@ function prev_page_button() {
 
 function next_page_button() {
     current_page += 1;
-    if (current_page > total_pages) {
+    if (current_page > total_pages) { // to make sure you do not go above the last page
         current_page = total_pages
     }
     displayCards()
 }
 
 function last_page_button() {
-    current_page = total_pages;
+    current_page = total_pages; // set to last page
     displayCards()
 }
 
@@ -156,7 +156,7 @@ function get_details(){
     window.location.href= testweb // bringing user to new URL
 }
 function get_eventID(){
-    eventID = $(this).next().next().text()
+    eventID = $(this).next().next().text() // grabbing name of event which will be used get rest of card info
     console.log(eventID)
     $(this).attr('class', 'fa-solid fa-heart not-favourited')
     saveFavourites(eventID)
@@ -166,7 +166,6 @@ function setup(){
     displayCards();
     $('#dropdown').change(get_sort_option) // determines if there was a change in the dropdown, i.e, there was a selection
     $('body').on('click', '.page_button', get_current_page)
-    // $('body').on('click', 'button', get_first_prev_next_last_button)
     $('body').on('click', '#first', first_page_button)
     $('body').on('click', '#prev', prev_page_button)
     $('body').on('click', '#next', next_page_button)

@@ -7,7 +7,7 @@
 // });
 
 
-let size_of_page = 6; // how many will appear on each page
+let size_of_page = 4; // how many will appear on each page
 let this_page = 1; // current page number, starts at 1
 let select = 'name';
 let order;
@@ -71,7 +71,8 @@ function remove_favourite() {
 }
 
 
-function displayFavourites(favourited_events) {
+function displayFavourites(favourited_events) { // displays the favourited events
+    $('#favouritesList div').remove()
     let CardTemplate = document.getElementById("eventTemplate");
     total_events = favourited_events.length;
     console.log('array size', total_events)
@@ -96,10 +97,10 @@ function displayFavourites(favourited_events) {
     }
 }
 
-function getFavourites() { // need to split this boi up, it is way too big lol
+function getFavourites() { // get the favourites array from the user
     let favourited_events = []
     // $('#eventsList *').remove() // not rermoving elements change selector to something else
-    $('#favouritesList div').remove() // not removing elements change selector to something else
+     // not removing elements change selector to something else
     firebase.auth().onAuthStateChanged(user => {
         if (user) {
             db.collection("users").doc(user.uid).get()
@@ -107,16 +108,16 @@ function getFavourites() { // need to split this boi up, it is way too big lol
                 var favourites = userDoc.data().favourites;
                 // let CardTemplate = document.getElementById("eventTemplate");
                 favourites.forEach(thisEventTitle => {
-                    favourited_events.push(thisEventTitle)
+                    favourited_events.push(thisEventTitle) // puttting each item in a new array
                 });
-                displayFavourites(favourited_events)
+                displayFavourites(favourites)
             })
             }
         })
 }
 
 function show_favourites(favourites, start, stop) {
-    for (start; start<stop; start++) {
+    for (start; start<stop; start++) { // to display the current page of cards, chages depending on current page
         db.collection("events").where("name", "==", favourites[start]).get().then(snap => {
             favourited_data = snap.docs;
             var doc = favourited_data[0].data;
@@ -141,7 +142,6 @@ function setup(){
     $('body').on('click', '.read-more', get_details)
     $('body').on('click', '.favourite_page_button', grab_current_page)
     $('body').on('click', '.favourited', remove_favourite)
-
     $('body').on('click', '#favourite_first', favourite_first_page)
     $('body').on('click', '#favourite_prev', favourite_prev_page)
     $('body').on('click', '#favourite_next', favourite_next_page)

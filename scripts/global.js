@@ -19,7 +19,7 @@ loadSkeleton();
       let myWidth = window.innerWidth;
       let myHeight = window.innerHeight;
       console.log(myWidth, myHeight)
-      $('.confirmation').css({'top': myHeight / 2.9, 'right': myWidth / 2.5})
+      $('.confirmation').css({'top': myHeight / 2.9, 'right': myWidth / 2.7})
     };
 
 

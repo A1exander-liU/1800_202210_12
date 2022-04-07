@@ -52,6 +52,7 @@ function editUserInfo() {
 editUserInfo(); // form always enabled, we dont use edit button
 
 function saveUserInfo() {
+    // grabbing the value from the input
     userName = document.getElementById('nameInput').value;
     userPhone = document.getElementById('phoneInput').value;
     userAddress = document.getElementById('addressInput').value;
@@ -61,6 +62,7 @@ function saveUserInfo() {
             address: userAddress
         }).then(() => {
             console.log("Document successfully updated!");
+            // disable then renable to show that a change has been made
             document.getElementById('personalInfoFields').disabled = false;
         })
     //Enable the form fields
