@@ -1,3 +1,4 @@
+// load skeltons using JS
 function loadSkeleton(){
     console.log($('#headerPlaceholder').load('../partials/header.html'));
     console.log($('#menubarPlaceholder').load('../partials/menubar.html'));

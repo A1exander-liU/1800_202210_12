@@ -4,6 +4,7 @@
 // will be able to get autocompleted suggestions on events
 var events = [];
 
+// add the names to events array
 db.collection("events").get().then((querySnapshot) => { // reads event collection
   querySnapshot.forEach((doc) => { // loops thru each doc
       // doc.data() is never undefined for query doc snapshots
@@ -12,7 +13,7 @@ db.collection("events").get().then((querySnapshot) => { // reads event collectio
   });
 });
 
-
+// autocomplete user input in search bar
 function autocomplete(inp, arr) { // 80 line function
   /*the autocomplete function takes two arguments,
   the text field element and an array of possible autocompleted values:*/
@@ -101,9 +102,7 @@ function autocomplete(inp, arr) { // 80 line function
     for (var i = 0; i < x.length; i++) {
       if (elmnt != x[i] && elmnt != inp) {
         x[i].parentNode.removeChild(x[i]);
-
       }
-
     }
   }
   /*execute a function when someone clicks in the document:*/

@@ -15,8 +15,6 @@ function show_current_position(position) {
   get_user_address()
   console.log(userlat, userlong)
   // reverse geocode the coordinates to get the address
-
-
 }
 
 function go_to_map() {
@@ -34,7 +32,7 @@ function add_scan_to_db() { // add the scan to the db
     console.log(userName);
     })
     currentUser.collection("history").add({ // craeting a history subcollection in the current user doc
-      timeStamp: timeStamp, 
+      timeStamp: timeStamp,
       coordinates: [userlong, userlat],
       address: useraddress,
     })
@@ -53,10 +51,10 @@ function format_address(address){ // storing the recieved object in this variabl
   add_scan_to_db()
 }
 
-function get_user_address() { // just to for api calling to reverse geocode/get address from coordinates
+function get_user_address() { // just for api calling to reverse geocode/get address from coordinates
   console.log("ajax called")
   $.ajax(
-    { 
+    {
         "url": `http://www.mapquestapi.com/geocoding/v1/reverse?key=lvENxHiUsPQEZcKhtDyWCNSFPtb18Cl6&location=${userlat},${userlong}`,
         "type": "GET",
         "success": format_address
@@ -66,18 +64,16 @@ function get_user_address() { // just to for api calling to reverse geocode/get 
 // display name (can change where we want to display their name)
 firebase.auth().onAuthStateChanged(user => {
   // Check if user is signed in:
-  if (user) {                                                                
+  if (user) {
       currentUser = db.collection("users").doc(user.uid);
       //get the document for current user.
       currentUser.get()
       .then(userDoc => {
          var username = userDoc.data().name; // getting user name
          console.log(username); // checkin if it is right
-         $("#username").text(username);            
+         $("#username").text(username);
       })
-  } else {
-      // No user is signed in.
-  }
+  } 
 });
 
 // Populate history cards
@@ -106,7 +102,7 @@ function displayHistoryCards(collection) {
 }
 
 function show_confirmation() {
-  
+
 }
 
 if($("body").is("#historyPage")){

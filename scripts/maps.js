@@ -1,7 +1,6 @@
 // MAPBOX DISPLAY
 function display_past_scans() {
 
-
     // MAPBOX DISPLAY
     mapboxgl.accessToken = 'pk.eyJ1IjoiYWRhbWNoZW4zIiwiYSI6ImNsMGZyNWRtZzB2angzanBjcHVkNTQ2YncifQ.fTdfEXaQ70WoIFLZ2QaRmQ';
     const map = new mapboxgl.Map({
