@@ -1,4 +1,8 @@
-<div align="center"><h1>pocketBook</h1></div>
+<div align="center">
+  <h1>pocketBook</h1>
+  <img src="logo.png"></img>
+</div>
+
 
 ## Table of Contents
 
