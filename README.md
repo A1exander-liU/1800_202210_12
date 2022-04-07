@@ -1,6 +1,6 @@
 ## pocketBook
 
-## Table of Contents 
+## Table of Contents
 
 * [General info](#general-info)
 * [Creators](#creators)
@@ -10,6 +10,7 @@
 ## General Info
 'pocketBook' is the browser based web application to solve the inconvenience of physical IDs.  
 This event platform application serves as your ID/ vaccine passport.  
+
 [pocketBook](https://comp1800pocketbook.netlify.app/)
 
 ## Creators
@@ -40,7 +41,7 @@ Content of the project folder:
 ├── events.html              # HTML page for displaying the events
 ├── favourites.html          # HTML page for displaying user's favourited events
 ├── maps.html                # HTML page to display map with user's most recent scans on it
-├── moreInfo.html            # HTML page to display full info of the event  
+├── more-info.html            # HTML page to display full info of the event  
 ├── pastscans.html           # HTML page to display your most your most recent scans as cards
 ├── profile.html             # HTML page to display and update user info
 ├── wallet.html              # HTML page to display vaccine passport, ID, tickets
@@ -71,7 +72,7 @@ It has the following subfolders and files:
     /global.js
     /index.js
     /maps.js
-    /moreInfo.js
+    /more-info.js
     /profile.js
     /scan.js
     /script.js
