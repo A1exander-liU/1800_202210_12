@@ -28,7 +28,7 @@ Technologies used for this project:
 * [MapQuest](https://developer.mapquest.com/documentation/geocoding-api/reverse/get/)
 * [MapBox](https://docs.mapbox.com/mapbox-gl-js/api/)
 * [FontAwesome](https://fontawesome.com/icons)
-* [Data for populating our event cards](https://sports.api.decathlon.com/sportsg)
+* [Data for populating our event cards](https://sports.api.decathlon.com/sports)
 
 ## Content
 Content of the project folder:
