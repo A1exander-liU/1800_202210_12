@@ -83,16 +83,16 @@ function displayCardsOnScreen(start_index, stop_index, events_array) {
         newcard.querySelector('.event-title').innerHTML = title; // set titile of card
         newcard.querySelector('.card-text').innerHTML = details; // set info of card
         let favourite_button = newcard.querySelector('.not-favourited').classList;
-        console.log(favourite_button)
-        const user = firebase.auth().currentUser;
-        if (user) {
-            db.collection("users").doc(user.uid).get().then(userDoc => {
-                favourites = userDoc.data().favourites;
-                if (favourites.includes(title)) {
-                    favourite_button.add('fa-solid');
-                }
-            })
-        }
+        firebase.auth().onAuthStateChanged(user => {
+            if (user) {
+                db.collection("users").doc(user.uid).get().then(userDoc => {
+                    favourites = userDoc.data().favourites;
+                    if (favourites.includes(title)) {
+                        favourite_button.add('fa-solid');
+                    }
+                })
+            }
+        })
         document.getElementById("eventsList").appendChild(newcard);
     }
 }
