@@ -24,10 +24,10 @@ Technologies used for this project:
 * JavaScript, jQuery, AJAX
 * Bootstrap
 * Firebase, Firestore
-* MapQuest
-* MapBox
-* FontAwesome
-* Data for populating our event cards: https://sports.api.decathlon.com/sports
+* MapQuest (for reverse geocoding) https://developer.mapquest.com/documentation/geocoding-api/reverse/get/
+* MapBox https://docs.mapbox.com/mapbox-gl-js/api/
+* FontAwesome https://fontawesome.com/icons
+* Data for populating our event cards https://sports.api.decathlon.com/sports
 
 ## Content
 Content of the project folder:
