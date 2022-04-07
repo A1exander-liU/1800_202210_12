@@ -29,7 +29,6 @@
   <!-- css -->
   <link rel="stylesheet" href="./css/styles.css">
   <link rel="stylesheet" href="./css/profile.css">
-
 </head>
 
 <body class="white">
@@ -71,48 +70,12 @@
     </fieldset>
   </main>
 
+  <!-- Modal to prompt user to login/sign up -->
+  <div id="promptPlaceholder"></div>
+
   <!-- floating button -->
   <div id="buttonPlaceholder"></div>
 
-  <!-- Modal to prompt user to login/sign up -->
-  <!-- Modal -->
-  <div class="modal fade" id="prompt_user" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-    aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="staticBackdropLabel">Unable to perform this action</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          You cannot save your information if you have not signed in.
-        </div>
-        <div class="modal-footer">
-          <a href="login.html"><button type="button" class="btn navy" id="prompt">SignUp/Login</button></a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Modal to prompt user to login/sign up -->
-  <div class="modal fade profile_prompt" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-    aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="staticBackdropLabel">Unable to perform this action</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body restricted">
-          You cannot save your information if you have not signed in.
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <a href="login.html"><button type="button" class="btn navy text-white" id="prompt">SignUp/Login</button></a>
-        </div>
-      </div>
-    </div>
-  </div>
 
   <!-- footer -->
   <nav id="footerPlaceholder" class="black"></nav>
