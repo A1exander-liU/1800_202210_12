@@ -24,7 +24,7 @@ firebase.auth().onAuthStateChanged(user => {
     if (user) { // if they are
         console.log("User signed in.")
         $('#login').attr('href', '../main.html') // change the linked html page to index.html
-        $('#login').text('Sign Out') // change the button text to signout 
+        $('#login').text('Sign Out') // change the button text to signout
     }
     else { // if they are not
         console.log("User not signed in.")
@@ -41,13 +41,14 @@ firebase.auth().onAuthStateChanged(user => {
     }
 })
 
+// let users to sign out
 function signout(){
-    firebase.auth().signOut().then(() => { // signing out the user
+    firebase.auth().signOut().then(() => {
         console.log("Successful signout")
       }).catch((error) => {
         console.log(error)
       });
-      
+
 }
 
 function setup(){

@@ -73,7 +73,7 @@ firebase.auth().onAuthStateChanged(user => {
          console.log(username); // checkin if it is right
          $("#username").text(username);
       })
-  } 
+  }
 });
 
 // Populate history cards
@@ -105,6 +105,7 @@ function show_confirmation() {
 
 }
 
+// checks if it's the right page before calling the function
 if($("body").is("#historyPage")){
   displayHistoryCards("history");
 }
