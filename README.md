@@ -38,7 +38,6 @@ Content of the project folder:
  Top level of project folder:
 ├── .gitignore               # Git ignore file
 ├── index.html
-├── main.html                # landing HTML file, this is what users see when you come to url
 ├── login.html               # HTML page for users to sign up or sign in   
 ├── events.html              # HTML page for displaying the events
 ├── favourites.html          # HTML page for displaying user's favourited events
