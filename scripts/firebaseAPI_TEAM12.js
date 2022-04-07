@@ -3,6 +3,7 @@
 //----------------------------------------
 // const firebaseConfig = {
 
+      // main account
 //     apiKey: "AIzaSyCb__58824LVtXt1PaBcnGa8HhUxYHWuH4",
 //     authDomain: "comp1800-dtc12-project.firebaseapp.com",
 //     projectId: "comp1800-dtc12-project",
@@ -13,6 +14,7 @@
 
 //   };
 
+  // sub account
   const firebaseConfig = {
     apiKey: "AIzaSyDfG_EnZlYF8Z9fUWNWIpIJy4p1WBIx2H4",
     authDomain: "dtc-12.firebaseapp.com",

@@ -1,5 +1,6 @@
 var ui = new firebaseui.auth.AuthUI(firebase.auth());
 
+// firebase authentication
 var uiConfig = {
     callbacks: {
       signInSuccessWithAuthResult: function(authResult, redirectUrl) {

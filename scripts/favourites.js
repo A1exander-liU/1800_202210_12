@@ -12,11 +12,11 @@ let this_page = 1; // current page number, starts at 1
 let select = 'name';
 let order;
 
+// pagination
 function favourite_first_page() {
     this_page = 1;
     getFavourites()
 }
-
 function favourite_prev_page() {
     this_page -= 1;
     if (this_page < 1) {
@@ -24,7 +24,6 @@ function favourite_prev_page() {
     }
     getFavourites()
 }
-
 function favourite_next_page() {
     this_page += 1;
     if (this_page > total_pages) {
@@ -32,18 +31,17 @@ function favourite_next_page() {
     }
     getFavourites()
 }
-
 function favourite_last_page() {
     this_page = total_pages;
     getFavourites()
 }
-
 function grab_current_page() {
     this_page = $(this).val();
     getFavourites()
     // call the function to dislpay the liked events
 }
 
+// display page buttons
 function display_favourites_page_buttons(page_amount) {
     pagination = 1;
     $('#favourite_page_buttons button').remove()
@@ -54,6 +52,7 @@ function display_favourites_page_buttons(page_amount) {
     }
 }
 
+// remove favourite events from db
 function remove_favourite() {
     firebase.auth().onAuthStateChanged(user => {
         if (user){
@@ -65,7 +64,7 @@ function remove_favourite() {
             // $(this).parent().parent().parent().remove()
             getFavourites()
             console.log("removed succesfully from favourites")
- 
+
             }
         }
     );
