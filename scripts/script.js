@@ -1,23 +1,3 @@
-function sayHello() {
-    firebase.auth().onAuthStateChanged(function (user) {
-        if (user) {
-            // User is signed in.
-            // Do something for the user here. 
-            console.log(user.uid);
-            db.collection("users").doc(user.uid)
-                .get()
-                .then(function (doc) {
-                    var n = doc.data().name;
-                    console.log(n);
-                    //$("#user-name").text(n);
-                    document.getElementById("username").innerText = n;
-                })
-        } else {
-            // No user is signed in.
-        }
-    });
-}
-//sayHello();
 
 function writeWebcamData() {
     //this is an array of JSON objects copied from open source data
@@ -132,7 +112,7 @@ function writeWebcamData() {
     webcams.forEach(function (cam) { //cycle thru json objects in array
         console.log(cam); //just to check it out
         db.collection("webcams").add(cam) //add this new document
-            .then(function (doc) { //success 
+            .then(function (doc) { //success
                 console.log("wrote to webcams collection " + doc.id);
             })
     })
