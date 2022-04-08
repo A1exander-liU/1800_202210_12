@@ -36,7 +36,7 @@ Content of the project folder:
 ```
  Top level of project folder:
 ├── .gitignore               # Git ignore file
-├── index.html
+├── index.html               # HTML page for the langing page
 ├── login.html               # HTML page for users to sign up or sign in   
 ├── events.html              # HTML page for displaying the events
 ├── favourites.html          # HTML page for displaying user's favorite events
@@ -50,7 +50,7 @@ Content of the project folder:
 It has the following subfolders and files:
 ├── .git                     # Folder for git repo
 ├── .vscode                  # Folder for vscode settings
-├── images                   # Folder for images
+├── images                   # Folder for images (images were from the internet untracked sources except logos)
     /barcode.png
     /confirmation.png
     /id-card.jpg
@@ -78,14 +78,14 @@ It has the following subfolders and files:
     /script.js
     /signout.js
     /wallet.js
-├── partials                 # Folder for skeltons
+├── partials                 # Folder for skeltons html files
     /carousel.html
     /floatbutton.html
     /footer.html
     /header.html
     /menubar.html
     /prompt.html
-└── css                      # Folder for styles
+└── css                      # Folder for CSS files for styling
     /styles.css              
     /profile.css             
 ```
