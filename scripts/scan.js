@@ -17,6 +17,7 @@ function show_current_position(position) {
 }
 
 function go_to_map() {
+  $(this)
   window.location = "maps.html"
 }
 
@@ -91,7 +92,7 @@ function displayHistoryCards(collection) {
           console.log(location)
           let newcard = historyTemplate.content.cloneNode(true);
           newcard.querySelector('strong').innerHTML = i + " :"
-          newcard.querySelector('.time-stamp').innerHTML = date + ", " + location;
+          newcard.querySelector('.time-stamp').innerHTML = date + ", " + '<p>' + location + '</p>';
           document.getElementById("historyList").appendChild(newcard);
           i++;
         })
