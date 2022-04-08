@@ -38,32 +38,32 @@ function get_sort_option() { // select variable will be updated when user select
 // dyanmicallly creates pagination buttons depending on how many events and amount displayed page per page
 function display_page_buttons(total_pages) {
     console.log("called")
-    var pagination = 1
+    var pagination = 1 // start the pagination button number at one
     $('#page_buttons button').remove() // clear the buttons to make sure they do not keep stacking if you call this more than once
+    // creating and add the page buttons
     for (pagination; pagination < total_pages + 1; pagination++) {
+        // creating page button 
         page_button = "<button type='button' class='btn navy text-white page_button' value='" + pagination + "'>" + pagination + "</button>"
+        // grabbing the current html elements inside id page_buttons
         old = $('#page_buttons').html()
+        // adding/concatenating the old html old with the created button
         $('#page_buttons').html(old + page_button)
     }
 }
 
+// populates and displays event cards
 function displayCardsOnScreen(start_index, stop_index, events_array) {
     let favourites;
     let cardTemplate = document.getElementById("eventTemplate")
-    for (start_index; start_index < stop_index; start_index++) { // adds the events to the dom
+    for (start_index; start_index < stop_index; start_index++) { // display events cards based on the index
         let newcard = cardTemplate.content.cloneNode(true);
         let title = events_array[start_index].name; // get event title
         let details = events_array[start_index].details; // get event info
-        let image = events_array[start_index].image;
-
+        let image = events_array[start_index].image; // get event image
         //these append the imagelink into a variable that is populated img='' 
-
-       
         // populates details of the event 
-        newcard.querySelector("#photo").src = image;
-
-
-        newcard.querySelector('.event-title').innerHTML = title; // set titile of card
+        newcard.querySelector("#photo").src = image; // changing img src
+        newcard.querySelector('.event-title').innerHTML = title; // set title of card
         newcard.querySelector('.card-text').innerHTML = details; // set info of card
         let favourite_button = newcard.querySelector('.not-favourited').classList; // getting an array of the selected of not-favourited
         firebase.auth().onAuthStateChanged(user => {

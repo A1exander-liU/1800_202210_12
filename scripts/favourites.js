@@ -16,7 +16,7 @@ let order;
 // to go to first page
 function favourite_first_page() {
     this_page = 1;
-    getFavourites()
+    getFavourites() // display right away to see different page  
 }
 //subtracts one to this_page     
 function favourite_prev_page() {
@@ -58,10 +58,10 @@ function display_favourites_page_buttons(page_amount) {
 }
 
 // remove favourite events from db
-function remove_favourite() {
+function remove_favourite() { 
     firebase.auth().onAuthStateChanged(user => {
         if (user){
-            event_name = $(this).next().next().text()
+            event_name = $(this).next().next().text() // gets the name of the favourited event 
             current_user = db.collection("users").doc(user.uid)
             current_user.update({
                 favourites: firebase.firestore.FieldValue.arrayRemove(event_name) // remove from array
@@ -116,7 +116,7 @@ function getFavourites() { // get the favourites array from the user
                 favourites.forEach(thisEventTitle => {
                     // favourited_events.push(thisEventTitle) // puttting each item in a new array
                 });
-                displayFavourites(favourites)
+                displayFavourites(favourites) 
             })
             }
         })
