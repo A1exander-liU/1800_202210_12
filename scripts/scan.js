@@ -54,7 +54,7 @@ function get_user_address(userlat, userlong) { // just for api calling to revers
   console.log("ajax called")
   $.ajax(
     {
-        "url": `http://www.mapquestapi.com/geocoding/v1/reverse?key=lvENxHiUsPQEZcKhtDyWCNSFPtb18Cl6&location=${userlat},${userlong}`,
+        "url": `https://www.mapquestapi.com/geocoding/v1/reverse?key=lvENxHiUsPQEZcKhtDyWCNSFPtb18Cl6&location=${userlat},${userlong}`,
         "type": "GET",
         "success": format_address
     }
