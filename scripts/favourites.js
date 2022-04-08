@@ -13,28 +13,33 @@ let select = 'name';
 let order;
 
 // pagination
+// to go to first page
 function favourite_first_page() {
     this_page = 1;
     getFavourites()
 }
+//subtracts one to this_page     
 function favourite_prev_page() {
     this_page -= 1;
-    if (this_page < 1) {
+    if (this_page < 1) { // to make sure it does not go below page one
         this_page = 1;
     }
     getFavourites()
 }
+// adds one  to this_page
 function favourite_next_page() {
     this_page += 1;
-    if (this_page > total_pages) {
+    if (this_page > total_pages) { // to make sure it does not go above the total amount of pages
         this_page = total_pages;
     }
     getFavourites()
 }
+// to go to next page
 function favourite_last_page() {
     this_page = total_pages;
     getFavourites()
 }
+// gets the current page, by getting value of the pagination button
 function grab_current_page() {
     this_page = $(this).val();
     getFavourites()
@@ -99,7 +104,7 @@ function displayFavourites(favourited_events) {
 }
 
 function getFavourites() { // get the favourites array from the user
-    let favourited_events = []
+    // let favourited_events = []
     // $('#eventsList *').remove() // not rermoving elements change selector to something else
      // not removing elements change selector to something else
     firebase.auth().onAuthStateChanged(user => {
@@ -109,7 +114,7 @@ function getFavourites() { // get the favourites array from the user
                 var favourites = userDoc.data().favourites;
                 // let CardTemplate = document.getElementById("eventTemplate");
                 favourites.forEach(thisEventTitle => {
-                    favourited_events.push(thisEventTitle) // puttting each item in a new array
+                    // favourited_events.push(thisEventTitle) // puttting each item in a new array
                 });
                 displayFavourites(favourites)
             })
@@ -117,8 +122,9 @@ function getFavourites() { // get the favourites array from the user
         })
 }
 
+// displaying the favourited events
 function show_favourites(favourites, start, stop) {
-    for (start; start<stop; start++) { // to display the current page of cards, chages depending on current page
+    for (start; start<stop; start++) { // to display the current page of cards, changes depending on current page
         db.collection("events").where("name", "==", favourites[start]).get().then(snap => {
             favourited_data = snap.docs;
             var doc = favourited_data[0].data;
