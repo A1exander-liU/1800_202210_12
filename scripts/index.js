@@ -1,3 +1,15 @@
+firebase.auth().onAuthStateChanged(user => {
+  if (user) {
+    userdoc = db.collection("users").doc(user.uid).get().then(userdoc => {
+      $("#username").text(userdoc.data().name);
+    })
+  }
+  else {
+    $("#display-user").html('<span>Not signed in? </span><a href="login.html" style="text-decoration: none;">Click Here</a>')
+  }
+})
+
+
 // read the events collection
 // add a for loop to loop thorugh event data in the db, append the title of the event into this list
 // list will be updated to have all the event titles
@@ -110,3 +122,5 @@ function autocomplete(inp, arr) { // 80 line function
     closeAllLists(e.target);
   });
 }
+
+
