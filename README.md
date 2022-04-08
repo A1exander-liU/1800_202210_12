@@ -39,9 +39,9 @@ Content of the project folder:
 ├── index.html
 ├── login.html               # HTML page for users to sign up or sign in   
 ├── events.html              # HTML page for displaying the events
-├── favourites.html          # HTML page for displaying user's favourited events
+├── favourites.html          # HTML page for displaying user's favorite events
 ├── maps.html                # HTML page to display map with user's most recent scans on it
-├── more-info.html            # HTML page to display full info of the event  
+├── more-info.html           # HTML page to display full info of the event  
 ├── pastscans.html           # HTML page to display your most your most recent scans as cards
 ├── profile.html             # HTML page to display and update user info
 ├── wallet.html              # HTML page to display vaccine passport, ID, tickets
@@ -64,7 +64,7 @@ It has the following subfolders and files:
     /passport.jpg
     /QRcode.png
     /tickets.jpg          
-├── scripts                  # Folder for scripts
+├── scripts                  # Folder for JaveScript files
     /authentication.js
     /events.js
     /favourites.js
@@ -86,6 +86,6 @@ It has the following subfolders and files:
     /menubar.html
     /prompt.html
 └── css                      # Folder for styles
-    /styles.css              # CSS file for general styling
-    /profile.css             # CSS file specifically for profile.html
+    /styles.css              
+    /profile.css             
 ```
