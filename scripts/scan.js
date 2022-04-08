@@ -17,6 +17,7 @@ function show_current_position(position) {
 }
 
 function go_to_map() {
+  $(this)
   window.location = "maps.html"
 }
 
@@ -54,7 +55,7 @@ function get_user_address(userlat, userlong) { // just for api calling to revers
   console.log("ajax called")
   $.ajax(
     {
-        "url": `http://www.mapquestapi.com/geocoding/v1/reverse?key=lvENxHiUsPQEZcKhtDyWCNSFPtb18Cl6&location=${userlat},${userlong}`,
+        "url": `https://www.mapquestapi.com/geocoding/v1/reverse?key=lvENxHiUsPQEZcKhtDyWCNSFPtb18Cl6&location=${userlat},${userlong}`,
         "type": "GET",
         "success": format_address
     }
@@ -91,7 +92,7 @@ function displayHistoryCards(collection) {
           console.log(location)
           let newcard = historyTemplate.content.cloneNode(true);
           newcard.querySelector('strong').innerHTML = i + " :"
-          newcard.querySelector('.time-stamp').innerHTML = date + ", " + location;
+          newcard.querySelector('.time-stamp').innerHTML = date + ", " + '<p>' + location + '</p>';
           document.getElementById("historyList").appendChild(newcard);
           i++;
         })

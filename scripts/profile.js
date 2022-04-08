@@ -52,6 +52,7 @@ function saveUserInfo() {
     userName = document.getElementById('nameInput').value;
     userPhone = document.getElementById('phoneInput').value;
     userAddress = document.getElementById('addressInput').value;
+    // update the name, phone, and address with new value from the input field
     currentUser.update({
             name: userName,
             phone: userPhone,
