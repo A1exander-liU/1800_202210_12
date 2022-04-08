@@ -88,9 +88,11 @@ function displayFavourites(favourited_events) {
             var doc = queryData[0].data();
             var event_title = doc.name;
             var event_info = doc.details;
+            var image = doc.image;
             let newcard = CardTemplate.content.cloneNode(true);
             newcard.querySelector('.card-title').innerHTML = event_title;
             newcard.querySelector('.card-text').innerHTML = event_info;
+            newcard.querySelector('.card-img').src = image;
             favouritesList.appendChild(newcard);
         })
     }
