@@ -29,6 +29,7 @@ Technologies used for this project:
 * [MapBox](https://docs.mapbox.com/mapbox-gl-js/api/)
 * [FontAwesome](https://fontawesome.com/icons)
 * [Data for populating our event cards](https://sports.api.decathlon.com/sports)
+* [Image Background Remover](https://www.remove.bg/)
 
 ## Image Sources
 Images used for our project:
