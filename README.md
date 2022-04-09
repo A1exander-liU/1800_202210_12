@@ -30,6 +30,11 @@ Technologies used for this project:
 * [FontAwesome](https://fontawesome.com/icons)
 * [Data for populating our event cards](https://sports.api.decathlon.com/sports)
 
+## Image Sources
+Images used for our project:
+* [Green Checkmark](https://www.kindpng.com/free/green-check-mark/)
+
+
 ## Content
 Content of the project folder:
 
