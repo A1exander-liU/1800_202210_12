@@ -23,17 +23,21 @@ This event platform application serves as your ID/ vaccine passport.
 Technologies used for this project:
 * HTML, CSS
 * JavaScript, jQuery, AJAX
-* Bootstrap
-* Firebase, Firestore
+* [Bootstrap](https://getbootstrap.com/docs/5.0/getting-started/introduction/)
+* [Firebase, Firestore](https://firebase.google.com/)
+* [Figma](https://www.figma.com/ui-design-tool/)
+* [Autocompletion Feature](https://www.w3schools.com/howto/howto_js_autocomplete.asp)
 * [MapQuest](https://developer.mapquest.com/documentation/geocoding-api/reverse/get/)
 * [MapBox](https://docs.mapbox.com/mapbox-gl-js/api/)
 * [FontAwesome](https://fontawesome.com/icons)
 * [Data for populating our event cards](https://sports.api.decathlon.com/sports)
 * [Image Background Remover](https://www.remove.bg/)
 
+
 ## Image Sources
 Images used for our project:
 * [Green Checkmark](https://www.kindpng.com/free/green-check-mark/)
+* Got the rest of our images that weren't the logo from [Unsplash](https://unsplash.com/) and from the internet from untracked sources
 
 
 ## Content
@@ -56,13 +60,13 @@ Content of the project folder:
 It has the following subfolders and files:
 ├── .git                     # Folder for git repo
 ├── .vscode                  # Folder for vscode settings
-├── images                   # Folder for images (images were from the internet untracked sources except logos)
+├── images                   # Folder for images (images were from the internet untracked and Unspash sources except logos)
     /barcode.png
     /confirmation.png
     /id-card.jpg
     /ID.jpg
-    /logo.png
-    /logo.svg
+    /logo.png                # Logo created by Toco with Figma
+    /logo.svg                # Logo created by Toco with Figma
     /olympic_logo.jpg
     /olympics01.jpg
     /olympics02.jpg
