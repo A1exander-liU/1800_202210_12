@@ -5,13 +5,15 @@
 * [General info](#general-info)
 * [Creators](#creators)
 * [Technologies](#technologies)
+* [Image Sources](#image-sources)
 * [Contents](#content)
+
 
 ## General Info
 'pocketBook' is the browser based web application to solve the inconvenience of physical IDs.  
 This event platform application serves as your ID/ vaccine passport.  
 
-[pocketBook](https://comp1800pocketbook.netlify.app/)
+[pocketBook](https://comp1800pocketbook.netlify.app/) hosted with netlify
 
 ## Creators
 *Toco Tachibana* (https://github.com/toco-t)  
@@ -25,6 +27,7 @@ Technologies used for this project:
 * JavaScript, jQuery, AJAX
 * [Bootstrap](https://getbootstrap.com/docs/5.0/getting-started/introduction/)
 * [Firebase, Firestore](https://firebase.google.com/)
+* [Netlify](https://www.netlify.com/)
 * [Figma](https://www.figma.com/ui-design-tool/)
 * [Autocompletion Feature](https://www.w3schools.com/howto/howto_js_autocomplete.asp)
 * [MapQuest](https://developer.mapquest.com/documentation/geocoding-api/reverse/get/)
